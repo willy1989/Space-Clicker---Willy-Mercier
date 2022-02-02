@@ -26,13 +26,45 @@ public class CannonUpgradeData:ScriptableObject
         }
     }
 
+    [SerializeField] private int nextDamageUpGradeCost;
+
+    public int NextDamageUpGradeCost
+    {
+        get
+        {
+            return nextDamageUpGradeCost;
+        }
+    }
+
+    [SerializeField] private float nextfrequencyUpGradeCost;
+
+    public float NextFrequencyUpGradeCost
+    {
+        get
+        {
+            return nextfrequencyUpGradeCost;
+        }
+    }
+
     public void UpGradeDamage()
     {
+        if (CurrencyManager.Instance.HasSufficientBalance(nextDamageUpGradeCost) == false)
+            return;
+
+        CurrencyManager.Instance.SpendCurrency(nextDamageUpGradeCost);
+
         damage *= 2;
+        nextDamageUpGradeCost *= 2;
     }
 
     public void UpGradeFrequency()
     {
+        if (CurrencyManager.Instance.HasSufficientBalance(nextfrequencyUpGradeCost) == false)
+            return;
+
+        CurrencyManager.Instance.SpendCurrency(nextfrequencyUpGradeCost);
+
         shootingFrequency *= 1.2f;
+        nextfrequencyUpGradeCost *= 1.2f;
     }
 }

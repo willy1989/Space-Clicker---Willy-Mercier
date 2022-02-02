@@ -4,17 +4,28 @@ using UnityEngine;
 
 public class CurrencyManager : Singleton<CurrencyManager>
 {
-    public int CurrencyCount
+    public float CurrencyCount
     {
         get
         {
-            return PlayerPrefs.GetInt(Constants.CurrencyCount_PlayerPref, 0);
+            return PlayerPrefs.GetFloat(Constants.CurrencyCount_PlayerPref, 0);
         }
 
         set
         {
-            PlayerPrefs.SetInt(Constants.CurrencyCount_PlayerPref, value);
+            // To do: throw exception when value is below 0.
+            PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, value);
         }
+    }
+
+    public void SpendCurrency(float ammount)
+    {
+        CurrencyCount -= ammount;
+    }
+
+    public bool HasSufficientBalance(float ammount)
+    {
+        return (CurrencyCount - ammount) > 0;
     }
 
 
