@@ -53,12 +53,13 @@
     <UnityVersion>2020.3.22f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\GameLoopManager.cs" />
-    <Compile Include="Assets\Scripts\CannonShooting.cs" />
-    <Compile Include="Assets\Scripts\TargetsTracker.cs" />
-    <Compile Include="Assets\Scripts\Target.cs" />
-    <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
+    <Compile Include="Assets\Scripts\TargetsTracker.cs" />
+    <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
+    <Compile Include="Assets\Scripts\Cannons\CannonShooting.cs" />
+    <Compile Include="Assets\Scripts\Target.cs" />
+    <Compile Include="Assets\Scripts\GameLoopManager.cs" />
+    <Compile Include="Assets\Scripts\Cannons\CannonUpgradeData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
