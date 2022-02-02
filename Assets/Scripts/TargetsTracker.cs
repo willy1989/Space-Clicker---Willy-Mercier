@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetsTracker : MonoBehaviour
+public class TargetsTracker : Singleton<TargetsTracker>
 {
     [SerializeField] private List<Target> targetsInGame;
+
+    private void Awake()
+    {
+        SetInstance();
+    }
 
     public Target GetTargetWithMostHealth()
     {

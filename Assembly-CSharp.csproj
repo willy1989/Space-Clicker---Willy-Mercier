@@ -60,6 +60,8 @@
     <Compile Include="Assets\Scripts\Target.cs" />
     <Compile Include="Assets\Scripts\GameLoopManager.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonUpgradeData.cs" />
+    <Compile Include="Assets\Scripts\CurrencyManager.cs" />
+    <Compile Include="Assets\Scripts\Singleton\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

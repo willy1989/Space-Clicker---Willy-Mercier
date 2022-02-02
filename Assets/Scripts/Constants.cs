@@ -11,4 +11,13 @@ public static class Constants
     public const string Boundary_Tag = "Boundary";
 
     #endregion
+
+
+    #region PlayerPrefs
+
+    public const string CurrencyCount_PlayerPref = "CurrencyCount";
+
+    #endregion
+
+
 }
