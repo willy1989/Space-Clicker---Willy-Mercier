@@ -15,14 +15,9 @@ public class CannonShooting : MonoBehaviour
 
     private bool shootToggle = true;
 
-    private void Awake()
-    {
-        cannonUpgradeData = GetComponent<CannonUpgradeData>();
-    }
-
     private void Start()
     {
-        StartCoroutine(ShootCoroutine());
+        //StartCoroutine(ShootCoroutine());
     }
 
     private IEnumerator ShootCoroutine()

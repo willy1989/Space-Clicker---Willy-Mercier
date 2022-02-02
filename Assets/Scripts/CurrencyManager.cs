@@ -18,19 +18,28 @@ public class CurrencyManager : Singleton<CurrencyManager>
         }
     }
 
+    private void Awake()
+    {
+        SetInstance();
+    }
+
+    private void Start()
+    {
+        AddMoney(ammount: 1000);
+    }
+
     public void SpendCurrency(float ammount)
     {
         CurrencyCount -= ammount;
     }
 
+    public void AddMoney(float ammount)
+    {
+        CurrencyCount += ammount;
+    }
+
     public bool HasSufficientBalance(float ammount)
     {
         return (CurrencyCount - ammount) > 0;
-    }
-
-
-    private void Awake()
-    {
-        SetInstance();
     }
 }

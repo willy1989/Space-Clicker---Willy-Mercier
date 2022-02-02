@@ -26,9 +26,9 @@ public class CannonUpgradeData:ScriptableObject
         }
     }
 
-    [SerializeField] private int nextDamageUpGradeCost;
+    [SerializeField] private float nextDamageUpGradeCost;
 
-    public int NextDamageUpGradeCost
+    public float NextDamageUpGradeCost
     {
         get
         {
