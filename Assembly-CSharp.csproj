@@ -60,12 +60,13 @@
     <Compile Include="Assets\Scripts\Targets\TargetsTracker.cs" />
     <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
     <Compile Include="Assets\Scripts\CurrencyManager.cs" />
+    <Compile Include="Assets\Scripts\Targets\TargetUI.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonShooting.cs" />
     <Compile Include="Assets\Scripts\Targets\Target.cs" />
     <Compile Include="Assets\Scripts\Singleton\UImanager.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonUpgradeData.cs" />
     <Compile Include="Assets\Scripts\GameLoopManager.cs" />
-    <Compile Include="Assets\Scripts\Targets\TargetUI.cs" />
+    <Compile Include="Assets\Scripts\CurrencyUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

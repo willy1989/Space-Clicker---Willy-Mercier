@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,11 @@ public class CurrencyManager : Singleton<CurrencyManager>
         {
             // To do: throw exception when value is below 0.
             PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, value);
+            UpdateCurrencyEvent(value);
         }
     }
+
+    public Action<float> UpdateCurrencyEvent;
 
     private void Awake()
     {

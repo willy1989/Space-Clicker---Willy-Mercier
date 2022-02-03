@@ -18,6 +18,6 @@ public class TargetUI : MonoBehaviour
 
     private void UpdateCurrentHealthText(int currentHealth)
     {
-        currentHealthText.text = currentHealth.ToString();
+        currentHealthText.text = Utils.ConvertNumberToShortText(currentHealth);
     }
 }
