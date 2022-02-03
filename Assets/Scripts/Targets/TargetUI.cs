@@ -16,8 +16,13 @@ public class TargetUI : MonoBehaviour
         target.UpdateHealthEvent += UpdateCurrentHealthText;
     }
 
-    private void UpdateCurrentHealthText(int currentHealth)
+    private void OnEnable()
     {
-        currentHealthText.text = Utils.ConvertNumberToShortText(currentHealth);
+        UpdateCurrentHealthText();
+    }
+
+    private void UpdateCurrentHealthText()
+    {
+        currentHealthText.text = Utils.ConvertNumberToShortText(target.CurrentHealth);
     }
 }

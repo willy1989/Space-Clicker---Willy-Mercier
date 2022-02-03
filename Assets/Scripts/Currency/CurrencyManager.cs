@@ -16,7 +16,8 @@ public class CurrencyManager : Singleton<CurrencyManager>
         {
             // To do: throw exception when value is below 0.
             PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, value);
-            UpdateCurrencyEvent(value);
+            if(UpdateCurrencyEvent != null)
+                UpdateCurrencyEvent(value);
         }
     }
 
@@ -29,7 +30,7 @@ public class CurrencyManager : Singleton<CurrencyManager>
 
     private void Start()
     {
-        AddMoney(ammount: 1000);
+        PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, 0f);
     }
 
     public void SpendCurrency(float ammount)
@@ -44,6 +45,6 @@ public class CurrencyManager : Singleton<CurrencyManager>
 
     public bool HasSufficientBalance(float ammount)
     {
-        return (CurrencyCount - ammount) > 0;
+        return (CurrencyCount - ammount) >= 0;
     }
 }
