@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 945145850868097364}
   - component: {fileID: 945145850868097365}
   - component: {fileID: 8559180276173871261}
+  - component: {fileID: 2161433666103848435}
   m_Layer: 0
   m_Name: medium target - 10
   m_TagString: Target
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0efeb5b9600c7e4419e901cfd4710af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 10
+  startHealth: 3
   moveSpeed: 1
   currencyValue: 10
 --- !u!114 &8559180276173871261
@@ -152,6 +153,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealthText: {fileID: 6279274682529059661}
+--- !u!114 &2161433666103848435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945145850868097370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6798053fe652f0e4fb2ceef8608cc065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childTargetPrefab:
+  - {fileID: 8699550826710440625, guid: 9de7214d4aa5f6243ac6a03faa92e40c, type: 3}
+  - {fileID: 8699550826710440625, guid: 9de7214d4aa5f6243ac6a03faa92e40c, type: 3}
+  - {fileID: 8699550826710440625, guid: 9de7214d4aa5f6243ac6a03faa92e40c, type: 3}
 --- !u!1 &5996592329315961055
 GameObject:
   m_ObjectHideFlags: 0

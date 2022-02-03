@@ -47,7 +47,8 @@ public class Target : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
-            DeathEvent.Invoke();
+            if(DeathEvent!= null)
+                DeathEvent.Invoke();
             Die();
         }
     }
