@@ -20,7 +20,9 @@ public class ChildTargetSpawner : MonoBehaviour
 
         foreach(GameObject childTarget in childTargetPrefab)
         {
-            Instantiate(childTarget, spawnStartPosition, Quaternion.identity);
+            GameObject target = Instantiate(childTarget, spawnStartPosition, Quaternion.identity);
+
+            WaveManager.Instance.currentWave.AddTarget(target.GetComponent<Target>());
             spawnStartPosition += spaceBetweenSpawn;
         }
     }

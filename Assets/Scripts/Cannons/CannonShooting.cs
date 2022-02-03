@@ -5,8 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(CannonUpgradeData))]
 public class CannonShooting : MonoBehaviour
 {
-    [SerializeField] private TargetsTracker targetTracker;
-
     [SerializeField] private GameObject projectilePrefab;
 
     [SerializeField] CannonUpgradeData cannonUpgradeData;
@@ -24,6 +22,9 @@ public class CannonShooting : MonoBehaviour
     {
         while (shootToggle == true)
         {
+            if (WaveManager.Instance.currentWave == null)
+                yield return null;
+
             LockOnToTarget();
 
             SpawnProjectile();
@@ -38,7 +39,7 @@ public class CannonShooting : MonoBehaviour
         if (currentTarget != null)
             return;
 
-        Target nextTarget = targetTracker.GetTargetWithMostHealth();
+        Target nextTarget = WaveManager.Instance.GetTargetWithMostHealth();
 
         if (nextTarget != null)
         {

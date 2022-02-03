@@ -15,17 +15,11 @@ public class Target : MonoBehaviour
 
     public Action DeathEvent;
 
-    public Action<int> UpdateHealthEvent;
+    public Action UpdateHealthEvent;
 
     private void Awake()
     {
         CurrentHealth = startHealth;
-    }
-
-    private void OnEnable()
-    {
-        if(UpdateHealthEvent != null)
-            UpdateHealthEvent.Invoke(CurrentHealth);
     }
 
     private void FixedUpdate()
@@ -43,7 +37,7 @@ public class Target : MonoBehaviour
         CurrentHealth -= damageTaken;
 
         if (UpdateHealthEvent != null)
-            UpdateHealthEvent.Invoke(CurrentHealth);
+            UpdateHealthEvent.Invoke();
 
         if (CurrentHealth <= 0)
         {
@@ -56,6 +50,7 @@ public class Target : MonoBehaviour
     private void Die()
     {
         CurrencyManager.Instance.AddMoney(ammount: currencyValue);
+        WaveManager.Instance.currentWave.RemoveTarget(this);
         Destroy(gameObject);
     }
 }

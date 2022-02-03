@@ -64,7 +64,7 @@ public class CannonUpgradeData:ScriptableObject
 
         CurrencyManager.Instance.SpendCurrency(nextfrequencyUpGradeCost);
 
-        shootingFrequency *= 1.2f;
+        shootingFrequency /= 1.2f;
         nextfrequencyUpGradeCost *= 1.2f;
     }
 }
