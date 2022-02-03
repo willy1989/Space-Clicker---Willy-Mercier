@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Cannons\CannonUpgradeData.cs" />
     <Compile Include="Assets\Scripts\GameLoopManager.cs" />
     <Compile Include="Assets\Scripts\UI\WaveUI.cs" />
+    <Compile Include="Assets\Scripts\GameOverLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

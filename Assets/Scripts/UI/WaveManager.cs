@@ -6,7 +6,15 @@ public class WaveManager : Singleton<WaveManager>
 {
     [SerializeField] Wave[] wavePrefabs;
 
-    int waveIndex = 0;
+    private int waveIndex = 0;
+
+    public int WaveCount
+    {
+        get
+        {
+            return waveIndex + 1;
+        }
+    }
 
     [SerializeField] Transform spawnPosition;
 
@@ -17,19 +25,9 @@ public class WaveManager : Singleton<WaveManager>
         SetInstance();
     }
 
-    private void Start()
-    {
-        currentWave = Instantiate(wavePrefabs[waveIndex], spawnPosition.position, Quaternion.identity);
-
-        currentWave.LastTargetKilledEvent += SwitchToNextWave;
-
-        WaveUI.Instance.ShowNextWaveText();
-        WaveUI.Instance.UpdateCurrentWaveIcon();
-    }
-
     public Target GetTargetWithMostHealth()
     {
-        if (currentWave.Targets.Count == 0)
+        if (currentWave == null || currentWave.Targets.Count == 0)
             return null;
 
         Target targetWithMostHealth = currentWave.Targets[0];
@@ -49,15 +47,23 @@ public class WaveManager : Singleton<WaveManager>
 
         waveIndex++;
 
+        StartCurrentWave();
+    }
+
+    public void StartCurrentWave()
+    {
         currentWave = Instantiate(wavePrefabs[waveIndex], spawnPosition.position, Quaternion.identity);
 
         currentWave.LastTargetKilledEvent += SwitchToNextWave;
-
-        WaveUI.Instance.ShowNextWaveText();
-        WaveUI.Instance.UpdateCurrentWaveIcon();
     }
 
+    public void InterruptCurrentWave()
+    {
+        currentWave.LastTargetKilledEvent -= SwitchToNextWave;
 
-    
+        Destroy(currentWave.gameObject);
+
+        currentWave = null;
+    }
 
 }
