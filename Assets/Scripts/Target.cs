@@ -9,6 +9,8 @@ public class Target : MonoBehaviour
 
     [SerializeField] private int moveSpeed;
 
+    [SerializeField] private int currencyValue;
+
     public int CurrentHealth { get; private set; }
 
     public Action DeathEvent;
@@ -41,6 +43,7 @@ public class Target : MonoBehaviour
 
     private void Die()
     {
+        CurrencyManager.Instance.AddMoney(ammount: currencyValue);
         Destroy(gameObject);
     }
 }
