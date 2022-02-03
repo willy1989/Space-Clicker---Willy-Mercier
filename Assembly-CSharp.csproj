@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,26 +53,25 @@
     <UnityVersion>2020.3.22f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Scripts\Singleton\CannonUpgradeUI.cs" />
     <Compile Include="Assets\Scripts\Currency\CurrencyUI.cs" />
     <Compile Include="Assets\Scripts\Singleton\Singleton.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\Scripts\Targets\ChildTargetSpawner.cs" />
-    <Compile Include="Assets\Scripts\Wave.cs" />
+    <Compile Include="Assets\Scripts\UI\Wave.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
     <Compile Include="Assets\Scripts\Targets\TargetsTracker.cs" />
     <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
     <Compile Include="Assets\Scripts\Currency\CurrencyManager.cs" />
-    <Compile Include="Assets\Scripts\WaveManager.cs" />
+    <Compile Include="Assets\Scripts\UI\WaveManager.cs" />
     <Compile Include="Assets\Scripts\Targets\TargetUI.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonShooting.cs" />
     <Compile Include="Assets\Scripts\Targets\Target.cs" />
     <Compile Include="Assets\Scripts\Singleton\UImanager.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonUpgradeData.cs" />
     <Compile Include="Assets\Scripts\GameLoopManager.cs" />
+    <Compile Include="Assets\Scripts\UI\WaveUI.cs" />
+    <Compile Include="Assets\Scripts\GameOverLine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
