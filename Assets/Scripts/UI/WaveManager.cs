@@ -45,6 +45,8 @@ public class WaveManager : Singleton<WaveManager>
     {
         currentWave.LastTargetKilledEvent -= SwitchToNextWave;
 
+        WaveUI.Instance.UpdateCurrentWaveIcon();
+
         waveIndex++;
 
         StartCurrentWave();
@@ -55,6 +57,8 @@ public class WaveManager : Singleton<WaveManager>
         currentWave = Instantiate(wavePrefabs[waveIndex], spawnPosition.position, Quaternion.identity);
 
         currentWave.LastTargetKilledEvent += SwitchToNextWave;
+
+        WaveUI.Instance.ShowNextWaveText();
     }
 
     public void InterruptCurrentWave()

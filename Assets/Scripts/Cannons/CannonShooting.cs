@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CannonUpgradeData))]
 public class CannonShooting : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;

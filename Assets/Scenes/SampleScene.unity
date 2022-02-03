@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 242290142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e2105b66f69a843b6428135ec2ccde, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d24afbbc0b84ca45b1e80695832c268, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &242290144
@@ -916,7 +916,6 @@ GameObject:
   - component: {fileID: 977042727}
   - component: {fileID: 977042731}
   - component: {fileID: 977042730}
-  - component: {fileID: 977042729}
   - component: {fileID: 977042728}
   m_Layer: 5
   m_Name: Wave UI
@@ -956,29 +955,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 977042726}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b73eb9d2f8721a94c83ebe6e750b0a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: bea554a32b988614ebcfba8a3f2292a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaveBanner: {fileID: 880837934}
   currentWaveIcon: {fileID: 1202751165}
   waveFailedText: {fileID: 1038245730}
---- !u!114 &977042729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977042726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &977042730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1080,7 +1062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 312072fbcdaa2d746918b2677398ddef, type: 3}
+  m_Texture: {fileID: 2800000, guid: 440d6e595ea9bb748b2fc00a46bd31fa, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1297,7 +1279,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 16ea0d233706af94084efd6c3cab63b3, type: 3}
+  m_Texture: {fileID: 2800000, guid: b24d94fe411785d4483ad993ed3ca518, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1418,11 +1400,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1277575841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f526d2f2956817419a0331816450740, type: 3}
+  m_Script: {fileID: 11500000, guid: cc455f753206a2b41bbba61cf047f2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 5465299049501165184, guid: 5974c9ccd08b6704dab4583699c611d1, type: 3}
-  cannonUpgradeData: {fileID: 11400000, guid: e3c164685789de44f88bb41c251b09be, type: 2}
+  cannonUpgradeData: {fileID: 11400000, guid: 73e74b6d6cca0fe439ad6f83cfe08d0b, type: 2}
 --- !u!212 &1277575843
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1675,13 +1657,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1415122136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 845ce5477b6972b4e986b6ab584f4964, type: 3}
+  m_Script: {fileID: 11500000, guid: addceedd52fad3b4195a9236313b9362, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wavePrefabs:
-  - {fileID: 8368788122261936778, guid: d2128dda9e50c5844bcdccd06b97c055, type: 3}
-  - {fileID: 8368788122261936778, guid: fd403b3817a6fad489dc19507849f350, type: 3}
-  - {fileID: 8368788122261936778, guid: 2b7a041414b5b044890fa4443284ec94, type: 3}
+  - {fileID: 4672725117647490863, guid: 14dca8fd8001efa428ca4b6122ebadf1, type: 3}
+  - {fileID: 4672725117647490863, guid: 14dca8fd8001efa428ca4b6122ebadf1, type: 3}
   spawnPosition: {fileID: 1297494788}
 --- !u!4 &1415122138
 Transform:
@@ -2049,7 +2030,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1631227382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cda4204ad8751e047afbcae6c4811c7f, type: 3}
+  m_Script: {fileID: 11500000, guid: dc14104c3ec744346a27ff511ec2ca1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1690367188
@@ -2285,10 +2266,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1997139429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ded7afe350847e34fbd65bbf3f5efca2, type: 3}
+  m_Script: {fileID: 11500000, guid: d07b1375bf63bd8478ea2efd95b29aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCurrencyText: {fileID: 2110411037}
 --- !u!1 &2036224654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,10 +2447,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2039193822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0212000e2c8f8bf47a228850d51e9720, type: 3}
+  m_Script: {fileID: 11500000, guid: 8331fdeece90ae546b4c190d7171300b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonUpgradeData: {fileID: 11400000, guid: e3c164685789de44f88bb41c251b09be, type: 2}
+  cannonUpgradeData: {fileID: 11400000, guid: 73e74b6d6cca0fe439ad6f83cfe08d0b, type: 2}
   upgradeDamageButton: {fileID: 701294851}
   upgradeDamageCost: {fileID: 501813879}
   upgradeFrequencyButton: {fileID: 1690367190}
@@ -2532,7 +2512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: a9e7780219adae44586cf500b1ac55d6, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1a949e716bcbba94694777153079baf7, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
