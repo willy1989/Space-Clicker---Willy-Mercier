@@ -10,6 +10,14 @@ public static class Constants
 
     public const string Boundary_Tag = "Boundary";
 
+    public const string ShootingModePowerUp_Tag = "Shooting mode power up";
+
+    public const string ShootingFrequencyPowerUp_Tag = "Frequency power up";
+
+    public const string ShootingDamagePowerUp_Tag = "Damage power up";
+
+    public const string InvincibilityPowerUp_Tag = "Invincibility power up";
+
     #endregion
 
 
