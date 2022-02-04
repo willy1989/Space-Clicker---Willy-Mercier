@@ -76,7 +76,6 @@
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipDamage.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Shooting\SpaceShipShooting.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Shooting\SpaceShipShootingMode.cs" />
-    <Compile Include="Assets\Scripts\SpaceShip\Shooting\SpaceShipShootingMode_Pea.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

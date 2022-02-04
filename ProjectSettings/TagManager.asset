@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Target
   - Boundary
+  - Shooting mode power up
+  - Frequency power up
+  - Damage power up
+  - Invincibility power up
   layers:
   - Default
   - TransparentFX

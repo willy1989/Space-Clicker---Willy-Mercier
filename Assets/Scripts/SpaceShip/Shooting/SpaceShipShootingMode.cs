@@ -2,7 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SpaceShipShootingMode : MonoBehaviour
+public class SpaceShipShootingMode : MonoBehaviour
 {
-    public abstract void Shoot(ProjectileMovement projectileMovement, int damage);
+    [SerializeField] private Transform[] shootPositions;
+
+    public void Shoot(ProjectileMovement projectileMovementPrefab, int damage)
+    {
+        foreach(Transform shootPosition in shootPositions)
+        {
+             ProjectileMovement projectile = Instantiate(projectileMovementPrefab, shootPosition.position, Quaternion.identity);
+
+             projectile.SetDamage(damage);
+
+             projectile.SetDirection(Vector2.up);
+        }
+    }
 }
+

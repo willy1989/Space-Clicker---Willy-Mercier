@@ -6,13 +6,35 @@ public class SpaceShipShooting : MonoBehaviour
 {
     [SerializeField] private ProjectileMovement projectilePrefab;
 
-    [SerializeField] private SpaceShipShootingMode spaceShipShootingMode;
+    SpaceShipShootingMode[] spaceShipShootingMode;
+
+    private int shootingModeIndex
+    {
+        get
+        {
+            return _shootingModeIndex;
+        }
+
+        set
+        {
+            if (value >= 0 && value < spaceShipShootingMode.Length)
+                _shootingModeIndex = value;
+        }
+    }
+
+    private int _shootingModeIndex = 0;
+
 
     private int damage = 1;
 
-    private int shootFrequency = 1;
+    private float shootFrequency = 1f;
 
     private bool canShoot = true;
+
+    private void Awake()
+    {
+        spaceShipShootingMode = GetComponentsInChildren<SpaceShipShootingMode>();
+    }
 
     private void Start()
     {
@@ -33,6 +55,27 @@ public class SpaceShipShooting : MonoBehaviour
         if (spaceShipShootingMode == null)
             return;
 
-        spaceShipShootingMode.Shoot(projectilePrefab, damage);
+        spaceShipShootingMode[shootingModeIndex].Shoot(projectilePrefab, damage);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag(Constants.ShootingModePowerUp_Tag) == true)
+        {
+            shootingModeIndex++;
+            Destroy(collision.gameObject);
+        }
+
+        else if(collision.CompareTag(Constants.ShootingDamagePowerUp_Tag) == true)
+        {
+            damage *= 2;
+            Destroy(collision.gameObject);
+        }
+
+        else if (collision.CompareTag(Constants.ShootingFrequencyPowerUp_Tag) == true)
+        {
+            shootFrequency /= 2;
+            Destroy(collision.gameObject);
+        }
     }
 }
