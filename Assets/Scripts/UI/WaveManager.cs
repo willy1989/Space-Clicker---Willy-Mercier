@@ -66,8 +66,6 @@ public class WaveManager : Singleton<WaveManager>
         currentWave.LastTargetKilledEvent -= SwitchToNextWave;
 
         Destroy(currentWave.gameObject);
-
-        currentWave = null;
     }
 
 }
