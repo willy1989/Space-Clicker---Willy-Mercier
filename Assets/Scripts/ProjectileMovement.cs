@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    private float moveSpeed = 1.5f;
+    private float moveSpeed = 5f;
 
     private int damage;
 
@@ -17,7 +17,12 @@ public class ProjectileMovement : MonoBehaviour
 
     public void SetDirection(Target _target)
     {
-        direction = _target.transform.position - transform.position;
+        direction = (_target.transform.position - transform.position).normalized;
+    }
+
+    public void SetDirection(Vector2 _direction)
+    {
+        direction = _direction;
     }
 
     public void SetDamage(int _damage)

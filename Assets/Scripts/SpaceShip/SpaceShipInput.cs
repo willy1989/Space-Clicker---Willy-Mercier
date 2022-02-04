@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class SpaceShipInput : MonoBehaviour
 {
-    private Vector2 destination;
+    private Vector3 destination;
 
-    public Vector2 Destination
+    public Vector3 Destination
     {
         get
         {
-            return Destination;
+            return destination;
         }
+    }
+
+    private void Update()
+    {
+        SetDestination();
     }
 
     private void SetDestination()
@@ -23,7 +28,8 @@ public class SpaceShipInput : MonoBehaviour
 
         if(touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved)
         {
-            destination = Camera.main.ScreenToWorldPoint(touch.position);
+            Vector3 temp = Camera.main.ScreenToWorldPoint(touch.position);
+            destination = new Vector3(temp.x, temp.y, 0f);
         }
     }
 }
