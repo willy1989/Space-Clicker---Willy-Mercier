@@ -12,8 +12,6 @@ public class SpaceShipMovement : MonoBehaviour
 
     private float movementLimitYPosition = -4f;
 
-    [SerializeField] private Transform gameOverLine;
-
     private void Awake()
     {
         spaceShipInput = GetComponent<SpaceShipInput>();

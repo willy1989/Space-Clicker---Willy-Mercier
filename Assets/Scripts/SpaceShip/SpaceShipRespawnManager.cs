@@ -22,7 +22,7 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
         SpawnSpaceShip();
     }
 
-    private void RespawnSpaceShip()
+    public void RespawnSpaceShip()
     {
         StartCoroutine(RespawnSpaceShipCoroutine());
     }
@@ -39,8 +39,8 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
 
     private IEnumerator RespawnSpaceShipCoroutine()
     {
-        if(spaceShipDamage != null)
-            spaceShipDamage.DeathEvent -= RespawnSpaceShip;
+        if (spaceShipDamage != null)
+            Destroy(spaceShipDamage.transform.parent.gameObject);
 
         yield return new WaitForSeconds(respawnDelay);
 

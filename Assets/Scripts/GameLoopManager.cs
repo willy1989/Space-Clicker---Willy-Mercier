@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class GameLoopManager : Singleton<GameLoopManager>
 {
     private int restartDuration = 5;
+
+    public Action GameOverEvent;
 
     private void Awake()
     {
@@ -25,6 +28,7 @@ public class GameLoopManager : Singleton<GameLoopManager>
     {
         WaveManager.Instance.InterruptCurrentWave();
         WaveUI.Instance.ShowWaveFailed();
+        SpaceShipRespawnManager.Instance.RespawnSpaceShip();
 
         yield return new WaitForSeconds(restartDuration);
 
