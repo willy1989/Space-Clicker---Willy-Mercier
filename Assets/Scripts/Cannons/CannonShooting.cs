@@ -10,6 +10,8 @@ public class CannonShooting : MonoBehaviour
 
     private Target currentTarget;
 
+    private int shootingRange = 20;
+
     private bool shootToggle = true;
 
     private void Start()
@@ -38,9 +40,11 @@ public class CannonShooting : MonoBehaviour
         if (currentTarget != null)
             return;
 
-        Target nextTarget = WaveManager.Instance.GetTargetWithMostHealth();
+        //Target nextTarget = WaveManager.Instance.GetTargetWithMostHealth();
 
-        if (nextTarget != null)
+        Target nextTarget = WaveManager.Instance.ClosestTarget(transform.position);
+
+        if (nextTarget != null && TargetWithingRange(nextTarget) == true)
         {
             currentTarget = nextTarget;
             currentTarget.DeathEvent += UnlockTarget;
@@ -64,6 +68,11 @@ public class CannonShooting : MonoBehaviour
     private void UnlockTarget()
     {
         currentTarget.DeathEvent -= LockOnToTarget;
+    }
+
+    private bool TargetWithingRange(Target target)
+    {
+        return (target.transform.position - transform.position).magnitude <= shootingRange;
     }
 }
 

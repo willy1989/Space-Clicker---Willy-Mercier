@@ -74,10 +74,11 @@
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipDamage.cs" />
     <Compile Include="Assets\Scripts\UI\WaveUI.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipMovement.cs" />
+    <Compile Include="Assets\Scripts\Object pooling\ProjectilesPoolManager.cs" />
     <Compile Include="Assets\Scripts\Targets\ChildTargetSpawner.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipRespawnManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
-    <Compile Include="Assets\Scripts\Object pooling\ProjectilesPoolManager.cs" />
+    <Compile Include="Assets\Scripts\PowerUpMovement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

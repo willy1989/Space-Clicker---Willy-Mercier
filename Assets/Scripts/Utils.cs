@@ -34,4 +34,15 @@ public class Utils
         number = Mathf.Round(number / 1000000f);
         return number.ToString() + " m";
     }
+
+
+    #region Math
+    public static Vector2 GetRandomDirection()
+    {
+        Vector2 rand = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f)).normalized;
+
+        return rand;
+    }
+
+    #endregion
 }

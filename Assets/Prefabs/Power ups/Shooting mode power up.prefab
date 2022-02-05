@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1468146920287931322}
   - component: {fileID: 1468146920287931321}
   - component: {fileID: 1468146920287931320}
+  - component: {fileID: 6210503751567369257}
   m_Layer: 0
   m_Name: Shooting mode power up
   m_TagString: Shooting mode power up
@@ -109,3 +110,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6210503751567369257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468146920287931327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 553a423662d1de6409ecd0f2a949fc6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
