@@ -10,11 +10,13 @@ public class SpaceShipShootingMode : MonoBehaviour
     {
         foreach(Transform shootPosition in shootPositions)
         {
-             ProjectileMovement projectile = Instantiate(projectileMovementPrefab, shootPosition.position, Quaternion.identity);
+             ProjectileMovement projectile = ProjectilesPoolManager.Instance.GetNextProjectile();
 
              projectile.SetDamage(damage);
 
              projectile.SetDirection(Vector2.up);
+
+            projectile.SetSpawnPosition(shootPosition.position);
         }
     }
 }

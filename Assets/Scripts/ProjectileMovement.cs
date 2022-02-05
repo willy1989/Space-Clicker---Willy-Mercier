@@ -30,6 +30,11 @@ public class ProjectileMovement : MonoBehaviour
         damage = _damage;
     }
 
+    public void SetSpawnPosition(Vector2 spawnPosition)
+    {
+        transform.position = spawnPosition;
+    }
+
     private void MoveToTarget()
     {
         transform.position += direction * moveSpeed * Time.fixedDeltaTime;
@@ -43,12 +48,21 @@ public class ProjectileMovement : MonoBehaviour
             Target target = other.GetComponent<Target>();
             target.TakeDamage(damage);
 
-            Destroy(gameObject);
+            Reset();
         }
 
         else if(other.CompareTag(Constants.Boundary_Tag) == true)
         {
-            Destroy(gameObject);
+            Reset();
         }
+    }
+
+    public void Reset()
+    {
+        damage = 0;
+
+        direction = Vector2.zero;
+
+        gameObject.SetActive(false);
     }
 }
