@@ -52,14 +52,13 @@ public class CannonShooting : MonoBehaviour
         if (currentTarget == null)
             return;
 
-        GameObject projectile = Instantiate(projectilePrefab, (Vector2)transform.position + Vector2.up / 2, Quaternion.identity);
-
-        // TO DO: Add exception, the projectile must have a ProjectileMovement component
-
-        ProjectileMovement projectileMovement = projectile.GetComponent<ProjectileMovement>();
+        ProjectileMovement projectileMovement = ProjectilesPoolManager.Instance.GetNextProjectile();
 
         projectileMovement.SetDamage(_damage: cannonUpgradeData.Damage);
-        projectileMovement.SetDirection(_target: currentTarget);
+
+        projectileMovement.SetSpawnPosition((Vector2)transform.position + Vector2.up / 2);
+
+        projectileMovement.SetDirection(_target: currentTarget); 
     }
 
     private void UnlockTarget()
