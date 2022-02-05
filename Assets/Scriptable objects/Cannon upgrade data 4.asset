@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1316c063dff0ccd4db85ef5378b27f75, type: 3}
   m_Name: Cannon upgrade data 4
   m_EditorClassIdentifier: 
-  shootingFrequency: 2
-  damage: 1
-  nextDamageUpGradeCost: 1
-  nextfrequencyUpGradeCost: 1
+  shootingFrequency: 1.8000002
+  damage: 8
+  nextDamageUpGradeCost: 125
+  nextfrequencyUpGradeCost: 625

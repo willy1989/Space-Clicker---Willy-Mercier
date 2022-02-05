@@ -32,6 +32,5 @@ public class SpaceShipMovement : MonoBehaviour
             return;
 
         transform.position += spaceShipToDestination.normalized * movementSpeed * Time.fixedDeltaTime;
-
     }
 }

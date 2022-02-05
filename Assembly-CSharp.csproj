@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Currency\CurrencyUI.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonUpgradeData.cs" />
     <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
+    <Compile Include="Assets\Scripts\Power up\PowerUpMovement.cs" />
     <Compile Include="Assets\Scripts\Singleton\UImanager.cs" />
     <Compile Include="Assets\Scripts\UI\Wave.cs" />
     <Compile Include="Assets\Scripts\GameOverLine.cs" />
@@ -78,7 +79,8 @@
     <Compile Include="Assets\Scripts\Targets\ChildTargetSpawner.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipRespawnManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
-    <Compile Include="Assets\Scripts\PowerUpMovement.cs" />
+    <Compile Include="Assets\Scripts\Power up\PowerUpSpawner.cs" />
+    <Compile Include="Assets\Scripts\Power up\PowerUpSpawnManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

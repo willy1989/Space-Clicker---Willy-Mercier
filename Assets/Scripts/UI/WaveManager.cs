@@ -41,7 +41,7 @@ public class WaveManager : Singleton<WaveManager>
         return targetWithMostHealth;
     }
 
-    public Target ClosestTarget(Vector3 cannonPosition)
+    public Target GetClosestTarget(Vector3 cannonPosition)
     {
         if (currentWave == null || currentWave.Targets.Count == 0)
             return null;

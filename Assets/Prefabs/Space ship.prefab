@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4798380099325887138}
   - component: {fileID: 4798380099325887133}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: shooting mode - 7X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4798380099350342873}
   - component: {fileID: 4798380099350342872}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: shooting mode - 2X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4798380099458290676}
   - component: {fileID: 4798380099458290679}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: shooting mode - 1X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380099547139105}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 2
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380099712884908}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 7
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -221,7 +221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380099744303416}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting modes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380099964071021}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 2
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -286,7 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380100092342438}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 6
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -316,7 +316,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380100108235505}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 3
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -346,7 +346,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380100241614716}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 1
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -376,7 +376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380100314477778}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 1
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -406,7 +406,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380100361236391}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 2
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -436,7 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380100381667981}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 4
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -467,7 +467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4798380100413917826}
   - component: {fileID: 4798380100413917949}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: shooting mode - 5X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380100498850967}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 2
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 4798380100504719870}
   - component: {fileID: 4798380100504719871}
   - component: {fileID: 4798380100504719865}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Interaction collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380100666449088}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 1
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -655,7 +655,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380100778246310}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 5
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -685,7 +685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380101111583142}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 1
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -715,7 +715,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380101126098317}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 5
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 4798380101263610645}
   - component: {fileID: 4798380101263610650}
   - component: {fileID: 4798380101263610651}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Space ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,6 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de65a7ebd942844b8babc8d5b79db2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverLine: {fileID: 0}
 --- !u!1 &4798380101265959721
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,7 +894,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380101265959720}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 1
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -923,7 +924,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380101305161400}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 3
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -953,7 +954,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380101322885359}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 4
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
@@ -984,7 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4798380101344553152}
   - component: {fileID: 4798380101344553155}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: shooting mode - 3X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1033,7 +1034,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4798380101378339591}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Shooting position 3
   m_TagString: Untagged
   m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}

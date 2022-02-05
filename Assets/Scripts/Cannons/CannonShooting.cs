@@ -42,7 +42,7 @@ public class CannonShooting : MonoBehaviour
 
         //Target nextTarget = WaveManager.Instance.GetTargetWithMostHealth();
 
-        Target nextTarget = WaveManager.Instance.ClosestTarget(transform.position);
+        Target nextTarget = WaveManager.Instance.GetClosestTarget(transform.position);
 
         if (nextTarget != null && TargetWithingRange(nextTarget) == true)
         {

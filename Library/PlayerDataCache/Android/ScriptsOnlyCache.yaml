@@ -36,8 +36,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
-    Unity.Mobile.AndroidLogcat.Editor.dll:
-    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -118,31 +116,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3798}
     - Class: 114
-      Script: {instanceID: 4340}
+      Script: {instanceID: 4170}
     - Class: 114
-      Script: {instanceID: 4484}
+      Script: {instanceID: 4342}
     - Class: 114
-      Script: {instanceID: 4662}
+      Script: {instanceID: 4486}
     - Class: 114
-      Script: {instanceID: 4780}
+      Script: {instanceID: 4664}
     - Class: 114
-      Script: {instanceID: 4792}
+      Script: {instanceID: 4782}
     - Class: 114
-      Script: {instanceID: 5096}
+      Script: {instanceID: 4794}
     - Class: 114
-      Script: {instanceID: 5268}
+      Script: {instanceID: 5098}
     - Class: 114
-      Script: {instanceID: 5274}
+      Script: {instanceID: 5270}
     - Class: 114
-      Script: {instanceID: 5318}
+      Script: {instanceID: 5276}
     - Class: 114
-      Script: {instanceID: 5464}
+      Script: {instanceID: 5320}
     - Class: 114
-      Script: {instanceID: 5548}
+      Script: {instanceID: 5466}
     - Class: 114
-      Script: {instanceID: 5586}
+      Script: {instanceID: 5550}
     - Class: 114
-      Script: {instanceID: 35442}
+      Script: {instanceID: 5588}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -521,6 +519,12 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
+    className: PowerUpMovement
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
     className: UImanager
   - hash:
       serializedVersion: 2
@@ -810,12 +814,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: PowerUpMovement
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
