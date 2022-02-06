@@ -54,7 +54,7 @@ public class CannonUpgradeData:ScriptableObject
         CurrencyManager.Instance.SpendCurrency(nextDamageUpGradeCost);
 
         damage *= 2;
-        nextDamageUpGradeCost *= 2;
+        nextDamageUpGradeCost *= 5;
     }
 
     public void UpGradeFrequency()
@@ -64,7 +64,7 @@ public class CannonUpgradeData:ScriptableObject
 
         CurrencyManager.Instance.SpendCurrency(nextfrequencyUpGradeCost);
 
-        shootingFrequency /= 1.2f;
-        nextfrequencyUpGradeCost *= 1.2f;
+        shootingFrequency -= 0.05f;
+        nextfrequencyUpGradeCost *= 5f;
     }
 }

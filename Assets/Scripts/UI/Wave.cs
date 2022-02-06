@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-    [SerializeField] private List<Target> targets;
+    private List<Target> targets;
 
     public Action LastTargetKilledEvent;
 
@@ -19,7 +20,7 @@ public class Wave : MonoBehaviour
 
     private void Awake()
     {
-        // To do: throw exception if target list is empty.
+        targets = GetComponentsInChildren<Target>().ToList();
     }
 
     public void AddTarget(Target target)
@@ -31,7 +32,8 @@ public class Wave : MonoBehaviour
     {
         int targetIndex = targets.IndexOf(target);
 
-        targets.RemoveAt(targetIndex);
+        if(targetIndex != -1)
+            targets.RemoveAt(targetIndex);
 
         if (targets.Count == 0)
             LastTargetKilledEvent();

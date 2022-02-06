@@ -27,7 +27,9 @@ public class SpaceShipShooting : MonoBehaviour
 
     private int damage = 1;
 
-    private float shootFrequency = 1f;
+    private float shootFrequency = 0.5f;
+
+    private float shootingRange = 15f;
 
     private bool canShoot = true;
 
@@ -55,7 +57,13 @@ public class SpaceShipShooting : MonoBehaviour
         if (spaceShipShootingMode == null)
             return;
 
-        spaceShipShootingMode[shootingModeIndex].Shoot(projectilePrefab, damage);
+        Target closestTarget = WaveManager.Instance.GetClosestTarget(transform.position);
+
+        if (closestTarget == null)
+            return;
+
+        if((closestTarget.transform.position - transform.position).magnitude <= shootingRange)
+            spaceShipShootingMode[shootingModeIndex].Shoot(projectilePrefab, damage);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

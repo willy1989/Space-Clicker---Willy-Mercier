@@ -6,7 +6,11 @@ public class SpaceShipMovement : MonoBehaviour
 {
     private SpaceShipInput spaceShipInput;
 
-    private int movementSpeed = 15;
+    private int movementSpeed = 25;
+
+    private Vector3 fingerPositionOffset = new Vector2(0f, 1.5f);
+
+    private float movementLimitYPosition = -4f;
 
     private void Awake()
     {
@@ -20,9 +24,9 @@ public class SpaceShipMovement : MonoBehaviour
 
     private void MoveToDestination()
     {
-        Vector3 spaceShipToDestination = spaceShipInput.Destination - transform.position;
+        Vector3 spaceShipToDestination = (spaceShipInput.Destination + fingerPositionOffset) - transform.position;
 
-        if (spaceShipToDestination.magnitude < 0.3f)
+        if (spaceShipToDestination.magnitude < 0.3f || spaceShipInput.Destination.y <= movementLimitYPosition)
             return;
 
         transform.position += spaceShipToDestination.normalized * movementSpeed * Time.fixedDeltaTime;

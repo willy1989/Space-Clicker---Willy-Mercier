@@ -7,7 +7,7 @@ public class ChildTargetSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] childTargetPrefab;
 
-    private Vector2 spaceBetweenSpawn = Vector2.right/3f;
+    private float spawnDistance = 0.25f;
 
     private void Awake()
     {
@@ -16,14 +16,15 @@ public class ChildTargetSpawner : MonoBehaviour
 
     private void SpawnChildTarget()
     {
-        Vector2 spawnStartPosition = transform.position;
-
         foreach(GameObject childTarget in childTargetPrefab)
         {
-            GameObject target = Instantiate(childTarget, spawnStartPosition, Quaternion.identity, transform.parent);
+            Vector2 spawnPosition = transform.position + (Vector3)Utils.GetRandomDirection() * spawnDistance;
+
+            GameObject target = Instantiate(childTarget, spawnPosition, Quaternion.identity, transform.parent);
 
             WaveManager.Instance.currentWave.AddTarget(target.GetComponent<Target>());
-            spawnStartPosition += spaceBetweenSpawn;
         }
     }
+
+    
 }

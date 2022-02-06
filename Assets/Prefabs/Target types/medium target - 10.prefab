@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5214356733820194887}
   - component: {fileID: 1656173331773465934}
   - component: {fileID: 8558530116533477820}
+  - component: {fileID: 3880453284073590269}
   m_Layer: 0
   m_Name: medium target - 10
   m_TagString: Target
@@ -137,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e65ee4893705242bec0057e503ee93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 3
+  startHealth: 10
   moveSpeed: 1
   currencyValue: 10
 --- !u!114 &1656173331773465934
@@ -156,6 +157,8 @@ MonoBehaviour:
   - {fileID: 8699550826710440625, guid: 7384511b6f6fdfc45a121881314eaad1, type: 3}
   - {fileID: 8699550826710440625, guid: 7384511b6f6fdfc45a121881314eaad1, type: 3}
   - {fileID: 8699550826710440625, guid: 7384511b6f6fdfc45a121881314eaad1, type: 3}
+  - {fileID: 8699550826710440625, guid: 7384511b6f6fdfc45a121881314eaad1, type: 3}
+  - {fileID: 8699550826710440625, guid: 7384511b6f6fdfc45a121881314eaad1, type: 3}
 --- !u!114 &8558530116533477820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +172,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealthText: {fileID: 6279274682529059661}
+--- !u!114 &3880453284073590269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945145850868097370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367c87346708f85468548b8878948737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPowerUpChance: 33
 --- !u!1 &5996592329315961055
 GameObject:
   m_ObjectHideFlags: 0
