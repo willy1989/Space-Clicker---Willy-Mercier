@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SpaceShipInput : MonoBehaviour
+public class SpaceShipInput : Singleton<SpaceShipInput>
 {
     private Vector3 destination;
 
@@ -14,6 +15,23 @@ public class SpaceShipInput : MonoBehaviour
         }
     }
 
+    private bool canRegisterInput = true;
+
+    [SerializeField] private Button openShopButton;
+
+    [SerializeField] private Button closeShopButton;
+
+    private void Awake()
+    {
+        SetInstance();
+    }
+
+    private void Start()
+    {
+        openShopButton.onClick.AddListener(ToggleInput);
+        closeShopButton.onClick.AddListener(ToggleInput);
+    }
+
     private void Update()
     {
         SetDestination();
@@ -21,7 +39,7 @@ public class SpaceShipInput : MonoBehaviour
 
     private void SetDestination()
     {
-        if (Input.touchCount <= 0)
+        if (Input.touchCount <= 0 || canRegisterInput == false)
             return;
 
         Touch touch = Input.GetTouch(0);
@@ -31,5 +49,10 @@ public class SpaceShipInput : MonoBehaviour
             Vector3 temp = Camera.main.ScreenToWorldPoint(touch.position);
             destination = new Vector3(temp.x, temp.y, 0f);
         }
+    }
+
+    private void ToggleInput()
+    {
+        canRegisterInput = !canRegisterInput;
     }
 }

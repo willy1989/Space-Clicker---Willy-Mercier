@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
     private float startLevelThreshold = 30f;
 
     private float tresholdIncreaseRate = 1.2f;
+
+    public Action<int> LevelIncreasedEvent;
 
     private float spaceShipXP
     {
@@ -81,6 +84,9 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
         {
             spaceShipLevel++;
             spaceShipLevelThreshold += spaceShipLevelThreshold * tresholdIncreaseRate;
+
+            if (LevelIncreasedEvent != null)
+                LevelIncreasedEvent(spaceShipLevel);
         }    
     }
 }

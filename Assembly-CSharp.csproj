@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipRespawnManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipLevelManager.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\SpaceShipShopUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
