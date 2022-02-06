@@ -7,6 +7,10 @@ public class SpaceShipShopUI : Singleton<SpaceShipShopUI>
 {
     [SerializeField] private Text levelText;
 
+    [SerializeField] private Text baseDamageText;
+
+    [SerializeField] private Text baseFrequencyText;
+
     [SerializeField] private GameObject toggleableUIelements;
 
     [SerializeField] private Button openShopButton;
@@ -22,14 +26,40 @@ public class SpaceShipShopUI : Singleton<SpaceShipShopUI>
     {
         SpaceShipLevelManager.Instance.LevelIncreasedEvent += UpdateLevelText;
 
+        SpaceShipLevelManager.Instance.DamageIncreasedEvent += UpdateDamageText;
+
+        SpaceShipLevelManager.Instance.FrequencyIncreasedEvent += UpdateFrequencyText;
+
         openShopButton.onClick.AddListener(ToggleUIelementsOn);
 
         closeShopButton.onClick.AddListener(ToggleUIelementsOff);
+
+        UpdateLevelText();
+        UpdateDamageText();
+        UpdateFrequencyText();
     }
 
-    private void UpdateLevelText(int level)
+    private void UpdateLevelText()
     {
-        levelText.text = "Level " + level.ToString();
+        levelText.text = "Level " + SpaceShipLevelManager.Instance.SpaceShipLevel.ToString();
+    }
+
+    private void UpdateDamageText()
+    {
+        float damage = SpaceShipLevelManager.Instance.SpaceShipBaseDamage;
+
+        damage = Mathf.Round(damage * 100f) / 100f;
+
+        baseDamageText.text = "Damage :" + damage.ToString();
+    }
+
+    private void UpdateFrequencyText()
+    {
+        float frequency = SpaceShipLevelManager.Instance.SpaceShipBaseFrequency;
+
+        frequency = Mathf.Round(frequency * 100f) / 100f;
+
+        baseFrequencyText.text = "Frequency :" + frequency.ToString();
     }
 
     public void ToggleUIelementsOn()

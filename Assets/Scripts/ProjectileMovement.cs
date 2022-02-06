@@ -6,7 +6,7 @@ public class ProjectileMovement : MonoBehaviour
 {
     private float moveSpeed = 20f;
 
-    private int damage;
+    private float damage;
 
     private Vector3 direction = Vector2.zero;
 
@@ -25,7 +25,7 @@ public class ProjectileMovement : MonoBehaviour
         direction = _direction;
     }
 
-    public void SetDamage(int _damage)
+    public void SetDamage(float _damage)
     {
         damage = _damage;
     }

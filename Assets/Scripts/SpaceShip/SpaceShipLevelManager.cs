@@ -7,11 +7,21 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
 {
     private int startLevel = 1;
 
+    private float startDamage = 1;
+
+    private float startFrequency = 0.5f;
+
     private float startLevelThreshold = 30f;
 
     private float tresholdIncreaseRate = 1.2f;
 
-    public Action<int> LevelIncreasedEvent;
+    private float damageIncreateRate = 1.2f;
+
+    private float frequencyIncreaseRate = 0.95f;
+
+    public Action LevelIncreasedEvent;
+    public Action DamageIncreasedEvent;
+    public Action FrequencyIncreasedEvent;
 
     private float spaceShipXP
     {
@@ -26,14 +36,14 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
         }
     }
 
-    private int spaceShipLevel
+    public int SpaceShipLevel
     {
         get
         {
             return PlayerPrefs.GetInt(Constants.SpaceShipLevel_PlayerPref, startLevel);
         }
 
-        set
+        private set
         {
             PlayerPrefs.SetInt(Constants.SpaceShipLevel_PlayerPref, value);
         }
@@ -52,23 +62,50 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
         }
     }
 
+    public float SpaceShipBaseDamage
+    {
+        get
+        {
+            return PlayerPrefs.GetFloat(Constants.SpaceShipDamageStat_PlayerPref, startDamage);
+        }
+
+        private set
+        {
+            PlayerPrefs.SetFloat(Constants.SpaceShipDamageStat_PlayerPref, value);
+        }
+    }
+
+    public float SpaceShipBaseFrequency
+    {
+        get
+        {
+            return PlayerPrefs.GetFloat(Constants.SpaceShipFrequencyStat_PlayerPref, startFrequency);
+        }
+
+        private set
+        {
+            PlayerPrefs.SetFloat(Constants.SpaceShipFrequencyStat_PlayerPref, value);
+        }
+    }
+
     private void ResetLevelValues()
     {
         PlayerPrefs.SetFloat(Constants.SpaceShipLevel_PlayerPref, startLevel);
         PlayerPrefs.SetFloat(Constants.SpaceShipLevelTreshold_PlayerPref, startLevelThreshold);
         PlayerPrefs.SetFloat(Constants.SpaceShipXP_PlayerPref, 0f);
+        PlayerPrefs.SetFloat(Constants.SpaceShipDamageStat_PlayerPref, startDamage);
+        PlayerPrefs.SetFloat(Constants.SpaceShipFrequencyStat_PlayerPref, startFrequency);
     }
 
     private void Awake()
     {
-        SetInstance(); 
+        SetInstance();
+        ResetLevelValues();
     }
 
     private void Start()
     {
         CurrencyManager.Instance.AddCurrencyEvent += GainXP;
-
-        ResetLevelValues();
     }
 
     private void GainXP(float amount)
@@ -82,11 +119,20 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
     {
         if(spaceShipXP > spaceShipLevelThreshold)
         {
-            spaceShipLevel++;
+            SpaceShipLevel++;
             spaceShipLevelThreshold += spaceShipLevelThreshold * tresholdIncreaseRate;
 
+            SpaceShipBaseDamage *= damageIncreateRate;
+            SpaceShipBaseFrequency *= frequencyIncreaseRate;
+
             if (LevelIncreasedEvent != null)
-                LevelIncreasedEvent(spaceShipLevel);
+                LevelIncreasedEvent.Invoke();
+
+            if (DamageIncreasedEvent != null)
+                DamageIncreasedEvent.Invoke();
+
+            if (FrequencyIncreasedEvent != null)
+                FrequencyIncreasedEvent.Invoke();
         }    
     }
 }

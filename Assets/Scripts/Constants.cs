@@ -31,6 +31,10 @@ public static class Constants
 
     public const string SpaceShipLevelTreshold_PlayerPref = "Space ship level threshold";
 
+    public const string SpaceShipDamageStat_PlayerPref = "Space ship damage";
+
+    public const string SpaceShipFrequencyStat_PlayerPref = "Space ship frequency";
+
     #endregion
 
 

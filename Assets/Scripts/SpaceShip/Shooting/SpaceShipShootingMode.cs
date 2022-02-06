@@ -6,7 +6,7 @@ public class SpaceShipShootingMode : MonoBehaviour
 {
     [SerializeField] private Transform[] shootPositions;
 
-    public void Shoot(ProjectileMovement projectileMovementPrefab, int damage)
+    public void Shoot(ProjectileMovement projectileMovementPrefab, float damage)
     {
         foreach(Transform shootPosition in shootPositions)
         {

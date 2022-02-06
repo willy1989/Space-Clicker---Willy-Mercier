@@ -11,7 +11,7 @@ public class Target : MonoBehaviour
 
     [SerializeField] private int currencyValue;
 
-    public int CurrentHealth { get; private set; }
+    public float CurrentHealth { get; private set; }
 
     public Action DeathEvent;
 
@@ -32,7 +32,7 @@ public class Target : MonoBehaviour
         transform.position += Vector3.down * moveSpeed * Time.fixedDeltaTime;
     }
 
-    public void TakeDamage(int damageTaken)
+    public void TakeDamage(float damageTaken)
     {
         CurrentHealth -= damageTaken;
 

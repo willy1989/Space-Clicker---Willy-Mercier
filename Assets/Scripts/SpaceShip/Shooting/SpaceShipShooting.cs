@@ -24,12 +24,15 @@ public class SpaceShipShooting : MonoBehaviour
 
     private int _shootingModeIndex = 0;
 
-
-    private int damage = 1;
-
-    private float shootFrequency = 0.5f;
-
     private float shootingRange = 15f;
+
+    private float damagePowerUp = 1f;
+
+    private float frequencyPowerUp = 1f;
+
+    private float frequencyPowerUpIncreaseRate = 1.2f;
+
+    private float damagePowerUpIncreaseRate = 2f;
 
     private bool canShoot = true;
 
@@ -48,7 +51,7 @@ public class SpaceShipShooting : MonoBehaviour
         while(canShoot == true)
         {
             Shoot();
-            yield return new WaitForSeconds(shootFrequency);
+            yield return new WaitForSeconds(SpaceShipLevelManager.Instance.SpaceShipBaseFrequency / frequencyPowerUp);
         }
     }
 
@@ -63,7 +66,7 @@ public class SpaceShipShooting : MonoBehaviour
             return;
 
         if((closestTarget.transform.position - transform.position).magnitude <= shootingRange)
-            spaceShipShootingMode[shootingModeIndex].Shoot(projectilePrefab, damage);
+            spaceShipShootingMode[shootingModeIndex].Shoot(projectilePrefab, SpaceShipLevelManager.Instance.SpaceShipBaseDamage * damagePowerUp);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -76,13 +79,13 @@ public class SpaceShipShooting : MonoBehaviour
 
         else if(collision.CompareTag(Constants.ShootingDamagePowerUp_Tag) == true)
         {
-            damage *= 2;
+            damagePowerUp *= damagePowerUpIncreaseRate;
             Destroy(collision.gameObject);
         }
 
         else if (collision.CompareTag(Constants.ShootingFrequencyPowerUp_Tag) == true)
         {
-            shootFrequency /= 2;
+            frequencyPowerUp *= frequencyPowerUpIncreaseRate;
             Destroy(collision.gameObject);
         }
     }
