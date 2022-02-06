@@ -49,7 +49,7 @@ public class Target : MonoBehaviour
 
     private void Die()
     {
-        CurrencyManager.Instance.AddMoney(ammount: currencyValue);
+        CurrencyManager.Instance.AddMoney(amount: currencyValue);
         WaveManager.Instance.currentWave.RemoveTarget(this);
         Destroy(gameObject);
     }

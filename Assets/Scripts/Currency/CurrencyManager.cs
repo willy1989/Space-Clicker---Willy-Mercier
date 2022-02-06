@@ -22,6 +22,7 @@ public class CurrencyManager : Singleton<CurrencyManager>
     }
 
     public Action<float> UpdateCurrencyEvent;
+    public Action<float> AddCurrencyEvent;
 
     private void Awake()
     {
@@ -33,18 +34,19 @@ public class CurrencyManager : Singleton<CurrencyManager>
         PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, 0f);
     }
 
-    public void SpendCurrency(float ammount)
+    public void SpendCurrency(float amount)
     {
-        CurrencyCount -= ammount;
+        CurrencyCount -= amount;
     }
 
-    public void AddMoney(float ammount)
+    public void AddMoney(float amount)
     {
-        CurrencyCount += ammount;
+        CurrencyCount += amount;
+        AddCurrencyEvent.Invoke(amount);
     }
 
-    public bool HasSufficientBalance(float ammount)
+    public bool HasSufficientBalance(float amount)
     {
-        return (CurrencyCount - ammount) >= 0;
+        return (CurrencyCount - amount) >= 0;
     }
 }

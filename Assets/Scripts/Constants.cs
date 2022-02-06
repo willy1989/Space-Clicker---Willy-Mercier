@@ -25,6 +25,12 @@ public static class Constants
 
     public const string CurrencyCount_PlayerPref = "CurrencyCount";
 
+    public const string SpaceShipXP_PlayerPref = "Space ship XP";
+
+    public const string SpaceShipLevel_PlayerPref = "Space ship level";
+
+    public const string SpaceShipLevelTreshold_PlayerPref = "Space ship level threshold";
+
     #endregion
 
 
