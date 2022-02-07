@@ -35,6 +35,12 @@ public static class Constants
 
     public const string SpaceShipFrequencyStat_PlayerPref = "Space ship frequency";
 
+    public const string SpaceShipAbilityFreezeCost_PlayerPref = "Space ship ability freeze cost";
+
+    public const string SpaceShipAbilityFreezeEffect_PlayerPref = "Space ship ability freeze effect";
+
+
+
     #endregion
 
 
