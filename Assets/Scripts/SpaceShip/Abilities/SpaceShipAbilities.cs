@@ -8,7 +8,7 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 
     [SerializeField] private SpaceShipAbilitiesData spaceShipAbilityData;
 
-    private float Effect
+    protected float Effect
     {
         get
         {
@@ -21,7 +21,7 @@ public abstract class SpaceShipAbilities : MonoBehaviour
         }
     }
 
-    private float Cost
+    protected float Cost
     {
         get
         {
@@ -42,9 +42,9 @@ public abstract class SpaceShipAbilities : MonoBehaviour
         if (canUseAbility == false)
             return;
 
-        StartCoroutine(startCoolDownCoroutine());
-
         DoAbility();
+
+        StartCoroutine(startCoolDownCoroutine());
     }
 
     private IEnumerator startCoolDownCoroutine()

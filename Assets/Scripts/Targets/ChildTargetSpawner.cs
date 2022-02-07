@@ -22,7 +22,7 @@ public class ChildTargetSpawner : MonoBehaviour
 
             GameObject target = Instantiate(childTarget, spawnPosition, Quaternion.identity, transform.parent);
 
-            WaveManager.Instance.currentWave.AddTarget(target.GetComponent<Target>());
+            WaveManager.Instance.CurrentWave.AddTarget(target.GetComponent<Target>());
         }
     }
 

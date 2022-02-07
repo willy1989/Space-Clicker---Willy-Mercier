@@ -23,7 +23,7 @@ public class CannonShooting : MonoBehaviour
     {
         while (shootToggle == true)
         {
-            if (WaveManager.Instance.currentWave == null)
+            if (WaveManager.Instance.CurrentWave == null)
                 yield return null;
 
             LockOnToTarget();

@@ -6,8 +6,24 @@ public class SpaceShipAbilities_Freeze : SpaceShipAbilities
 {
     protected override void DoAbility()
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(freezeAllTargets());
     }
+
+    private IEnumerator freezeAllTargets()
+    {
+        foreach(Target target in WaveManager.Instance.CurrentWave.Targets)
+        {
+            target.ToggleMovement();
+        }
+
+        yield return new WaitForSeconds(Effect);
+
+        foreach (Target target in WaveManager.Instance.CurrentWave.Targets)
+        {
+            target.ToggleMovement();
+        }
+    }
+
 
     protected override string GetEffectPlayerPrefName()
     {
