@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaveManager : Singleton<WaveManager>
 {
-    [SerializeField] Wave[] wavePrefabs;
+    [SerializeField] private Wave[] wavePrefabs;
 
     private int waveIndex = 0;
 
@@ -18,7 +18,7 @@ public class WaveManager : Singleton<WaveManager>
 
     [SerializeField] Transform spawnPosition;
 
-    public Wave currentWave { get; private set; }
+    public Wave CurrentWave { get; private set; }
 
     private void Awake()
     {
@@ -27,15 +27,15 @@ public class WaveManager : Singleton<WaveManager>
 
     public Target GetTargetWithMostHealth()
     {
-        if (currentWave == null || currentWave.Targets.Count == 0)
+        if (CurrentWave == null || CurrentWave.Targets.Count == 0)
             return null;
 
-        Target targetWithMostHealth = currentWave.Targets[0];
+        Target targetWithMostHealth = CurrentWave.Targets[0];
 
-        for (int i = 1; i < currentWave.Targets.Count; i++)
+        for (int i = 1; i < CurrentWave.Targets.Count; i++)
         {
-            if (currentWave.Targets[i].CurrentHealth > targetWithMostHealth.CurrentHealth)
-                targetWithMostHealth = currentWave.Targets[i];
+            if (CurrentWave.Targets[i].CurrentHealth > targetWithMostHealth.CurrentHealth)
+                targetWithMostHealth = CurrentWave.Targets[i];
         }
 
         return targetWithMostHealth;
@@ -43,16 +43,16 @@ public class WaveManager : Singleton<WaveManager>
 
     public Target GetClosestTarget(Vector3 cannonPosition)
     {
-        if (currentWave == null || currentWave.Targets.Count == 0)
+        if (CurrentWave == null || CurrentWave.Targets.Count == 0)
             return null;
 
-        Target closestTarget = currentWave.Targets[0];
+        Target closestTarget = CurrentWave.Targets[0];
 
-        for (int i = 1; i < currentWave.Targets.Count; i++)
+        for (int i = 1; i < CurrentWave.Targets.Count; i++)
         {
-            if ((currentWave.Targets[i].transform.position - cannonPosition).magnitude < 
+            if ((CurrentWave.Targets[i].transform.position - cannonPosition).magnitude < 
                 (closestTarget.transform.position - cannonPosition).magnitude)
-                closestTarget = currentWave.Targets[i];
+                closestTarget = CurrentWave.Targets[i];
         }
 
         return closestTarget;
@@ -60,7 +60,7 @@ public class WaveManager : Singleton<WaveManager>
 
     private void SwitchToNextWave()
     {
-        currentWave.LastTargetKilledEvent -= SwitchToNextWave;
+        CurrentWave.LastTargetKilledEvent -= SwitchToNextWave;
 
         WaveUI.Instance.UpdateCurrentWaveIcon();
 
@@ -71,18 +71,18 @@ public class WaveManager : Singleton<WaveManager>
 
     public void StartCurrentWave()
     {
-        currentWave = Instantiate(wavePrefabs[waveIndex], spawnPosition.position, Quaternion.identity);
+        CurrentWave = Instantiate(wavePrefabs[waveIndex], spawnPosition.position, Quaternion.identity);
 
-        currentWave.LastTargetKilledEvent += SwitchToNextWave;
+        CurrentWave.LastTargetKilledEvent += SwitchToNextWave;
 
         WaveUI.Instance.ShowNextWaveText();
     }
 
     public void InterruptCurrentWave()
     {
-        currentWave.LastTargetKilledEvent -= SwitchToNextWave;
+        CurrentWave.LastTargetKilledEvent -= SwitchToNextWave;
 
-        Destroy(currentWave.gameObject);
+        Destroy(CurrentWave.gameObject);
     }
 
 }

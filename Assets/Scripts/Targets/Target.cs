@@ -13,6 +13,8 @@ public class Target : MonoBehaviour
 
     public float CurrentHealth { get; private set; }
 
+    public static bool CanMove = true;
+
     public Action DeathEvent;
 
     public Action UpdateHealthEvent;
@@ -29,6 +31,9 @@ public class Target : MonoBehaviour
 
     private void Move()
     {
+        if (CanMove == false)
+            return;
+
         transform.position += Vector3.down * moveSpeed * Time.fixedDeltaTime;
     }
 
@@ -50,7 +55,12 @@ public class Target : MonoBehaviour
     private void Die()
     {
         CurrencyManager.Instance.AddMoney(amount: currencyValue);
-        WaveManager.Instance.currentWave.RemoveTarget(this);
+        WaveManager.Instance.CurrentWave.RemoveTarget(this);
         Destroy(gameObject);
+    }
+
+    public void ToggleMovement()
+    {
+        CanMove = !CanMove;
     }
 }

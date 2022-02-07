@@ -45,8 +45,8 @@ public class CurrencyManager : Singleton<CurrencyManager>
         AddCurrencyEvent.Invoke(amount);
     }
 
-    public bool HasSufficientBalance(float amount)
+    public bool HasSufficientBalance(float cost)
     {
-        return (CurrencyCount - amount) >= 0;
+        return (CurrencyCount - cost) >= 0;
     }
 }
