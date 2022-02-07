@@ -32,6 +32,8 @@ public class SpaceShipShooting : MonoBehaviour
 
     private float frequencyPowerUpIncreaseRate = 1.2f;
 
+    private float frequencyMultiplier = 1f;
+
     private float damagePowerUpIncreaseRate = 2f;
 
     private bool canShoot = true;
@@ -51,7 +53,7 @@ public class SpaceShipShooting : MonoBehaviour
         while(canShoot == true)
         {
             Shoot();
-            yield return new WaitForSeconds(SpaceShipLevelManager.Instance.SpaceShipBaseFrequency / frequencyPowerUp);
+            yield return new WaitForSeconds((SpaceShipLevelManager.Instance.SpaceShipBaseFrequency / frequencyPowerUp) / frequencyMultiplier);
         }
     }
 
@@ -67,6 +69,11 @@ public class SpaceShipShooting : MonoBehaviour
 
         if((closestTarget.transform.position - transform.position).magnitude <= shootingRange)
             spaceShipShootingMode[shootingModeIndex].Shoot(projectilePrefab, SpaceShipLevelManager.Instance.SpaceShipBaseDamage * damagePowerUp);
+    }
+
+    public void ChangeFrequecyMultiplier(float multiplier)
+    {
+        frequencyMultiplier = multiplier;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
