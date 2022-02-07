@@ -12,3 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f8033ac0bfef1f4eb8d1042e6c70f8d, type: 3}
   m_Name: Freeze ability data
   m_EditorClassIdentifier: 
+  coolDownDuration: 30
+  effectIncreaseRate: 1.1
+  costIncreaseRate: 1.1
+  startEffect: 5
+  startCost: 100

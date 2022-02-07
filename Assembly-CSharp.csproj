@@ -57,7 +57,10 @@
     <Compile Include="Assets\Scripts\GameLoopManager.cs" />
     <Compile Include="Assets\Scripts\UI\WaveManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Shooting\SpaceShipShootingMode.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_TurboShooting.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpSpawner.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitiesManager.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitySelector.cs" />
     <Compile Include="Assets\Scripts\Targets\TargetUI.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonShooting.cs" />
@@ -66,12 +69,15 @@
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipLevelManager.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonUpgradeData.cs" />
     <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpMovement.cs" />
     <Compile Include="Assets\Scripts\UI\UImanager.cs" />
     <Compile Include="Assets\Scripts\UI\Wave.cs" />
     <Compile Include="Assets\Scripts\GameOverLine.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
     <Compile Include="Assets\Scripts\Currency\CurrencyManager.cs" />
+    <Compile Include="Assets\Scriptable objects\Space ship abilities\SpaceShipAbilitiesData.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_Freeze.cs" />
     <Compile Include="Assets\Scripts\CannonUpgradeUI.cs" />
     <Compile Include="Assets\Scripts\Targets\Target.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipShopUI.cs" />
@@ -83,9 +89,6 @@
     <Compile Include="Assets\Scripts\Targets\ChildTargetSpawner.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipRespawnManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
-    <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities.cs" />
-    <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_Freeze.cs" />
-    <Compile Include="Assets\Scriptable objects\Space ship abilities\SpaceShipAbilitiesData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

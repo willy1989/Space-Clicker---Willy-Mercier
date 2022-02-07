@@ -39,7 +39,9 @@ public static class Constants
 
     public const string SpaceShipAbilityFreezeEffect_PlayerPref = "Space ship ability freeze effect";
 
+    public const string SpaceShipAbilityTurboCost_PlayerPref = "Space ship ability turbo cost";
 
+    public const string SpaceShipAbilityTurboEffect_PlayerPref = "Space ship ability turbo effect";
 
     #endregion
 
