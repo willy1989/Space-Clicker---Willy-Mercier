@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,6 +22,12 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
 
     [SerializeField] private Button closeShopButton;
 
+    public Action DoubleTapEvent;
+
+    private float doubleTapDelay = 0.25f;
+
+    private bool tappedOnce = false;
+
     private void Awake()
     {
         SetInstance();
@@ -35,6 +42,7 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
     private void Update()
     {
         SetDestination();
+        RegisterDoubleTap();
     }
 
     private void SetDestination()
@@ -50,6 +58,50 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
             destination = new Vector3(temp.x, temp.y, 0f);
         }
     }
+
+    private void RegisterDoubleTap()
+    {
+        if (Input.touchCount <= 0 || canRegisterInput == false)
+            return;
+
+        Touch touch = Input.GetTouch(0);
+
+        if (touch.phase != TouchPhase.Began)
+            return;
+
+        if (tappedOnce == true)
+        {
+            tappedOnce = false;
+
+            Debug.Log("Double tap");
+
+            if (DoubleTapEvent != null)
+                DoubleTapEvent.Invoke();
+        }
+            
+        else
+        {
+            StartCoroutine(doubleTapDelayCoroutine());
+        }
+            
+    }
+
+    private IEnumerator doubleTapDelayCoroutine()
+    {
+        tappedOnce = true;
+
+        float timeLeft = doubleTapDelay;
+
+        while(timeLeft >= 0f)
+        {
+            timeLeft -= Time.deltaTime;
+
+            yield return null;
+        }
+
+        tappedOnce = false;
+    }
+
 
     private void ToggleInput()
     {
