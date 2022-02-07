@@ -24,7 +24,7 @@ public class SpaceShipShooting : MonoBehaviour
 
     private int _shootingModeIndex = 0;
 
-    private float shootingRange = 15f;
+    private float shootingRange = 14f;
 
     private float damagePowerUp = 1f;
 

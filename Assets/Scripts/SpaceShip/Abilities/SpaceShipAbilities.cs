@@ -1,14 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class SpaceShipAbilities : MonoBehaviour
 {
-    private bool canUseAbility = true;
-
     [SerializeField] private SpaceShipAbilitiesData spaceShipAbilityData;
 
-    protected float Effect
+    private bool canUseAbility = true;
+
+    protected float effect
     {
         get
         {
@@ -21,21 +22,30 @@ public abstract class SpaceShipAbilities : MonoBehaviour
         }
     }
 
-    protected float Cost
+    public float Cost
     {
         get
         {
             return PlayerPrefs.GetFloat(GetCostPlayerPrefName(), spaceShipAbilityData.StartCost);
         }
 
-        set
+        private set
         {
             PlayerPrefs.SetFloat(GetCostPlayerPrefName(), value);
+            UpgradeAbilityEvent.Invoke();
         }
     }
 
     protected abstract string GetEffectPlayerPrefName();
     protected abstract string GetCostPlayerPrefName();
+
+    public Action UpgradeAbilityEvent;
+
+    private void Start()
+    {
+        PlayerPrefs.SetFloat(GetEffectPlayerPrefName(), spaceShipAbilityData.StartEffect);
+        PlayerPrefs.SetFloat(GetCostPlayerPrefName(), spaceShipAbilityData.StartCost);
+    }
 
     public void UseAbility()
     {
@@ -65,10 +75,10 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 
     private void IncreaseAbilityEffect()
     {
-        Effect *= spaceShipAbilityData.EffectIncreaseRate;
+        effect *= spaceShipAbilityData.EffectIncreaseRate;
     }
 
-    private void UpGradeAbility()
+    public void UpGradeAbility()
     {
         if(CurrencyManager.Instance.HasSufficientBalance(cost: Cost) == true)
         {

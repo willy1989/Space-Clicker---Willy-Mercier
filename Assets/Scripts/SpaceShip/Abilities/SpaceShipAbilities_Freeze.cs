@@ -11,19 +11,12 @@ public class SpaceShipAbilities_Freeze : SpaceShipAbilities
 
     private IEnumerator freezeAllTargets()
     {
-        foreach(Target target in WaveManager.Instance.CurrentWave.Targets)
-        {
-            target.ToggleMovement();
-        }
+        Target.CanMove = false;
 
-        yield return new WaitForSeconds(Effect);
+        yield return new WaitForSeconds(effect);
 
-        foreach (Target target in WaveManager.Instance.CurrentWave.Targets)
-        {
-            target.ToggleMovement();
-        }
+        Target.CanMove = true;
     }
-
 
     protected override string GetEffectPlayerPrefName()
     {

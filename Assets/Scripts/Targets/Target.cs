@@ -13,7 +13,7 @@ public class Target : MonoBehaviour
 
     public float CurrentHealth { get; private set; }
 
-    private bool canMove = true;
+    public static bool CanMove = true;
 
     public Action DeathEvent;
 
@@ -31,7 +31,7 @@ public class Target : MonoBehaviour
 
     private void Move()
     {
-        if (canMove == false)
+        if (CanMove == false)
             return;
 
         transform.position += Vector3.down * moveSpeed * Time.fixedDeltaTime;
@@ -61,6 +61,6 @@ public class Target : MonoBehaviour
 
     public void ToggleMovement()
     {
-        canMove = !canMove;
+        CanMove = !CanMove;
     }
 }
