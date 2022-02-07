@@ -35,7 +35,6 @@ public class Utils
         return number.ToString() + " m";
     }
 
-
     #region Math
     public static Vector2 GetRandomDirection()
     {
