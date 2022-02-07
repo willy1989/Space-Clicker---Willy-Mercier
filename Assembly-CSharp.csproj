@@ -89,6 +89,8 @@
     <Compile Include="Assets\Scripts\Targets\ChildTargetSpawner.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipRespawnManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_BigShot.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Abilities\BigShot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

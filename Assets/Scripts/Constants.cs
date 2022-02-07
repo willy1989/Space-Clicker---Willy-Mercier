@@ -43,6 +43,10 @@ public static class Constants
 
     public const string SpaceShipAbilityTurboEffect_PlayerPref = "Space ship ability turbo effect";
 
+    public const string SpaceShipAbilityBigShotCost_PlayerPref = "Space ship ability big shot cost";
+
+    public const string SpaceShipAbilityBigShotEffect_PlayerPref = "Space ship ability big shot effect";
+
     #endregion
 
 

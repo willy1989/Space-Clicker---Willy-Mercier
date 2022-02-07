@@ -8,7 +8,7 @@ public class ProjectileMovement : MonoBehaviour
 
     private float damage;
 
-    private Vector3 direction = Vector2.zero;
+    private Vector3 direction = Vector3.zero;
 
     private void FixedUpdate()
     {

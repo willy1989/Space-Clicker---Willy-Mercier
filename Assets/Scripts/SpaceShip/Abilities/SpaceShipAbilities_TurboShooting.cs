@@ -13,18 +13,18 @@ public class SpaceShipAbilities_TurboShooting : SpaceShipAbilities
 
     private IEnumerator startTurboShootingCoroutine()
     {
-        SpaceShipShooting shapShipShooting = FindObjectOfType<SpaceShipShooting>();
+        SpaceShipShooting spaceShipShooting = FindObjectOfType<SpaceShipShooting>();
 
-        if (shapShipShooting != null)
+        if (spaceShipShooting != null)
         {
-            shapShipShooting.ChangeFrequecyMultiplier(Effect);
+            spaceShipShooting.ChangeFrequecyMultiplier(Effect);
         }
 
         yield return new WaitForSeconds(effectDuration);
 
-        if (shapShipShooting != null)
+        if (spaceShipShooting != null)
         {
-            shapShipShooting.ChangeFrequecyMultiplier(1f);
+            spaceShipShooting.ChangeFrequecyMultiplier(1f);
         }
     }
 
