@@ -10,7 +10,7 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
 
     private SpaceShipDamage spaceShipDamage;
 
-    private int respawnDelay = 5;
+    public int RespawnDelay { get; private set; } = 5;
 
     private void Awake()
     {
@@ -42,7 +42,9 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
         if (spaceShipDamage != null)
             Destroy(spaceShipDamage.transform.parent.gameObject);
 
-        yield return new WaitForSeconds(respawnDelay);
+        SpaceShipRespawnUI.Instance.StartRespawnCountDownText(RespawnDelay);
+
+        yield return new WaitForSeconds(RespawnDelay);
 
         SpawnSpaceShip();
     }
