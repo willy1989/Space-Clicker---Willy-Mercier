@@ -79,7 +79,7 @@
     <Compile Include="Assets\Scripts\Currency\CurrencyManager.cs" />
     <Compile Include="Assets\Scriptable objects\Space ship abilities\SpaceShipAbilitiesData.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_Freeze.cs" />
-    <Compile Include="Assets\Scripts\CannonUpgradeUI.cs" />
+    <Compile Include="Assets\Scripts\Cannons\CannonUpgradeUI.cs" />
     <Compile Include="Assets\Scripts\Targets\Target.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipShopUI.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpSpawnManager.cs" />
@@ -89,9 +89,13 @@
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipMovement.cs" />
     <Compile Include="Assets\Scripts\Object pooling\ProjectilesPoolManager.cs" />
     <Compile Include="Assets\Scripts\Targets\ChildTargetSpawner.cs" />
-    <Compile Include="Assets\Scripts\SpaceShip\SpaceShipRespawnManager.cs" />
-    <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitiesUpgrade.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
+    <Compile Include="Assets\Scripts\UI\SelectAbilityButton.cs" />
+    <Compile Include="Assets\Scripts\UI\AbilityCoolDownUI.cs" />
+    <Compile Include="Assets\Animation\UI\PowerUpUI.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Respawn\SpaceShipRespawnManager.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Respawn\SpaceShipRespawnUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

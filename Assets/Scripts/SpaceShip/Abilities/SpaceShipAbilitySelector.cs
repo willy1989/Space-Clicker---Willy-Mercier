@@ -11,7 +11,6 @@ public class SpaceShipAbilitySelector : MonoBehaviour
 
     private void Awake()
     {
-        SelectAbilityButton.onClick.RemoveAllListeners();
         SelectAbilityButton.onClick.AddListener(SelectAbility);
     }
 

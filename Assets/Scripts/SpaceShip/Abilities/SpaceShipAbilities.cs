@@ -41,6 +41,8 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 
     public Action UpgradeAbilityEvent;
 
+    public Action<float> StartAbilityCoolDownEvent;
+
     private void Start()
     {
         PlayerPrefs.SetFloat(GetEffectPlayerPrefName(), spaceShipAbilityData.StartEffect);
@@ -60,6 +62,8 @@ public abstract class SpaceShipAbilities : MonoBehaviour
     private IEnumerator startCoolDownCoroutine()
     {
         canUseAbility = false;
+
+        StartAbilityCoolDownEvent(spaceShipAbilityData.CoolDownDuration);
 
         yield return new WaitForSeconds(spaceShipAbilityData.CoolDownDuration);
 

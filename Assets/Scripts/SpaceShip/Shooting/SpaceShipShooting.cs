@@ -81,18 +81,21 @@ public class SpaceShipShooting : MonoBehaviour
         if(collision.CompareTag(Constants.ShootingModePowerUp_Tag) == true)
         {
             shootingModeIndex++;
+            PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageMoreGuns);
             Destroy(collision.gameObject);
         }
 
         else if(collision.CompareTag(Constants.ShootingDamagePowerUp_Tag) == true)
         {
             damagePowerUp *= damagePowerUpIncreaseRate;
+            PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageMoreDamage);
             Destroy(collision.gameObject);
         }
 
         else if (collision.CompareTag(Constants.ShootingFrequencyPowerUp_Tag) == true)
         {
             frequencyPowerUp *= frequencyPowerUpIncreaseRate;
+            PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageFrequency);
             Destroy(collision.gameObject);
         }
     }
