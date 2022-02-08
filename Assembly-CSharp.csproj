@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipRespawnManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
     <Compile Include="Assets\Scripts\UI\SelectAbilityButton.cs" />
+    <Compile Include="Assets\Scripts\UI\AbilityCoolDownUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -3004,6 +3004,8 @@ GameObject:
   - component: {fileID: 995433016}
   - component: {fileID: 995433015}
   - component: {fileID: 995433014}
+  - component: {fileID: 995433017}
+  - component: {fileID: 995433018}
   m_Layer: 5
   m_Name: button
   m_TagString: Untagged
@@ -3088,7 +3090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6273585, g: 1, b: 0.6722332, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3113,6 +3115,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995433012}
   m_CullTransparentMesh: 1
+--- !u!114 &995433017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995433012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85934cff353a0ea47ac73fae4cb89635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &995433018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995433012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc458725a7259c44eb4809c7238772bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 1772394820}
 --- !u!1 &998131019
 GameObject:
   m_ObjectHideFlags: 0
@@ -5550,6 +5577,8 @@ GameObject:
   - component: {fileID: 1570372881}
   - component: {fileID: 1570372880}
   - component: {fileID: 1570372879}
+  - component: {fileID: 1570372882}
+  - component: {fileID: 1570372883}
   m_Layer: 5
   m_Name: button
   m_TagString: Untagged
@@ -5634,7 +5663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6273585, g: 1, b: 0.6722332, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5659,6 +5688,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570372877}
   m_CullTransparentMesh: 1
+--- !u!114 &1570372882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570372877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85934cff353a0ea47ac73fae4cb89635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1570372883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570372877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc458725a7259c44eb4809c7238772bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 1317294172}
 --- !u!1 &1631227382
 GameObject:
   m_ObjectHideFlags: 0
@@ -7854,6 +7908,8 @@ GameObject:
   - component: {fileID: 2140044537}
   - component: {fileID: 2140044536}
   - component: {fileID: 2140044535}
+  - component: {fileID: 2140044538}
+  - component: {fileID: 2140044539}
   m_Layer: 5
   m_Name: button
   m_TagString: Untagged
@@ -7938,7 +7994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6273585, g: 1, b: 0.6722332, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7963,3 +8019,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140044533}
   m_CullTransparentMesh: 1
+--- !u!114 &2140044538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140044533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85934cff353a0ea47ac73fae4cb89635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2140044539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140044533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc458725a7259c44eb4809c7238772bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 1715364853}
