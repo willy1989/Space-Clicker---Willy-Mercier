@@ -24,6 +24,7 @@ public class SpaceShipDamage : MonoBehaviour
         else if(collision.CompareTag(Constants.InvincibilityPowerUp_Tag) == true)
         {
             BecomeInvincible();
+            PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageInvicibility);
             Destroy(collision.gameObject);
         }
     }

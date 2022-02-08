@@ -94,6 +94,7 @@
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
     <Compile Include="Assets\Scripts\UI\SelectAbilityButton.cs" />
     <Compile Include="Assets\Scripts\UI\AbilityCoolDownUI.cs" />
+    <Compile Include="Assets\Animation\UI\PowerUpUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

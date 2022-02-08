@@ -49,5 +49,18 @@ public static class Constants
 
     #endregion
 
+    #region Animation
+    public const string PowerUpShow_AnimationTrigger = "Show";
+
+    public const string PowerUpMessageMoreGuns = "Guns +";
+
+    public const string PowerUpMessageInvicibility = "Inviciblity";
+
+    public const string PowerUpMessageMoreDamage = "Damage +";
+
+    public const string PowerUpMessageFrequency = "Fire speed +";
+
+    #endregion
+
 
 }
