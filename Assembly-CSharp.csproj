@@ -79,7 +79,7 @@
     <Compile Include="Assets\Scripts\Currency\CurrencyManager.cs" />
     <Compile Include="Assets\Scriptable objects\Space ship abilities\SpaceShipAbilitiesData.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_Freeze.cs" />
-    <Compile Include="Assets\Scripts\CannonUpgradeUI.cs" />
+    <Compile Include="Assets\Scripts\Cannons\CannonUpgradeUI.cs" />
     <Compile Include="Assets\Scripts\Targets\Target.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipShopUI.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpSpawnManager.cs" />
