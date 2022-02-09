@@ -16,7 +16,12 @@ public class SpaceShipShootingMode : MonoBehaviour
 
              projectile.SetDirection(Vector2.up);
 
-            projectile.SetSpawnPosition(shootPosition.position);
+             projectile.SetSpawnPosition(shootPosition.position);
+
+             SoundPlayer soundPlayer = projectile.gameObject.GetComponent<SoundPlayer>();
+
+            if (soundPlayer != null)
+                soundPlayer.PlaySoundEffect();
         }
     }
 }

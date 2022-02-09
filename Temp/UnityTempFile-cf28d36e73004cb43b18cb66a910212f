@@ -353,6 +353,7 @@ Assets\Scripts\GameOverLine.cs
 "Assets\Scripts\Power up\PowerUpSpawner.cs"
 Assets\Scripts\ProjectileMovement.cs
 Assets\Scripts\Singleton.cs
+Assets\Scripts\SoundPlayer.cs
 Assets\Scripts\SpaceShip\Abilities\BigShot.cs
 Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities.cs
 Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitiesManager.cs
@@ -375,8 +376,10 @@ Assets\Scripts\Targets\Target.cs
 Assets\Scripts\Targets\TargetUI.cs
 Assets\Scripts\UI\AbilityCoolDownUI.cs
 Assets\Scripts\UI\SelectAbilityButton.cs
+Assets\Scripts\UI\ShipTutorialUI.cs
 Assets\Scripts\UI\UImanager.cs
 Assets\Scripts\UI\Wave.cs
 Assets\Scripts\UI\WaveManager.cs
 Assets\Scripts\UI\WaveUI.cs
 Assets\Scripts\Utils.cs
+"Assets\Zero Rare\Retro Sound Effects\Demo\Demo.cs"

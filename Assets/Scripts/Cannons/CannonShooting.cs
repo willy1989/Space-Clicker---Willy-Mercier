@@ -62,7 +62,12 @@ public class CannonShooting : MonoBehaviour
 
         projectileMovement.SetSpawnPosition((Vector2)transform.position + Vector2.up / 2);
 
-        projectileMovement.SetDirection(_target: currentTarget); 
+        projectileMovement.SetDirection(_target: currentTarget);
+
+        SoundPlayer soundPlayer = projectileMovement.gameObject.GetComponent<SoundPlayer>();
+
+        if (soundPlayer != null)
+            soundPlayer.PlaySoundEffect();
     }
 
     private void UnlockTarget()
