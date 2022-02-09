@@ -6,7 +6,21 @@ public class WaveManager : Singleton<WaveManager>
 {
     [SerializeField] private Wave[] wavePrefabs;
 
-    private int waveIndex = 0;
+    private const int startWaveIndex = 0;
+
+    private int waveIndex
+    {
+        get
+        {
+            return PlayerPrefs.GetInt(Constants.WaveIndex_PlayerPref, startWaveIndex);
+        }
+
+        set
+        {
+            if(value < wavePrefabs.Length)
+            PlayerPrefs.SetInt(Constants.WaveIndex_PlayerPref, value);
+        }
+    }
 
     public int WaveCount
     {
@@ -23,6 +37,8 @@ public class WaveManager : Singleton<WaveManager>
     private void Awake()
     {
         SetInstance();
+
+        waveIndex = 0;
     }
 
     public Target GetTargetWithMostHealth()
