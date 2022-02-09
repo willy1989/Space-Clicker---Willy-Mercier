@@ -59,16 +59,19 @@
     <Compile Include="Assets\Scripts\UI\WaveManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Shooting\SpaceShipShootingMode.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_TurboShooting.cs" />
+    <Compile Include="Assets\Animation\UI\Power up\PowerUpUI.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpSpawner.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitiesManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitySelector.cs" />
     <Compile Include="Assets\Scripts\Targets\TargetUI.cs" />
+    <Compile Include="Assets\Scripts\UI\SelectAbilityButton.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonShooting.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Shooting\SpaceShipShooting.cs" />
     <Compile Include="Assets\Scripts\Currency\CurrencyUI.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipLevelManager.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonUpgradeData.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Respawn\SpaceShipRespawnUI.cs" />
     <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpMovement.cs" />
@@ -76,6 +79,7 @@
     <Compile Include="Assets\Scripts\UI\Wave.cs" />
     <Compile Include="Assets\Scripts\GameOverLine.cs" />
     <Compile Include="Assets\Scripts\Utils.cs" />
+    <Compile Include="Assets\Scripts\SpaceShip\Respawn\SpaceShipRespawnManager.cs" />
     <Compile Include="Assets\Scripts\Currency\CurrencyManager.cs" />
     <Compile Include="Assets\Scriptable objects\Space ship abilities\SpaceShipAbilitiesData.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_Freeze.cs" />
@@ -85,17 +89,14 @@
     <Compile Include="Assets\Scripts\Power up\PowerUpSpawnManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_BigShot.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipDamage.cs" />
+    <Compile Include="Assets\Scripts\UI\AbilityCoolDownUI.cs" />
     <Compile Include="Assets\Scripts\UI\WaveUI.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipMovement.cs" />
     <Compile Include="Assets\Scripts\Object pooling\ProjectilesPoolManager.cs" />
     <Compile Include="Assets\Scripts\Targets\ChildTargetSpawner.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitiesUpgrade.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
-    <Compile Include="Assets\Scripts\UI\SelectAbilityButton.cs" />
-    <Compile Include="Assets\Scripts\UI\AbilityCoolDownUI.cs" />
-    <Compile Include="Assets\Animation\UI\PowerUpUI.cs" />
-    <Compile Include="Assets\Scripts\SpaceShip\Respawn\SpaceShipRespawnManager.cs" />
-    <Compile Include="Assets\Scripts\SpaceShip\Respawn\SpaceShipRespawnUI.cs" />
+    <Compile Include="Assets\Scripts\UI\ShipTutorialUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
