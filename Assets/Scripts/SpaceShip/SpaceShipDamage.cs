@@ -9,14 +9,17 @@ public class SpaceShipDamage : MonoBehaviour
 
     private bool IsInvincible = false;
 
-    public Action DeathEvent; 
+    private void Start()
+    {
+        BecomeInvincible();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag(Constants.Target_Tag) == true && IsInvincible == false)
         {
-            if(DeathEvent != null)
-                DeathEvent.Invoke();
+            SpaceShipRespawnManager.Instance.DespawnSpaceShip();
+            SpaceShipRespawnManager.Instance.RespawnSpaceShip();
         }
 
         else if(collision.CompareTag(Constants.InvincibilityPowerUp_Tag) == true)
