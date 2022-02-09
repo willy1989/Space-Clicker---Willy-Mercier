@@ -8,7 +8,11 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
 
     [SerializeField] private GameObject spaceShipPrefab;
 
+    [SerializeField] private ParticleSystem deathParticleSystem;
+
     private SpaceShipDamage spaceShipDamage;
+
+    private GameObject spaceShip;
 
     public int RespawnDelay { get; private set; } = 5;
 
@@ -22,25 +26,33 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
         SpawnSpaceShip();
     }
 
-    public void RespawnSpaceShip()
-    {
-        StartCoroutine(RespawnSpaceShipCoroutine());
-    }
+    
 
     private void SpawnSpaceShip()
     {
-        GameObject spaceShip = Instantiate(spaceShipPrefab, spawnPosition.position, Quaternion.identity);
+        spaceShip = Instantiate(spaceShipPrefab, spawnPosition.position, Quaternion.identity);
         spaceShipDamage = spaceShip.GetComponentInChildren<SpaceShipDamage>();
-        spaceShip.GetComponentInChildren<SpaceShipDamage>().BecomeInvincible();
+        spaceShipDamage.BecomeInvincible();
 
         if (spaceShipDamage != null)
             spaceShipDamage.DeathEvent += RespawnSpaceShip;
     }
 
+    public void RespawnSpaceShip()
+    {
+        StartCoroutine(RespawnSpaceShipCoroutine());
+    }
+
     private IEnumerator RespawnSpaceShipCoroutine()
     {
-        if (spaceShipDamage != null)
-            Destroy(spaceShipDamage.transform.parent.gameObject);
+        if (spaceShipDamage == null)
+            yield break;
+
+        Destroy(spaceShip);
+
+        deathParticleSystem.transform.position = spaceShip.transform.position;
+
+        deathParticleSystem.Play();
 
         SpaceShipRespawnUI.Instance.StartRespawnCountDownText(RespawnDelay);
 

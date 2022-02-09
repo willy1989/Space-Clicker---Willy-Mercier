@@ -17,8 +17,6 @@ public class SpaceShipDamage : MonoBehaviour
         {
             if(DeathEvent != null)
                 DeathEvent.Invoke();
-
-            Destroy(transform.parent.gameObject);
         }
 
         else if(collision.CompareTag(Constants.InvincibilityPowerUp_Tag) == true)
