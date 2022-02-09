@@ -41,11 +41,11 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
 
     private void Update()
     {
-        SetDestination();
+        RegisterDestinationInput();
         RegisterDoubleTap();
     }
 
-    private void SetDestination()
+    private void RegisterDestinationInput()
     {
         if (Input.touchCount <= 0 || canRegisterInput == false)
             return;
@@ -73,17 +73,12 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
         {
             tappedOnce = false;
 
-            Debug.Log("Double tap");
-
             if (DoubleTapEvent != null)
                 DoubleTapEvent.Invoke();
         }
             
         else
-        {
             StartCoroutine(doubleTapDelayCoroutine());
-        }
-            
     }
 
     private IEnumerator doubleTapDelayCoroutine()

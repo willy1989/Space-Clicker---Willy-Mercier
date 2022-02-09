@@ -61,7 +61,6 @@
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_TurboShooting.cs" />
     <Compile Include="Assets\Animation\UI\Power up\PowerUpUI.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpSpawner.cs" />
-    <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitiesManager.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitySelector.cs" />
     <Compile Include="Assets\Scripts\Targets\TargetUI.cs" />
     <Compile Include="Assets\Scripts\UI\SelectAbilityButton.cs" />
