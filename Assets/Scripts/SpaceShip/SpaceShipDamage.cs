@@ -7,6 +7,8 @@ public class SpaceShipDamage : MonoBehaviour
 {
     [SerializeField] private SoundPlayer soundPlayer;
 
+    [SerializeField] private SpriteRenderer invicibilitySprite;
+
     private int invincibilityTime = 5;
 
     private bool IsInvincible = false;
@@ -43,8 +45,37 @@ public class SpaceShipDamage : MonoBehaviour
     {
         IsInvincible = true;
 
-        yield return new WaitForSeconds(invincibilityTime);
+        float elapsedTime = 0f;
+
+        ChangeInviciblitySpriteOpacity(opacity: 1f);
+
+        while (elapsedTime < invincibilityTime)
+        {
+            elapsedTime += Time.deltaTime;
+
+            ChangeInviciblitySpriteOpacity(elapsedTime, invincibilityTime);
+
+            yield return null;
+        }
 
         IsInvincible = false;
+    }
+
+    private void ChangeInviciblitySpriteOpacity(float elapsedInvincibilityTime, float invincibilityTotalDuration)
+    {
+        float opacity = Mathf.Lerp(1f, 0f, elapsedInvincibilityTime/ invincibilityTotalDuration);
+        invicibilitySprite.color = new Color(invicibilitySprite.color.r, 
+                                             invicibilitySprite.color.g, 
+                                             invicibilitySprite.color.b,
+                                             opacity);
+
+    }
+
+    private void ChangeInviciblitySpriteOpacity(float opacity)
+    {
+        invicibilitySprite.color = new Color(invicibilitySprite.color.r,
+                                             invicibilitySprite.color.g,
+                                             invicibilitySprite.color.b,
+                                             opacity);
     }
 }
