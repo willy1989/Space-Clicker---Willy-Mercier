@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class SpaceShipDamage : MonoBehaviour
 {
+    [SerializeField] private SoundPlayer soundPlayer;
+
     private int invincibilityTime = 5;
 
     private bool IsInvincible = false;
+
 
     private void Start()
     {
@@ -26,6 +29,7 @@ public class SpaceShipDamage : MonoBehaviour
         {
             BecomeInvincible();
             PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageInvicibility);
+            soundPlayer.PlaySoundEffect();
             Destroy(collision.gameObject);
         }
     }

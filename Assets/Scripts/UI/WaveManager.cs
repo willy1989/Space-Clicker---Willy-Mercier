@@ -8,6 +8,8 @@ public class WaveManager : Singleton<WaveManager>
 
     private const int startWaveIndex = 0;
 
+    private int spawnNextWaveDelay = 3;
+
     private int waveIndex
     {
         get
@@ -74,9 +76,9 @@ public class WaveManager : Singleton<WaveManager>
         return closestTarget;
     }
 
-    private void SwitchToNextWave()
+    private void SpawnNextWave()
     {
-        CurrentWave.LastTargetKilledEvent -= SwitchToNextWave;
+        CurrentWave.LastTargetKilledEvent -= SpawnNextWave;
 
         WaveUI.Instance.UpdateCurrentWaveIcon();
 
@@ -87,16 +89,23 @@ public class WaveManager : Singleton<WaveManager>
 
     public void StartCurrentWave()
     {
+        StartCoroutine(StartCurrentWaveCoroutine());
+    }
+
+    public IEnumerator StartCurrentWaveCoroutine()
+    {
+        WaveUI.Instance.ShowNextWaveText();
+
+        yield return new WaitForSeconds(spawnNextWaveDelay);
+
         CurrentWave = Instantiate(wavePrefabs[waveIndex], spawnPosition.position, Quaternion.identity);
 
-        CurrentWave.LastTargetKilledEvent += SwitchToNextWave;
-
-        WaveUI.Instance.ShowNextWaveText();
+        CurrentWave.LastTargetKilledEvent += SpawnNextWave;
     }
 
     public void InterruptCurrentWave()
     {
-        CurrentWave.LastTargetKilledEvent -= SwitchToNextWave;
+        CurrentWave.LastTargetKilledEvent -= SpawnNextWave;
 
         Destroy(CurrentWave.gameObject);
     }

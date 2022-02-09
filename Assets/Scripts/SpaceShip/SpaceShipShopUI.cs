@@ -59,7 +59,7 @@ public class SpaceShipShopUI : Singleton<SpaceShipShopUI>
 
         frequency = Mathf.Round(frequency * 100f) / 100f;
 
-        baseFrequencyText.text = "Frequency :" + frequency.ToString();
+        baseFrequencyText.text = "Fire speed :" + frequency.ToString();
     }
 
     public void ToggleUIelementsOn()

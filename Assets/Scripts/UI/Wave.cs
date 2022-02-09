@@ -35,7 +35,7 @@ public class Wave : MonoBehaviour
         if(targetIndex != -1)
             targets.RemoveAt(targetIndex);
 
-        if (targets.Count == 0)
+        if (targets.Count == 0 && LastTargetKilledEvent != null)
             LastTargetKilledEvent();
     }
 }

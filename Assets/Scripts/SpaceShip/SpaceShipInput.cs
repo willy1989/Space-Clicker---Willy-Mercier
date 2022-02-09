@@ -57,6 +57,9 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
             Vector3 temp = Camera.main.ScreenToWorldPoint(touch.position);
             destination = new Vector3(temp.x, temp.y, 0f);
         }
+
+        if (touch.phase == TouchPhase.Ended)
+            destination = Vector3.zero;
     }
 
     private void RegisterDoubleTap()
