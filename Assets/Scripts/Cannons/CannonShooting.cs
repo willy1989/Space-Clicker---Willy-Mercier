@@ -6,13 +6,19 @@ public class CannonShooting : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
 
-    [SerializeField] CannonUpgradeData cannonUpgradeData;
+    CannonUpgradeData cannonUpgradeData;
 
     private Target currentTarget;
 
     private int shootingRange = 20;
 
     private bool shootToggle = true;
+
+
+    private void Awake()
+    {
+        cannonUpgradeData = GetComponent<CannonUpgradeData>();
+    }
 
     private void Start()
     {

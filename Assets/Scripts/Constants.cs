@@ -47,6 +47,11 @@ public static class Constants
 
     public const string SpaceShipAbilityBigShotEffect_PlayerPref = "Space ship ability big shot effect";
 
+    public const string CannonName1_PlayerPref = "Cannon1";
+    public const string CannonName2_PlayerPref = "Cannon2";
+    public const string CannonName3_PlayerPref = "Cannon3";
+    public const string CannonName4_PlayerPref = "Cannon4";
+
     #endregion
 
     #region Animation
