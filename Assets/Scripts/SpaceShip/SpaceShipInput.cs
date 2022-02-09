@@ -22,11 +22,6 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
 
     [SerializeField] private Button closeShopButton;
 
-    public Action DoubleTapEvent;
-
-    private float doubleTapDelay = 0.25f;
-
-    private bool tappedOnce = false;
 
     private void Awake()
     {
@@ -42,7 +37,6 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
     private void Update()
     {
         RegisterDestinationInput();
-        RegisterDoubleTap();
     }
 
     private void RegisterDestinationInput()
@@ -61,45 +55,6 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
         if (touch.phase == TouchPhase.Ended)
             destination = Vector3.zero;
     }
-
-    private void RegisterDoubleTap()
-    {
-        if (Input.touchCount <= 0 || canRegisterInput == false)
-            return;
-
-        Touch touch = Input.GetTouch(0);
-
-        if (touch.phase != TouchPhase.Began)
-            return;
-
-        if (tappedOnce == true)
-        {
-            tappedOnce = false;
-
-            if (DoubleTapEvent != null)
-                DoubleTapEvent.Invoke();
-        }
-            
-        else
-            StartCoroutine(doubleTapDelayCoroutine());
-    }
-
-    private IEnumerator doubleTapDelayCoroutine()
-    {
-        tappedOnce = true;
-
-        float timeLeft = doubleTapDelay;
-
-        while(timeLeft >= 0f)
-        {
-            timeLeft -= Time.deltaTime;
-
-            yield return null;
-        }
-
-        tappedOnce = false;
-    }
-
 
     private void ToggleInput()
     {

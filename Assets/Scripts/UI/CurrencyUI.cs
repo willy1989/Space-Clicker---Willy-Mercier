@@ -20,6 +20,7 @@ public class CurrencyUI : Singleton<CurrencyUI>
 
     private void Start()
     {
+        UpdateCurrentCurrencyText(CurrencyManager.Instance.CurrencyCount);
         CurrencyManager.Instance.UpdateCurrencyEvent += UpdateCurrentCurrencyText;
     }
 }

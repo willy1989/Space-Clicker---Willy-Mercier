@@ -167,11 +167,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   childTargetPrefab:
-  - {fileID: 945145850868097370, guid: 31e4ce641cbad5d4d920e6ffac5d58a1, type: 3}
-  - {fileID: 945145850868097370, guid: 31e4ce641cbad5d4d920e6ffac5d58a1, type: 3}
-  - {fileID: 945145850868097370, guid: 31e4ce641cbad5d4d920e6ffac5d58a1, type: 3}
-  - {fileID: 945145850868097370, guid: 31e4ce641cbad5d4d920e6ffac5d58a1, type: 3}
-  - {fileID: 945145850868097370, guid: 31e4ce641cbad5d4d920e6ffac5d58a1, type: 3}
+  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
+  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
+  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
+  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
+  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
+  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
+  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
+  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
 --- !u!114 &848245624684451896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367c87346708f85468548b8878948737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPowerUpChance: 10
+  spawnPowerUpChance: 25
 --- !u!1 &5996592329315961055
 GameObject:
   m_ObjectHideFlags: 0
