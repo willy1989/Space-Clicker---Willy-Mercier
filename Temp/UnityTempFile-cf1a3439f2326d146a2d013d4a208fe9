@@ -353,6 +353,7 @@ Assets\Scripts\GameOverLine.cs
 "Assets\Scripts\Power up\PowerUpSpawner.cs"
 Assets\Scripts\ProjectileMovement.cs
 Assets\Scripts\Singleton.cs
+Assets\Scripts\SoundManager.cs
 Assets\Scripts\SpaceShip\Abilities\BigShot.cs
 Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities.cs
 Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitiesManager.cs

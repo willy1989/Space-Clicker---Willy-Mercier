@@ -6,6 +6,8 @@ public class SpaceShipShooting : MonoBehaviour
 {
     [SerializeField] private ProjectileMovement projectilePrefab;
 
+    [SerializeField] private SoundPlayer soundPlayer;
+
     SpaceShipShootingMode[] spaceShipShootingMode;
 
     private int shootingModeIndex
@@ -82,6 +84,7 @@ public class SpaceShipShooting : MonoBehaviour
         {
             shootingModeIndex++;
             PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageMoreGuns);
+            soundPlayer.PlaySoundEffect();
             Destroy(collision.gameObject);
         }
 
@@ -89,6 +92,7 @@ public class SpaceShipShooting : MonoBehaviour
         {
             damagePowerUp *= damagePowerUpIncreaseRate;
             PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageMoreDamage);
+            soundPlayer.PlaySoundEffect();
             Destroy(collision.gameObject);
         }
 
@@ -96,6 +100,7 @@ public class SpaceShipShooting : MonoBehaviour
         {
             frequencyPowerUp *= frequencyPowerUpIncreaseRate;
             PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageFrequency);
+            soundPlayer.PlaySoundEffect();
             Destroy(collision.gameObject);
         }
     }

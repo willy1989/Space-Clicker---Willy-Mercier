@@ -10,6 +10,8 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
 
     [SerializeField] private ParticleSystem deathParticleSystem;
 
+    [SerializeField] private SoundPlayer soundPlayer;
+
     private SpaceShipDamage spaceShipDamage;
 
     private GameObject spaceShip;
@@ -49,6 +51,8 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
             yield break;
 
         Destroy(spaceShip);
+
+        soundPlayer.PlaySoundEffect();
 
         deathParticleSystem.transform.position = spaceShip.transform.position;
 
