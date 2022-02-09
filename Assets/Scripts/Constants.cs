@@ -52,6 +52,8 @@ public static class Constants
     #region Animation
     public const string PowerUpShow_AnimationTrigger = "Show";
 
+    public const string LevelUp_AnimationTrigger = "Level up";
+
     public const string PowerUpMessageMoreGuns = "Guns +";
 
     public const string PowerUpMessageInvicibility = "Inviciblity";

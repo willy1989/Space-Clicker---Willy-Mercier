@@ -18,6 +18,8 @@ ScriptsOnlyBuild:
     - ProjectileMovement
     - ProjectilesPoolManager
     - SelectAbilityButton
+    - ShipTutorialUI
+    - SoundPlayer
     - SpaceShipAbilitiesData
     - SpaceShipAbilitiesManager
     - SpaceShipAbilitiesUpgrade
@@ -43,7 +45,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
-    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -99,6 +100,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -110,95 +115,99 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1484}
     - Class: 114
-      Script: {instanceID: 1496}
+      Script: {instanceID: 1504}
     - Class: 114
-      Script: {instanceID: 1554}
+      Script: {instanceID: 1562}
     - Class: 114
-      Script: {instanceID: 1946}
+      Script: {instanceID: 1954}
     - Class: 114
-      Script: {instanceID: 1994}
+      Script: {instanceID: 2002}
     - Class: 114
-      Script: {instanceID: 2062}
+      Script: {instanceID: 2070}
     - Class: 114
-      Script: {instanceID: 2082}
+      Script: {instanceID: 2090}
     - Class: 114
-      Script: {instanceID: 2308}
+      Script: {instanceID: 2316}
     - Class: 114
-      Script: {instanceID: 2394}
+      Script: {instanceID: 2402}
     - Class: 114
-      Script: {instanceID: 2510}
+      Script: {instanceID: 2518}
     - Class: 114
-      Script: {instanceID: 2534}
+      Script: {instanceID: 2542}
     - Class: 114
-      Script: {instanceID: 2566}
+      Script: {instanceID: 2574}
     - Class: 114
-      Script: {instanceID: 2618}
+      Script: {instanceID: 2626}
     - Class: 114
-      Script: {instanceID: 2772}
+      Script: {instanceID: 2780}
     - Class: 114
-      Script: {instanceID: 2774}
+      Script: {instanceID: 2782}
     - Class: 114
-      Script: {instanceID: 2952}
+      Script: {instanceID: 2960}
     - Class: 114
-      Script: {instanceID: 3206}
+      Script: {instanceID: 3214}
     - Class: 114
-      Script: {instanceID: 3210}
+      Script: {instanceID: 3218}
     - Class: 114
-      Script: {instanceID: 3328}
+      Script: {instanceID: 3336}
     - Class: 114
-      Script: {instanceID: 3382}
+      Script: {instanceID: 3390}
     - Class: 114
-      Script: {instanceID: 3476}
+      Script: {instanceID: 3484}
     - Class: 114
-      Script: {instanceID: 3588}
+      Script: {instanceID: 3596}
     - Class: 114
-      Script: {instanceID: 3598}
+      Script: {instanceID: 3606}
     - Class: 114
-      Script: {instanceID: 3650}
+      Script: {instanceID: 3658}
     - Class: 114
-      Script: {instanceID: 3656}
+      Script: {instanceID: 3664}
     - Class: 114
-      Script: {instanceID: 3816}
+      Script: {instanceID: 3824}
     - Class: 114
-      Script: {instanceID: 4190}
+      Script: {instanceID: 3926}
     - Class: 114
-      Script: {instanceID: 4362}
+      Script: {instanceID: 4200}
     - Class: 114
-      Script: {instanceID: 4506}
+      Script: {instanceID: 4372}
     - Class: 114
-      Script: {instanceID: 4666}
+      Script: {instanceID: 4516}
     - Class: 114
-      Script: {instanceID: 4686}
+      Script: {instanceID: 4676}
     - Class: 114
-      Script: {instanceID: 4744}
+      Script: {instanceID: 4696}
     - Class: 114
-      Script: {instanceID: 4760}
+      Script: {instanceID: 4754}
     - Class: 114
-      Script: {instanceID: 4808}
+      Script: {instanceID: 4770}
     - Class: 114
-      Script: {instanceID: 4820}
+      Script: {instanceID: 4818}
     - Class: 114
-      Script: {instanceID: 4858}
+      Script: {instanceID: 4830}
     - Class: 114
-      Script: {instanceID: 4864}
+      Script: {instanceID: 4868}
     - Class: 114
-      Script: {instanceID: 5102}
+      Script: {instanceID: 4874}
     - Class: 114
-      Script: {instanceID: 5130}
+      Script: {instanceID: 5112}
     - Class: 114
-      Script: {instanceID: 5142}
+      Script: {instanceID: 5140}
     - Class: 114
-      Script: {instanceID: 5304}
+      Script: {instanceID: 5152}
     - Class: 114
-      Script: {instanceID: 5310}
+      Script: {instanceID: 5314}
     - Class: 114
-      Script: {instanceID: 5354}
+      Script: {instanceID: 5320}
     - Class: 114
-      Script: {instanceID: 5500}
+      Script: {instanceID: 5364}
     - Class: 114
-      Script: {instanceID: 5528}
+      Script: {instanceID: 5510}
     - Class: 114
-      Script: {instanceID: 5622}
+      Script: {instanceID: 5538}
+    - Class: 114
+      Script: {instanceID: 5632}
+    - Class: 114
+      Script: {instanceID: 5664}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -506,7 +515,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 5a09dcb6d1b2b6ce22a06eed4fb7435e
+      Hash: fee5a2dffb71995c8a731df56d23490a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpaceShipShooting
@@ -600,6 +609,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ContentSizeFitter
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SoundPlayer
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -710,7 +725,7 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 2910038a8618bfd44714d3b366486f53
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameOverLine
@@ -734,7 +749,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 7f375a88b8ff8e6ca7bf3e9b24222117
+      Hash: 02cb974bb66701c48c0718ce8313e1d9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpaceShipRespawnManager
@@ -936,6 +951,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpaceShipInput
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShipTutorialUI
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f

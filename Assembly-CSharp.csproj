@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\SpaceShip\Respawn\SpaceShipRespawnUI.cs" />
     <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities.cs" />
+    <Compile Include="Assets\Scripts\SoundPlayer.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpMovement.cs" />
     <Compile Include="Assets\Scripts\UI\UImanager.cs" />
     <Compile Include="Assets\Scripts\UI\Wave.cs" />
@@ -97,7 +98,7 @@
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitiesUpgrade.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
     <Compile Include="Assets\Scripts\UI\ShipTutorialUI.cs" />
-    <Compile Include="Assets\Scripts\SoundPlayer.cs" />
+    <Compile Include="Assets\Scripts\UI\SpaceShipLevelUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

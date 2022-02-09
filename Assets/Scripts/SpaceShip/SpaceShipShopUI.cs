@@ -41,7 +41,7 @@ public class SpaceShipShopUI : Singleton<SpaceShipShopUI>
 
     private void UpdateLevelText()
     {
-        levelText.text = "Level " + SpaceShipLevelManager.Instance.SpaceShipLevel.ToString();
+        levelText.text = "Ship level " + SpaceShipLevelManager.Instance.SpaceShipLevel.ToString();
     }
 
     private void UpdateDamageText()
