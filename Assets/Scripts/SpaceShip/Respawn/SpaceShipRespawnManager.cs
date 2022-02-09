@@ -12,7 +12,7 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
 
     [SerializeField] private SoundPlayer soundPlayer;
 
-    private GameObject spaceShip;
+    public GameObject SpaceShip { get; private set; }
 
     public int RespawnDelay { get; private set; } = 5;
 
@@ -23,22 +23,22 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
 
     public void SpawnSpaceShip()
     {
-        if (spaceShip != null)
+        if (SpaceShip != null)
             return;
 
-        spaceShip = Instantiate(spaceShipPrefab, spawnPosition.position, Quaternion.identity);
+        SpaceShip = Instantiate(spaceShipPrefab, spawnPosition.position, Quaternion.identity);
     }
 
     public void DespawnSpaceShip()
     {
-        if (spaceShip == null)
+        if (SpaceShip == null)
             return;
 
-        Destroy(spaceShip);
+        Destroy(SpaceShip);
 
         soundPlayer.PlaySoundEffect();
 
-        deathParticleSystem.transform.position = spaceShip.transform.position;
+        deathParticleSystem.transform.position = SpaceShip.transform.position;
 
         deathParticleSystem.Play();
     }

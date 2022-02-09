@@ -10,13 +10,9 @@ public class SpaceShipShootingMode : MonoBehaviour
     {
         foreach(Transform shootPosition in shootPositions)
         {
-             ProjectileMovement projectile = ProjectilesPoolManager.Instance.GetNextProjectile();
-
-             projectile.SetDamage(damage);
-
-             projectile.SetDirection(Vector2.up);
-
-             projectile.SetSpawnPosition(shootPosition.position);
+             ProjectileMovement projectile = ProjectilesPoolManager.Instance.GetNextProjectile(_direction: Vector2.up, 
+                                                                                               _damage: damage, 
+                                                                                               _spawnPosition: shootPosition.position);
 
              SoundPlayer soundPlayer = projectile.gameObject.GetComponent<SoundPlayer>();
 

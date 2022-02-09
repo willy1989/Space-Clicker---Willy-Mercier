@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SpaceShipAbilities_TurboShooting : SpaceShipAbilities
 {
-    private float effectDuration = 5f;
+    private const float effectDuration = 5f;
 
     protected override void DoAbility()
     {
-        StartCoroutine(startTurboShootingCoroutine());
+        StartCoroutine(StartTurboShootingCoroutine());
     }
 
-    private IEnumerator startTurboShootingCoroutine()
+    private IEnumerator StartTurboShootingCoroutine()
     {
-        SpaceShipShooting spaceShipShooting = FindObjectOfType<SpaceShipShooting>();
+        SpaceShipShooting spaceShipShooting = SpaceShipShooting.Instance;
 
         if (spaceShipShooting != null)
         {

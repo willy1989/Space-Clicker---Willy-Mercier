@@ -6,10 +6,10 @@ public class SpaceShipAbilities_Freeze : SpaceShipAbilities
 {
     protected override void DoAbility()
     {
-        StartCoroutine(freezeAllTargets());
+        StartCoroutine(FreezeAllTargets());
     }
 
-    private IEnumerator freezeAllTargets()
+    private IEnumerator FreezeAllTargets()
     {
         Target.CanMove = false;
 

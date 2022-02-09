@@ -28,13 +28,17 @@ public class ProjectilesPoolManager : Singleton<ProjectilesPoolManager>
         }
     }
 
-    public ProjectileMovement GetNextProjectile()
+    public ProjectileMovement GetNextProjectile(Vector2 _direction, float _damage, Vector2 _spawnPosition)
     {
         poolIndex++;
 
         poolIndex %= poolSize;
 
-        pool[poolIndex].gameObject.SetActive(true);
+        ProjectileMovement projectile = pool[poolIndex];
+
+        projectile.gameObject.SetActive(true);
+
+        projectile.SetData(_direction, _damage, _spawnPosition);
 
         return pool[poolIndex];
     }

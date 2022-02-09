@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceShipShooting : MonoBehaviour
+public class SpaceShipShooting : Singleton<SpaceShipShooting>
 {
     [SerializeField] private ProjectileMovement projectilePrefab;
 
@@ -42,6 +43,8 @@ public class SpaceShipShooting : MonoBehaviour
 
     private void Awake()
     {
+        SetInstance();
+
         spaceShipShootingMode = GetComponentsInChildren<SpaceShipShootingMode>();
     }
 
@@ -82,26 +85,31 @@ public class SpaceShipShooting : MonoBehaviour
     {
         if(collision.CompareTag(Constants.ShootingModePowerUp_Tag) == true)
         {
-            shootingModeIndex++;
-            PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageMoreGuns);
-            soundPlayer.PlaySoundEffect();
-            Destroy(collision.gameObject);
+            CollectPowerUp(powerUpEffect : () => shootingModeIndex++, 
+                           message: Constants.PowerUpMessageMoreGuns, 
+                           powerUp: collision.gameObject);
         }
 
         else if(collision.CompareTag(Constants.ShootingDamagePowerUp_Tag) == true)
         {
-            damagePowerUp *= damagePowerUpIncreaseRate;
-            PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageMoreDamage);
-            soundPlayer.PlaySoundEffect();
-            Destroy(collision.gameObject);
+            CollectPowerUp(powerUpEffect: () => damagePowerUp *= damagePowerUpIncreaseRate,
+                           message: Constants.PowerUpMessageMoreDamage,
+                           powerUp: collision.gameObject);
         }
 
         else if (collision.CompareTag(Constants.ShootingFrequencyPowerUp_Tag) == true)
         {
-            frequencyPowerUp *= frequencyPowerUpIncreaseRate;
-            PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageFrequency);
-            soundPlayer.PlaySoundEffect();
-            Destroy(collision.gameObject);
+            CollectPowerUp(powerUpEffect: () => frequencyPowerUp *= frequencyPowerUpIncreaseRate,
+                           message: Constants.PowerUpMessageFrequency,
+                           powerUp: collision.gameObject);
         }
+    }
+
+    private void CollectPowerUp(Action powerUpEffect, string message, GameObject powerUp)
+    {
+        powerUpEffect.Invoke();
+        PowerUpUI.Instance.ShowPowerUpMessage(message);
+        soundPlayer.PlaySoundEffect();
+        Destroy(powerUp);
     }
 }

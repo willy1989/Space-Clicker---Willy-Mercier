@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SoundPlayer))]
 public class ProjectileMovement : MonoBehaviour
 {
     private float moveSpeed = 20f;
@@ -16,24 +17,12 @@ public class ProjectileMovement : MonoBehaviour
         MoveToTarget();
     }
 
-    public void SetDirection(Target _target)
-    {
-        direction = (_target.transform.position - transform.position).normalized;
-    }
 
-    public void SetDirection(Vector2 _direction)
+    public void SetData(Vector2 _direction, float _damage, Vector2 _spawnPosition)
     {
-        direction = _direction;
-    }
-
-    public void SetDamage(float _damage)
-    {
+        direction = _direction.normalized;
         damage = _damage;
-    }
-
-    public void SetSpawnPosition(Vector2 spawnPosition)
-    {
-        transform.position = spawnPosition;
+        transform.position = _spawnPosition;
     }
 
     private void MoveToTarget()
@@ -45,17 +34,17 @@ public class ProjectileMovement : MonoBehaviour
     {
         if (other.CompareTag(Constants.Target_Tag) == true)
         {
-            // TO DO: Add exception, the target gameobject must have a Target component
             Target target = other.GetComponent<Target>();
+            if (target == null)
+                return;
+
             target.TakeDamage(damage);
 
             Reset();
         }
 
         else if(other.CompareTag(Constants.Boundary_Tag) == true)
-        {
             Reset();
-        }
     }
 
     public void Reset()
