@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Utils
 {
-    public static string ConvertNumberToShortText(float number)
+    public static string AbreviateNumber(float number)
     {
         if (number < 1000f)
         {
@@ -19,7 +19,7 @@ public class Utils
 
             number = Mathf.Round(number * 10f) / 10f;
 
-            return number.ToString() + " k";
+            return number.ToString() + "k";
         }
 
         else if (number >= 100000f && number < 1000000f)
@@ -28,11 +28,11 @@ public class Utils
 
             number = Mathf.Round(number / 1000f);
 
-            return number.ToString() + " k";
+            return number.ToString() + "k";
         }
 
         number = Mathf.Round(number / 1000000f);
-        return number.ToString() + " m";
+        return number.ToString() + "m";
     }
 
     #region Math

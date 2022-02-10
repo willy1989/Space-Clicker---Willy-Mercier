@@ -17,7 +17,7 @@ public class SpaceShipAbilities_TurboShooting : SpaceShipAbilities
 
         if (spaceShipShooting != null)
         {
-            spaceShipShooting.ChangeFrequecyMultiplier(effect);
+            spaceShipShooting.ChangeFrequecyMultiplier(Effect);
         }
 
         yield return new WaitForSeconds(effectDuration);

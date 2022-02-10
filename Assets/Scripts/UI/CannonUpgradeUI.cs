@@ -48,12 +48,12 @@ public class CannonUpgradeUI : MonoBehaviour
 
     private void UpdateDamageCostText()
     {
-        upgradeDamageCost.text = Utils.ConvertNumberToShortText(cannonUpgradeData.NextDamageUpGradeCost);
+        upgradeDamageCost.text = Utils.AbreviateNumber(cannonUpgradeData.NextDamageUpGradeCost);
     }
 
     private void UpdateFrequencyCostText()
     {
-        upgradeFrequencyCost.text = Utils.ConvertNumberToShortText(cannonUpgradeData.NextFrequencyUpGradeCost);
+        upgradeFrequencyCost.text = Utils.AbreviateNumber(cannonUpgradeData.NextFrequencyUpGradeCost);
     }
 
     private void HighlightButtons(float currencyCount)

@@ -54,6 +54,8 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
+    Unity.Mobile.AndroidLogcat.Editor.dll:
+    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -168,49 +170,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4190}
     - Class: 114
-      Script: {instanceID: 4362}
+      Script: {instanceID: 4360}
     - Class: 114
-      Script: {instanceID: 4506}
+      Script: {instanceID: 4504}
     - Class: 114
-      Script: {instanceID: 4666}
+      Script: {instanceID: 4664}
     - Class: 114
-      Script: {instanceID: 4686}
+      Script: {instanceID: 4684}
     - Class: 114
-      Script: {instanceID: 4744}
+      Script: {instanceID: 4742}
     - Class: 114
-      Script: {instanceID: 4760}
+      Script: {instanceID: 4758}
     - Class: 114
-      Script: {instanceID: 4808}
+      Script: {instanceID: 4806}
     - Class: 114
-      Script: {instanceID: 4820}
+      Script: {instanceID: 4818}
     - Class: 114
-      Script: {instanceID: 4858}
+      Script: {instanceID: 4856}
     - Class: 114
-      Script: {instanceID: 4864}
+      Script: {instanceID: 4862}
     - Class: 114
-      Script: {instanceID: 4894}
+      Script: {instanceID: 4892}
     - Class: 114
-      Script: {instanceID: 5104}
+      Script: {instanceID: 5102}
     - Class: 114
-      Script: {instanceID: 5132}
+      Script: {instanceID: 5130}
     - Class: 114
-      Script: {instanceID: 5144}
+      Script: {instanceID: 5142}
     - Class: 114
-      Script: {instanceID: 5306}
+      Script: {instanceID: 5304}
     - Class: 114
-      Script: {instanceID: 5312}
+      Script: {instanceID: 5310}
     - Class: 114
-      Script: {instanceID: 5356}
+      Script: {instanceID: 5354}
     - Class: 114
-      Script: {instanceID: 5502}
+      Script: {instanceID: 5500}
     - Class: 114
-      Script: {instanceID: 5530}
+      Script: {instanceID: 5528}
     - Class: 114
-      Script: {instanceID: 5624}
+      Script: {instanceID: 5622}
     - Class: 114
-      Script: {instanceID: 5656}
+      Script: {instanceID: 5654}
     - Class: 114
-      Script: {instanceID: 18432}
+      Script: {instanceID: 18428}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -993,4 +995,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/willy/Documents/unity/Space Clicker - Willy Mercier/devBuild.apk
+  playerPath: C:/Users/willy/Desktop/Willy Mercier - Idle Space game.apk

@@ -17,7 +17,7 @@ public class SpaceShipAbilities_BigShot : SpaceShipAbilities
 
         BigShot bigShot = Instantiate(bigShotPrefab, spaceShipShooting.transform.position + shootingPositionOffset, Quaternion.identity);
 
-        bigShot.SetDamage(effect);
+        bigShot.SetDamage(Effect);
     }
 
     protected override string GetCostPlayerPrefName()

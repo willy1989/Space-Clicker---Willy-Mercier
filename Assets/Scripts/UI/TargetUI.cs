@@ -23,6 +23,6 @@ public class TargetUI : MonoBehaviour
 
     private void UpdateCurrentHealthText()
     {
-        currentHealthText.text = Utils.ConvertNumberToShortText(target.CurrentHealth);
+        currentHealthText.text = Utils.AbreviateNumber(target.CurrentHealth);
     }
 }

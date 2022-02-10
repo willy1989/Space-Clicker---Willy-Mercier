@@ -21,7 +21,7 @@ public class CurrencyManager : Singleton<CurrencyManager>
 
             PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, value);
             if(UpdateCurrencyEvent != null)
-                UpdateCurrencyEvent(value);
+                UpdateCurrencyEvent.Invoke(CurrencyCount);
         }
     }
 

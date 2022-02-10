@@ -9,7 +9,7 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 
     private bool canUseAbility = true;
 
-    protected float effect
+    protected float Effect
     {
         get
         {
@@ -43,12 +43,6 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 
     public Action<float> StartAbilityCoolDownEvent;
 
-    private void Start()
-    {
-        PlayerPrefs.SetFloat(GetEffectPlayerPrefName(), spaceShipAbilityData.StartEffect);
-        PlayerPrefs.SetFloat(GetCostPlayerPrefName(), spaceShipAbilityData.StartCost);
-    }
-
     public void UseAbility()
     {
         if (canUseAbility == false)
@@ -79,7 +73,7 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 
     private void IncreaseAbilityEffect()
     {
-        effect *= spaceShipAbilityData.EffectIncreaseRate;
+        Effect *= spaceShipAbilityData.EffectIncreaseRate;
     }
 
     public void UpGradeAbility()

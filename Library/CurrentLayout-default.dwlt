@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 998
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Hierarchy
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -71,10 +71,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 948
-  m_MinSize: {x: 880, y: 492}
-  m_MaxSize: {x: 16005, y: 14042}
+  m_MinSize: {x: 881, y: 492}
+  m_MaxSize: {x: 16006, y: 14042}
   vertical: 0
-  controlID: 181
+  controlID: 132
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 503
     height: 948
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -253,7 +253,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 492}
   m_MaxSize: {x: 12005, y: 14042}
   vertical: 1
-  controlID: 102
+  controlID: 133
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_MinSize: {x: 605, y: 221}
   m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 103
+  controlID: 134
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 54674
+  m_LastSelectedObjectID: 51386
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -460,36 +460,36 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/SpaceShip
+    - Assets/Prefabs/Target types
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/SpaceShip
+  - Assets/Prefabs/Target types
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\willy\Documents\unity\Space Clicker - Willy Mercier
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c6540000
-    m_LastClickedID: 21702
-    m_ExpandedIDs: 00000000a4540000c0540000c654000000ca9a3b
+    scrollPos: {x: 0, y: 50}
+    m_SelectedIDs: d8540000
+    m_LastClickedID: 21720
+    m_ExpandedIDs: 00000000a8540000aa540000b6540000bc54000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Cannon upgrades
-      m_OriginalName: Cannon upgrades
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 25764
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 6}
     m_SearchString: 
@@ -503,7 +503,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a4540000a6540000
+    m_ExpandedIDs: 00000000a8540000aa540000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -534,18 +534,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c6230000fe65000054980000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: SpaceShipDamage
-      m_OriginalName: SpaceShipDamage
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 5134
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 6}
     m_CreateAssetUtility:
@@ -624,23 +624,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c2e50000
-      m_LastClickedID: 58818
-      m_ExpandedIDs: 3078fcff4c78fcff1e79fcff0ca1fcff28a1fcfffaa1fcff46fbfffff24400006645000002cf000056cf0000c2e5000078e60000cce6000060e80000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: fe2afdff1a2bfdffe02bfdff48fdfdff64fdfdff34fefdff8853feffa453feff7454feff0a7afeff267afeff287afeff149dfeff309dfeff009efeff46fbffff52b4000008b5000066b600003eb70000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Currency manager
-        m_OriginalName: Currency manager
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 17558
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -686,9 +686,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 265.5, y: 531, z: 0}
+    m_Target: {x: 246.28587, y: 481.93332, z: 0}
     speed: 2
-    m_Value: {x: 265.5, y: 531, z: 0}
+    m_Value: {x: 246.28587, y: 481.93332, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -739,9 +739,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 593.676
+    m_Target: 248.96011
     speed: 2
-    m_Value: 593.67596
+    m_Value: 248.96011
   m_Ortho:
     m_Target: 1
     speed: 2

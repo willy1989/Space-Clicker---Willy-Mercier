@@ -34,7 +34,7 @@ public class SpaceShipAbilitiesUpgrade : MonoBehaviour
 
     private void UpdateCostText()
     {
-        costText.text = Utils.ConvertNumberToShortText(ability.Cost);
+        costText.text = Utils.AbreviateNumber(ability.Cost);
     }
 
     private void HighlightButtons(float currencyCount)

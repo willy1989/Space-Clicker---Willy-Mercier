@@ -6,7 +6,7 @@ public class ProjectilesPoolManager : Singleton<ProjectilesPoolManager>
 {
     [SerializeField] private ProjectileMovement projectilePrefab;
 
-    private const int poolSize = 300;
+    private const int poolSize = 500;
 
     private ProjectileMovement[] pool = new ProjectileMovement[poolSize];
 

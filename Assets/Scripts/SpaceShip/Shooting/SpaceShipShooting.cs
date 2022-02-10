@@ -11,7 +11,7 @@ public class SpaceShipShooting : Singleton<SpaceShipShooting>
 
     SpaceShipShootingMode[] spaceShipShootingMode;
 
-    private int shootingModeIndex
+    private int ShootingModeIndex
     {
         get
         {
@@ -24,20 +24,56 @@ public class SpaceShipShooting : Singleton<SpaceShipShooting>
                 _shootingModeIndex = value;
         }
     }
-
     private int _shootingModeIndex = 0;
 
     private float shootingRange = 14f;
 
     private float damagePowerUp = 1f;
+    private float damagePowerUpIncreaseRate = 2f;
 
-    private float frequencyPowerUp = 1f;
 
     private float frequencyPowerUpIncreaseRate = 1.2f;
 
-    private float frequencyMultiplier = 1f;
+    private float _frequencyMultiplier = 1f;
 
-    private float damagePowerUpIncreaseRate = 2f;
+    private float FrequencyMultiplier
+    {
+        get
+        {
+            return _frequencyMultiplier;
+        }
+
+        set
+        {
+            if (value > maxFrequencyMultiplier)
+                _frequencyMultiplier = maxFrequencyMultiplier;
+            else
+                _frequencyMultiplier = value;
+        }
+    }
+
+    private const float maxFrequencyMultiplier = 5f;
+
+    private float FrequencyPowerUp
+    {
+        get
+        {
+            return _frequencyPowerUp;
+        }
+
+        set
+        {
+            if (value > maxFrequencyPowerUp)
+                _frequencyPowerUp = maxFrequencyPowerUp;
+            else
+                _frequencyPowerUp = value;
+        }
+    }
+
+    private float _frequencyPowerUp = 1f;
+
+    private const float maxFrequencyPowerUp = 5f;
+
 
     private bool canShoot = true;
 
@@ -58,7 +94,7 @@ public class SpaceShipShooting : Singleton<SpaceShipShooting>
         while(canShoot == true)
         {
             Shoot();
-            yield return new WaitForSeconds((SpaceShipLevelManager.Instance.SpaceShipBaseFrequency / frequencyPowerUp) / frequencyMultiplier);
+            yield return new WaitForSeconds((SpaceShipLevelManager.Instance.SpaceShipBaseFrequency / FrequencyPowerUp) / FrequencyMultiplier);
         }
     }
 
@@ -73,19 +109,19 @@ public class SpaceShipShooting : Singleton<SpaceShipShooting>
             return;
 
         if((closestTarget.transform.position - transform.position).magnitude <= shootingRange)
-            spaceShipShootingMode[shootingModeIndex].Shoot(projectilePrefab, SpaceShipLevelManager.Instance.SpaceShipBaseDamage * damagePowerUp);
+            spaceShipShootingMode[ShootingModeIndex].Shoot(projectilePrefab, SpaceShipLevelManager.Instance.SpaceShipBaseDamage * damagePowerUp);
     }
 
     public void ChangeFrequecyMultiplier(float multiplier)
     {
-        frequencyMultiplier = multiplier;
+        FrequencyMultiplier = multiplier;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag(Constants.ShootingModePowerUp_Tag) == true)
         {
-            CollectPowerUp(powerUpEffect : () => shootingModeIndex++, 
+            CollectPowerUp(powerUpEffect : () => ShootingModeIndex++, 
                            message: Constants.PowerUpMessageMoreGuns, 
                            powerUp: collision.gameObject);
         }
@@ -99,7 +135,7 @@ public class SpaceShipShooting : Singleton<SpaceShipShooting>
 
         else if (collision.CompareTag(Constants.ShootingFrequencyPowerUp_Tag) == true)
         {
-            CollectPowerUp(powerUpEffect: () => frequencyPowerUp *= frequencyPowerUpIncreaseRate,
+            CollectPowerUp(powerUpEffect: () => FrequencyPowerUp *= frequencyPowerUpIncreaseRate,
                            message: Constants.PowerUpMessageFrequency,
                            powerUp: collision.gameObject);
         }

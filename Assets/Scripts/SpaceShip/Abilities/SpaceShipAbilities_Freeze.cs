@@ -13,7 +13,7 @@ public class SpaceShipAbilities_Freeze : SpaceShipAbilities
     {
         Target.CanMove = false;
 
-        yield return new WaitForSeconds(effect);
+        yield return new WaitForSeconds(Effect);
 
         Target.CanMove = true;
     }

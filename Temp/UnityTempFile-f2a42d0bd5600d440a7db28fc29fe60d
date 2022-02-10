@@ -377,7 +377,7 @@ Assets\Scripts\UI\SpaceShipLevelUI.cs
 Assets\Scripts\UI\SpaceShipRespawnUI.cs
 Assets\Scripts\UI\SpaceShipShopUI.cs
 Assets\Scripts\UI\TargetUI.cs
-Assets\Scripts\UI\WaveManager.cs
 Assets\Scripts\UI\WaveUI.cs
 Assets\Scripts\Utils.cs
 Assets\Scripts\Wave.cs
+Assets\Scripts\WaveManager.cs
