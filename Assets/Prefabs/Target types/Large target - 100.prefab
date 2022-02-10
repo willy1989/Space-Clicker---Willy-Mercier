@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 945145850868097364}
   - component: {fileID: 1587446809180252792}
   - component: {fileID: 1026202030447571141}
-  - component: {fileID: 3636399343705290081}
   - component: {fileID: 848245624684451896}
   m_Layer: 0
   m_Name: Large target - 100
@@ -154,22 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealthText: {fileID: 6279274682529059661}
---- !u!114 &3636399343705290081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945145850868097370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f27c60a8bd2a05345b9bce022cfe0ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  childTargetPrefab:
-  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
-  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
-  - {fileID: 945145850868097370, guid: bb233d541bf62c540944ca0b3372d706, type: 3}
 --- !u!114 &848245624684451896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,7 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367c87346708f85468548b8878948737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPowerUpChance: 20
+  spawnPowerUpChance: 15
 --- !u!1 &5996592329315961055
 GameObject:
   m_ObjectHideFlags: 0

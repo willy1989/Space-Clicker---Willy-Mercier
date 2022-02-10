@@ -25,6 +25,8 @@ public class SpaceShipAbilitiesUpgrade : MonoBehaviour
     {
         ability.UpgradeAbilityEvent += UpdateCostText;
 
+        HighlightButtons(CurrencyManager.Instance.CurrencyCount);
+
         CurrencyManager.Instance.UpdateCurrencyEvent += HighlightButtons;
 
         UpdateCostText();
@@ -32,7 +34,7 @@ public class SpaceShipAbilitiesUpgrade : MonoBehaviour
 
     private void UpdateCostText()
     {
-        costText.text = Utils.ConvertNumberToShortText(ability.Cost);
+        costText.text = Utils.AbreviateNumber(ability.Cost);
     }
 
     private void HighlightButtons(float currencyCount)

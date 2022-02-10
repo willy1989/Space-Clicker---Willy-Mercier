@@ -12,9 +12,7 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
 
     [SerializeField] private SoundPlayer soundPlayer;
 
-    private SpaceShipDamage spaceShipDamage;
-
-    private GameObject spaceShip;
+    public GameObject SpaceShip { get; private set; }
 
     public int RespawnDelay { get; private set; } = 5;
 
@@ -23,21 +21,26 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
         SetInstance();
     }
 
-    private void Start()
+    public void SpawnSpaceShip()
     {
-        SpawnSpaceShip();
+        if (SpaceShip != null)
+            return;
+
+        SpaceShip = Instantiate(spaceShipPrefab, spawnPosition.position, Quaternion.identity);
     }
 
-    
-
-    private void SpawnSpaceShip()
+    public void DespawnSpaceShip()
     {
-        spaceShip = Instantiate(spaceShipPrefab, spawnPosition.position, Quaternion.identity);
-        spaceShipDamage = spaceShip.GetComponentInChildren<SpaceShipDamage>();
-        spaceShipDamage.BecomeInvincible();
+        if (SpaceShip == null)
+            return;
 
-        if (spaceShipDamage != null)
-            spaceShipDamage.DeathEvent += RespawnSpaceShip;
+        Destroy(SpaceShip);
+
+        soundPlayer.PlaySoundEffect();
+
+        deathParticleSystem.transform.position = SpaceShip.transform.position;
+
+        deathParticleSystem.Play();
     }
 
     public void RespawnSpaceShip()
@@ -47,23 +50,10 @@ public class SpaceShipRespawnManager : Singleton<SpaceShipRespawnManager>
 
     private IEnumerator RespawnSpaceShipCoroutine()
     {
-        if (spaceShipDamage == null)
-            yield break;
-
-        Destroy(spaceShip);
-
-        soundPlayer.PlaySoundEffect();
-
-        deathParticleSystem.transform.position = spaceShip.transform.position;
-
-        deathParticleSystem.Play();
-
         SpaceShipRespawnUI.Instance.StartRespawnCountDownText(RespawnDelay);
 
         yield return new WaitForSeconds(RespawnDelay);
 
         SpawnSpaceShip();
     }
-
-    
 }

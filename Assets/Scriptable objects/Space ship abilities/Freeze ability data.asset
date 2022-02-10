@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDownDuration: 30
   effectIncreaseRate: 1.1
-  costIncreaseRate: 1.1
-  startEffect: 5
-  startCost: 100
+  costIncreaseRate: 2
+  startEffect: 3
+  startCost: 200

@@ -6,13 +6,19 @@ public class CannonShooting : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
 
-    [SerializeField] CannonUpgradeData cannonUpgradeData;
+    CannonUpgradeData cannonUpgradeData;
 
     private Target currentTarget;
 
-    private int shootingRange = 20;
+    private int shootingRange = 17;
 
     private bool shootToggle = true;
+
+
+    private void Awake()
+    {
+        cannonUpgradeData = GetComponent<CannonUpgradeData>();
+    }
 
     private void Start()
     {
@@ -40,8 +46,6 @@ public class CannonShooting : MonoBehaviour
         if (currentTarget != null)
             return;
 
-        //Target nextTarget = WaveManager.Instance.GetTargetWithMostHealth();
-
         Target nextTarget = WaveManager.Instance.GetClosestTarget(transform.position);
 
         if (nextTarget != null && TargetWithingRange(nextTarget) == true)
@@ -56,13 +60,13 @@ public class CannonShooting : MonoBehaviour
         if (currentTarget == null)
             return;
 
-        ProjectileMovement projectileMovement = ProjectilesPoolManager.Instance.GetNextProjectile();
+        Vector2 direction = currentTarget.transform.position - transform.position;
 
-        projectileMovement.SetDamage(_damage: cannonUpgradeData.Damage);
+        Vector2 spawnPosition = ((Vector2)transform.position + Vector2.up / 2);
 
-        projectileMovement.SetSpawnPosition((Vector2)transform.position + Vector2.up / 2);
-
-        projectileMovement.SetDirection(_target: currentTarget);
+        ProjectileMovement projectileMovement = ProjectilesPoolManager.Instance.GetNextProjectile(_direction: direction, 
+                                                                                                  _damage: cannonUpgradeData.Damage, 
+                                                                                                  _spawnPosition: spawnPosition);
 
         SoundPlayer soundPlayer = projectileMovement.gameObject.GetComponent<SoundPlayer>();
 

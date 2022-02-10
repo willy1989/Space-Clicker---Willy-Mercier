@@ -100,7 +100,6 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
     private void Awake()
     {
         SetInstance();
-        ResetLevelValues();
     }
 
     private void Start()

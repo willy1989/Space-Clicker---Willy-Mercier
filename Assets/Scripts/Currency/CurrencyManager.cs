@@ -14,10 +14,14 @@ public class CurrencyManager : Singleton<CurrencyManager>
 
         set
         {
-            // To do: throw exception when value is below 0.
+            if(value < 0)
+            {
+                throw new ArgumentOutOfRangeException("The currency count can't be negative");
+            }
+
             PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, value);
             if(UpdateCurrencyEvent != null)
-                UpdateCurrencyEvent(value);
+                UpdateCurrencyEvent.Invoke(CurrencyCount);
         }
     }
 
@@ -27,11 +31,6 @@ public class CurrencyManager : Singleton<CurrencyManager>
     private void Awake()
     {
         SetInstance();
-    }
-
-    private void Start()
-    {
-        PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, 0f);
     }
 
     public void SpendCurrency(float amount)

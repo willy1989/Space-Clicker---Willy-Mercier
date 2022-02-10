@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Turbo shooting ability data
   m_EditorClassIdentifier: 
   coolDownDuration: 30
-  effectIncreaseRate: 1.1
-  costIncreaseRate: 1.1
+  effectIncreaseRate: 1.05
+  costIncreaseRate: 2
   startEffect: 2
-  startCost: 100
+  startCost: 200

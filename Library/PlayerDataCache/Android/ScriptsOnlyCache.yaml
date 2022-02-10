@@ -21,7 +21,6 @@ ScriptsOnlyBuild:
     - ShipTutorialUI
     - SoundPlayer
     - SpaceShipAbilitiesData
-    - SpaceShipAbilitiesManager
     - SpaceShipAbilitiesUpgrade
     - SpaceShipAbilities_BigShot
     - SpaceShipAbilities_Freeze
@@ -30,6 +29,7 @@ ScriptsOnlyBuild:
     - SpaceShipDamage
     - SpaceShipInput
     - SpaceShipLevelManager
+    - SpaceShipLevelUI
     - SpaceShipMovement
     - SpaceShipRespawnManager
     - SpaceShipRespawnUI
@@ -45,6 +45,7 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -53,6 +54,8 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewOpenTilePaletteHelper
     - UnityEditor.Tilemaps.TileDragAndDropManager
     - UnityEditor.Tilemaps.TilemapPrefabStageHelper
+    Unity.Mobile.AndroidLogcat.Editor.dll:
+    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     UnityEditor.Graphs.dll:
@@ -115,99 +118,101 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1484}
     - Class: 114
-      Script: {instanceID: 1504}
+      Script: {instanceID: 1496}
     - Class: 114
-      Script: {instanceID: 1562}
+      Script: {instanceID: 1554}
     - Class: 114
-      Script: {instanceID: 1954}
+      Script: {instanceID: 1946}
     - Class: 114
-      Script: {instanceID: 2002}
+      Script: {instanceID: 1994}
     - Class: 114
-      Script: {instanceID: 2070}
+      Script: {instanceID: 2062}
     - Class: 114
-      Script: {instanceID: 2090}
+      Script: {instanceID: 2082}
     - Class: 114
-      Script: {instanceID: 2316}
+      Script: {instanceID: 2308}
     - Class: 114
-      Script: {instanceID: 2402}
+      Script: {instanceID: 2394}
     - Class: 114
-      Script: {instanceID: 2518}
+      Script: {instanceID: 2510}
     - Class: 114
-      Script: {instanceID: 2542}
+      Script: {instanceID: 2564}
     - Class: 114
-      Script: {instanceID: 2574}
+      Script: {instanceID: 2616}
     - Class: 114
-      Script: {instanceID: 2626}
+      Script: {instanceID: 2770}
     - Class: 114
-      Script: {instanceID: 2780}
+      Script: {instanceID: 2772}
     - Class: 114
-      Script: {instanceID: 2782}
+      Script: {instanceID: 2950}
     - Class: 114
-      Script: {instanceID: 2960}
+      Script: {instanceID: 3204}
     - Class: 114
-      Script: {instanceID: 3214}
+      Script: {instanceID: 3208}
     - Class: 114
-      Script: {instanceID: 3218}
+      Script: {instanceID: 3326}
     - Class: 114
-      Script: {instanceID: 3336}
+      Script: {instanceID: 3380}
     - Class: 114
-      Script: {instanceID: 3390}
+      Script: {instanceID: 3474}
     - Class: 114
-      Script: {instanceID: 3484}
+      Script: {instanceID: 3586}
     - Class: 114
       Script: {instanceID: 3596}
     - Class: 114
-      Script: {instanceID: 3606}
+      Script: {instanceID: 3654}
     - Class: 114
-      Script: {instanceID: 3658}
+      Script: {instanceID: 3704}
     - Class: 114
-      Script: {instanceID: 3664}
+      Script: {instanceID: 3814}
     - Class: 114
-      Script: {instanceID: 3824}
+      Script: {instanceID: 3916}
     - Class: 114
-      Script: {instanceID: 3926}
+      Script: {instanceID: 4190}
     - Class: 114
-      Script: {instanceID: 4200}
+      Script: {instanceID: 4360}
     - Class: 114
-      Script: {instanceID: 4372}
+      Script: {instanceID: 4504}
     - Class: 114
-      Script: {instanceID: 4516}
+      Script: {instanceID: 4664}
     - Class: 114
-      Script: {instanceID: 4676}
+      Script: {instanceID: 4684}
     - Class: 114
-      Script: {instanceID: 4696}
+      Script: {instanceID: 4742}
     - Class: 114
-      Script: {instanceID: 4754}
+      Script: {instanceID: 4758}
     - Class: 114
-      Script: {instanceID: 4770}
+      Script: {instanceID: 4806}
     - Class: 114
       Script: {instanceID: 4818}
     - Class: 114
-      Script: {instanceID: 4830}
+      Script: {instanceID: 4856}
     - Class: 114
-      Script: {instanceID: 4868}
+      Script: {instanceID: 4862}
     - Class: 114
-      Script: {instanceID: 4874}
+      Script: {instanceID: 4892}
     - Class: 114
-      Script: {instanceID: 5112}
+      Script: {instanceID: 5102}
     - Class: 114
-      Script: {instanceID: 5140}
+      Script: {instanceID: 5130}
     - Class: 114
-      Script: {instanceID: 5152}
+      Script: {instanceID: 5142}
     - Class: 114
-      Script: {instanceID: 5314}
+      Script: {instanceID: 5304}
     - Class: 114
-      Script: {instanceID: 5320}
+      Script: {instanceID: 5310}
     - Class: 114
-      Script: {instanceID: 5364}
+      Script: {instanceID: 5354}
     - Class: 114
-      Script: {instanceID: 5510}
+      Script: {instanceID: 5500}
     - Class: 114
-      Script: {instanceID: 5538}
+      Script: {instanceID: 5528}
     - Class: 114
-      Script: {instanceID: 5632}
+      Script: {instanceID: 5622}
     - Class: 114
-      Script: {instanceID: 5664}
+      Script: {instanceID: 5654}
+    - Class: 114
+      Script: {instanceID: 18428}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -395,12 +400,6 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: 08ef3af3907ebbc1d2bc8e7b67b81b52
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SpaceShipAbilitiesManager
-  - hash:
-      serializedVersion: 2
       Hash: ce9323054f6930b501c9b07abcfc3f70
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -473,7 +472,7 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
-      Hash: 9298628969f2c97ee2398475cc97ab69
+      Hash: 240c1e7c3599ccf964b8059f4dff1380
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CannonShooting
@@ -581,16 +580,16 @@ ScriptsOnlyBuild:
     className: SpriteShapeController
   - hash:
       serializedVersion: 2
-      Hash: 8b088fcf46b07bb70e6a8c38dbac8d82
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: CannonUpgradeData
+    className: SpaceShipRespawnUI
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: SpaceShipRespawnUI
+    className: SpaceShipLevelUI
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -651,12 +650,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PowerUpMovement
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UImanager
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -821,6 +814,12 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
+      Hash: be1e5d12eab584a1b27349ee960c6fd4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CannonUpgradeData
+  - hash:
+      serializedVersion: 2
       Hash: 3165968ba45c74472d279ba04455fccb
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -869,7 +868,7 @@ ScriptsOnlyBuild:
     className: SpaceShipAbilities_BigShot
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 73560ae39c4d86ca7648bb7bc48ac143
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpaceShipDamage
@@ -996,4 +995,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/willy/Documents/unity/Space Clicker - Willy Mercier/devBuild.apk
+  playerPath: C:/Users/willy/Desktop/Willy Mercier - Idle Space game.apk

@@ -1,70 +1,110 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Cannon data", menuName = "ScriptableObjects/Cannon data", order = 1)]
-public class CannonUpgradeData:ScriptableObject
+public class CannonUpgradeData : MonoBehaviour
 {
-    [SerializeField] private float shootingFrequency;
+    [SerializeField] private CannonName cannon;
 
-    public float ShootingFrequency
-    {  
-        get
-        {
-            return shootingFrequency;
-        }
+    private string cannonName;
+
+    private const float startShootingFrequency = 1f;
+    private const int startDamage = 1;
+    private const float startNextDamageUpGradeCost = 1f;
+    private const float startNextFrequencyUpGradeCost = 1f;
+
+    private Dictionary<CannonName, string> cannonNameDictionnary = new Dictionary<CannonName, string>
+    {
+        {CannonName.Cannon1, Constants.CannonName1_PlayerPref},
+        {CannonName.Cannon2, Constants.CannonName2_PlayerPref},
+        {CannonName.Cannon3, Constants.CannonName3_PlayerPref},
+        {CannonName.Cannon4, Constants.CannonName4_PlayerPref}
+    };
+
+    private void Awake()
+    {
+        cannonName = cannonNameDictionnary[cannon];
     }
 
-    [SerializeField] int damage;
+    public float ShootingFrequency
+    {
+        get
+        {
+            return PlayerPrefs.GetFloat(cannonName + "ShootingFrequency", startShootingFrequency);
+        }
+
+        set
+        {
+            PlayerPrefs.SetFloat(cannonName + "ShootingFrequency", value);
+        }
+    }
 
     public int Damage
     {
         get
         {
-            return damage;
+            return PlayerPrefs.GetInt(cannonName + "Damage", startDamage);
+        }
+
+        set
+        {
+            PlayerPrefs.SetInt(cannonName + "Damage", value);
         }
     }
-
-    [SerializeField] private float nextDamageUpGradeCost;
 
     public float NextDamageUpGradeCost
     {
         get
         {
-            return nextDamageUpGradeCost;
+            return PlayerPrefs.GetFloat(cannonName + "NextDamageUpGradeCost", startNextDamageUpGradeCost);
+        }
+
+        set
+        {
+            PlayerPrefs.SetFloat(cannonName + "NextDamageUpGradeCost", value);
         }
     }
-
-    [SerializeField] private float nextfrequencyUpGradeCost;
 
     public float NextFrequencyUpGradeCost
     {
         get
         {
-            return nextfrequencyUpGradeCost;
+            return PlayerPrefs.GetFloat(cannonName + "NextFrequencyUpGradeCost", startNextFrequencyUpGradeCost);
+        }
+
+        set
+        {
+            PlayerPrefs.SetFloat(cannonName + "NextFrequencyUpGradeCost", value);
         }
     }
 
     public void UpGradeDamage()
     {
-        if (CurrencyManager.Instance.HasSufficientBalance(nextDamageUpGradeCost) == false)
+        if (CurrencyManager.Instance.HasSufficientBalance(NextDamageUpGradeCost) == false)
             return;
 
-        CurrencyManager.Instance.SpendCurrency(nextDamageUpGradeCost);
+        CurrencyManager.Instance.SpendCurrency(NextDamageUpGradeCost);
 
-        damage *= 2;
-        nextDamageUpGradeCost *= 5;
+        Damage *= 2;
+        NextDamageUpGradeCost *= 5;
     }
 
     public void UpGradeFrequency()
     {
-        if (CurrencyManager.Instance.HasSufficientBalance(nextfrequencyUpGradeCost) == false)
+        if (CurrencyManager.Instance.HasSufficientBalance(NextFrequencyUpGradeCost) == false)
             return;
 
-        CurrencyManager.Instance.SpendCurrency(nextfrequencyUpGradeCost);
+        CurrencyManager.Instance.SpendCurrency(NextFrequencyUpGradeCost);
 
-        shootingFrequency -= 0.05f;
-        nextfrequencyUpGradeCost *= 5f;
+        ShootingFrequency -= 0.05f;
+        NextFrequencyUpGradeCost *= 5f;
     }
+}
+
+public enum CannonName
+{
+    Cannon1,
+    Cannon2,
+    Cannon3,
+    Cannon4
 }
