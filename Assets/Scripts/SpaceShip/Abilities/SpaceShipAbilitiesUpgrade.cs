@@ -25,7 +25,7 @@ public class SpaceShipAbilitiesUpgrade : MonoBehaviour
     {
         ability.UpgradeAbilityEvent += UpdateCostText;
 
-        HighlightButtons(CurrencyManager.Instance.CurrencyCount);
+        HighlightButtons();
 
         CurrencyManager.Instance.UpdateCurrencyEvent += HighlightButtons;
 
@@ -37,9 +37,9 @@ public class SpaceShipAbilitiesUpgrade : MonoBehaviour
         costText.text = Utils.AbreviateNumber(ability.Cost);
     }
 
-    private void HighlightButtons(float currencyCount)
+    private void HighlightButtons()
     {
-        if (currencyCount >= ability.Cost)
+        if (CurrencyManager.Instance.CurrencyCount >= ability.Cost)
             upgradeButton.image.color = purchaseAvailableColor;
         else
             upgradeButton.image.color = originalColor;

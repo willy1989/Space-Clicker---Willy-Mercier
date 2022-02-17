@@ -8,9 +8,9 @@ public class CurrencyUI : Singleton<CurrencyUI>
     [SerializeField] private Text currentCurrencyText;
 
 
-    private void UpdateCurrentCurrencyText(float currentCurrencyCount)
+    private void UpdateCurrentCurrencyText()
     {
-        currentCurrencyText.text = Utils.AbreviateNumber(currentCurrencyCount);
+        currentCurrencyText.text = Utils.AbreviateNumber(CurrencyManager.Instance.CurrencyCount);
     }
 
     private void Awake()
@@ -20,7 +20,7 @@ public class CurrencyUI : Singleton<CurrencyUI>
 
     private void Start()
     {
-        UpdateCurrentCurrencyText(CurrencyManager.Instance.CurrencyCount);
+        UpdateCurrentCurrencyText();
         CurrencyManager.Instance.UpdateCurrencyEvent += UpdateCurrentCurrencyText;
     }
 }
