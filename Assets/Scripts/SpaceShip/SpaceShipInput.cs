@@ -26,7 +26,7 @@ public class SpaceShipInput : Singleton<SpaceShipInput>
 
         Touch touch = Input.GetTouch(0);
 
-        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId) == true)
+        if (EventSystem.current.IsPointerOverGameObject(touch.fingerId) == true || touch.phase == TouchPhase.Ended)
             return null;
 
         else
