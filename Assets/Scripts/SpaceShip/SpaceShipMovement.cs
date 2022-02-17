@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class SpaceShipMovement : MonoBehaviour
 {
-    private Vector3 idlePosition = new Vector3(0f, -3f, 0f);
+    private Vector3 idlePosition = new Vector3(0f, -1f, 0f);
 
     private int movementSpeed = 25;
 
-    private Vector3 fingerPositionOffset = new Vector2(0f, 1.5f);
-
-    private float movementLimitYPosition = -4f;
+    private Vector3 fingerPositionOffset = new Vector3(0f, 1.5f,0f);
 
     private void FixedUpdate()
     {
@@ -21,17 +19,13 @@ public class SpaceShipMovement : MonoBehaviour
     {
         Vector3 spaceShipToDestination;
 
-        if (SpaceShipInput.Instance.Destination == Vector3.zero)
-        {
+        if (SpaceShipInput.Instance.PositionInput == null)
             spaceShipToDestination = idlePosition - transform.position;
-        }
 
         else
-        {
-            spaceShipToDestination = (SpaceShipInput.Instance.Destination + fingerPositionOffset) - transform.position;
-        }
+            spaceShipToDestination = (Vector3)SpaceShipInput.Instance.PositionInput + fingerPositionOffset - transform.position;
 
-        if (spaceShipToDestination.magnitude < 0.3f || SpaceShipInput.Instance.Destination.y <= movementLimitYPosition)
+        if (spaceShipToDestination.magnitude < 0.3f)
             return;
 
         transform.position += spaceShipToDestination.normalized * movementSpeed * Time.fixedDeltaTime;
