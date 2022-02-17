@@ -13,6 +13,12 @@ public class CannonUpgradeData : MonoBehaviour
     private const float startNextDamageUpGradeCost = 1f;
     private const float startNextFrequencyUpGradeCost = 1f;
 
+    private const float shootingFrequencyImprovement = -0.05f;
+    private const float frequencyUpgradeCostRate = 5f;
+
+    private const int damageImprovement = 2;
+    private const float damageUpgradeCostRate = 5f;
+
     private Dictionary<CannonName, string> cannonNameDictionnary = new Dictionary<CannonName, string>
     {
         {CannonName.Cannon1, Constants.CannonName1_PlayerPref},
@@ -85,8 +91,8 @@ public class CannonUpgradeData : MonoBehaviour
 
         CurrencyManager.Instance.SpendCurrency(NextDamageUpGradeCost);
 
-        Damage *= 2;
-        NextDamageUpGradeCost *= 5;
+        Damage *= damageImprovement;
+        NextDamageUpGradeCost *= damageUpgradeCostRate;
     }
 
     public void UpGradeFrequency()
@@ -96,8 +102,8 @@ public class CannonUpgradeData : MonoBehaviour
 
         CurrencyManager.Instance.SpendCurrency(NextFrequencyUpGradeCost);
 
-        ShootingFrequency -= 0.05f;
-        NextFrequencyUpGradeCost *= 5f;
+        ShootingFrequency += shootingFrequencyImprovement;
+        NextFrequencyUpGradeCost *= frequencyUpgradeCostRate;
     }
 }
 

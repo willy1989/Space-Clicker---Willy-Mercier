@@ -25,7 +25,6 @@ public class CannonUpgradeUI : MonoBehaviour
     private Color originalColor = Color.white;
 
 
-
     private void Awake()
     {
         upgradeDamageButton.onClick.AddListener(cannonUpgradeData.UpGradeDamage);
@@ -42,6 +41,7 @@ public class CannonUpgradeUI : MonoBehaviour
     {
         UpdateDamageCostText();
         UpdateFrequencyCostText();
+        HighlightButtons();
 
         CurrencyManager.Instance.UpdateCurrencyEvent += HighlightButtons;
     }
@@ -56,18 +56,16 @@ public class CannonUpgradeUI : MonoBehaviour
         upgradeFrequencyCost.text = Utils.AbreviateNumber(cannonUpgradeData.NextFrequencyUpGradeCost);
     }
 
-    private void HighlightButtons(float currencyCount)
+    private void HighlightButtons()
     {
-        if (currencyCount >= cannonUpgradeData.NextDamageUpGradeCost)
+        if (CurrencyManager.Instance.CurrencyCount >= cannonUpgradeData.NextDamageUpGradeCost)
             upgradeDamageButton.image.color = purchaseAvailableColor;
         else
             upgradeDamageButton.image.color = originalColor;
 
-        if (currencyCount >= cannonUpgradeData.NextFrequencyUpGradeCost)
+        if (CurrencyManager.Instance.CurrencyCount >= cannonUpgradeData.NextFrequencyUpGradeCost)
             upgradeFrequencyButton.image.color = purchaseAvailableColor;
         else
             upgradeFrequencyButton.image.color = originalColor;
     }
-
-
 }

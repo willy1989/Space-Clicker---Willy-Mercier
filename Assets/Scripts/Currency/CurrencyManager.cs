@@ -21,11 +21,11 @@ public class CurrencyManager : Singleton<CurrencyManager>
 
             PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, value);
             if(UpdateCurrencyEvent != null)
-                UpdateCurrencyEvent.Invoke(CurrencyCount);
+                UpdateCurrencyEvent.Invoke();
         }
     }
 
-    public Action<float> UpdateCurrencyEvent;
+    public Action UpdateCurrencyEvent;
     public Action<float> AddCurrencyEvent;
 
     private void Awake()
