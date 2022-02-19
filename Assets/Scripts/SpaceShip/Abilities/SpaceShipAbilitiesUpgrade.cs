@@ -44,6 +44,4 @@ public class SpaceShipAbilitiesUpgrade : MonoBehaviour
         else
             upgradeButton.image.color = originalColor;
     }
-
-
 }

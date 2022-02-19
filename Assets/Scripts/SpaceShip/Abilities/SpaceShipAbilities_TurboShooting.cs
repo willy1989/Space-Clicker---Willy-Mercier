@@ -6,6 +6,12 @@ public class SpaceShipAbilities_TurboShooting : SpaceShipAbilities
 {
     private const float effectDuration = 5f;
 
+    private void Awake()
+    {
+        SetJasonFileName();
+        LoadData();
+    }
+
     protected override void DoAbility()
     {
         StartCoroutine(StartTurboShootingCoroutine());
@@ -17,7 +23,7 @@ public class SpaceShipAbilities_TurboShooting : SpaceShipAbilities
 
         if (spaceShipShooting != null)
         {
-            spaceShipShooting.ChangeFrequecyMultiplier(Effect);
+            spaceShipShooting.ChangeFrequecyMultiplier(spaceShipAbilityPersistentData.Effect);
         }
 
         yield return new WaitForSeconds(effectDuration);
@@ -28,13 +34,8 @@ public class SpaceShipAbilities_TurboShooting : SpaceShipAbilities
         }
     }
 
-    protected override string GetCostPlayerPrefName()
+    protected override void SetJasonFileName()
     {
-        return Constants.SpaceShipAbilityTurboCost_PlayerPref;
-    }
-
-    protected override string GetEffectPlayerPrefName()
-    {
-        return Constants.SpaceShipAbilityTurboEffect_PlayerPref;
+        jsonFileName = "turboAbilityData.json";
     }
 }

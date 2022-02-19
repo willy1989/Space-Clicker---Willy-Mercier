@@ -5,43 +5,48 @@ using UnityEngine;
 
 public abstract class SpaceShipAbilities : MonoBehaviour
 {
-    [SerializeField] private SpaceShipAbilitiesData spaceShipAbilityData;
+    [SerializeField] protected SpaceShipAbilitiesData spaceShipAbilityData;
 
-    private bool canUseAbility = true;
+    protected SpaceShipAbilityPersistentData spaceShipAbilityPersistentData;
 
-    protected float Effect
-    {
-        get
-        {
-            return PlayerPrefs.GetFloat(GetEffectPlayerPrefName(), spaceShipAbilityData.StartEffect);
-        }
-
-        set
-        {
-            PlayerPrefs.SetFloat(GetEffectPlayerPrefName(), value);
-        }
-    }
+    protected string jsonFileName;
 
     public float Cost
     {
         get
         {
-            return PlayerPrefs.GetFloat(GetCostPlayerPrefName(), spaceShipAbilityData.StartCost);
-        }
-
-        private set
-        {
-            PlayerPrefs.SetFloat(GetCostPlayerPrefName(), value);
-            UpgradeAbilityEvent.Invoke();
+            return spaceShipAbilityPersistentData.Cost;
         }
     }
 
-    protected abstract string GetEffectPlayerPrefName();
-    protected abstract string GetCostPlayerPrefName();
+    public float Effect
+    {
+        get
+        {
+            return spaceShipAbilityPersistentData.Effect;
+        }
+    }
+
+    private bool canUseAbility = true;
 
     public Action UpgradeAbilityEvent;
 
     public Action<float> StartAbilityCoolDownEvent;
+
+    protected abstract void SetJasonFileName();
+
+    protected void LoadData()
+    {
+        if (JsonDataManagement.FileExists(fileName: jsonFileName) == true)
+        {
+            spaceShipAbilityPersistentData = JsonDataManagement.LoadData<SpaceShipAbilityPersistentData>(fileName: jsonFileName);
+        }
+
+        else
+        {
+            spaceShipAbilityPersistentData = new SpaceShipAbilityPersistentData(_cost: spaceShipAbilityData.StartCost, _effect: spaceShipAbilityData.StartEffect);
+        }
+    }
 
     public void UseAbility()
     {
@@ -50,10 +55,10 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 
         DoAbility();
 
-        StartCoroutine(startCoolDownCoroutine());
+        StartCoroutine(StartCoolDownCoroutine());
     }
 
-    private IEnumerator startCoolDownCoroutine()
+    private IEnumerator StartCoolDownCoroutine()
     {
         canUseAbility = false;
 
@@ -68,22 +73,26 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 
     private void IncreaseAbilityCost()
     {
-        Cost *= spaceShipAbilityData.CostIncreaseRate;
+        spaceShipAbilityPersistentData.Cost *= spaceShipAbilityData.CostIncreaseRate;
     }
 
     private void IncreaseAbilityEffect()
     {
-        Effect *= spaceShipAbilityData.EffectIncreaseRate;
+        spaceShipAbilityPersistentData.Effect *= spaceShipAbilityData.EffectIncreaseRate;
     }
 
     public void UpGradeAbility()
     {
-        if(CurrencyManager.Instance.HasSufficientBalance(cost: Cost) == true)
+        if(CurrencyManager.Instance.HasSufficientBalance(cost: spaceShipAbilityPersistentData.Cost) == true)
         {
-            CurrencyManager.Instance.SpendCurrency(amount: Cost);
+            CurrencyManager.Instance.SpendCurrency(amount: spaceShipAbilityPersistentData.Cost);
 
             IncreaseAbilityEffect();
             IncreaseAbilityCost();
+
+            UpgradeAbilityEvent.Invoke();
+
+            JsonDataManagement.SaveData<SpaceShipAbilityPersistentData>(fileName: jsonFileName, data: spaceShipAbilityPersistentData);
         }
     }
 }

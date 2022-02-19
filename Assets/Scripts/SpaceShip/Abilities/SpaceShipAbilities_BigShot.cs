@@ -8,6 +8,12 @@ public class SpaceShipAbilities_BigShot : SpaceShipAbilities
 
     private Vector3 shootingPositionOffset = new Vector3(0f, 4f, 0f);
 
+    private void Awake()
+    {
+        SetJasonFileName();
+        LoadData();
+    }
+
     protected override void DoAbility()
     {
         SpaceShipShooting spaceShipShooting = FindObjectOfType<SpaceShipShooting>();
@@ -17,16 +23,11 @@ public class SpaceShipAbilities_BigShot : SpaceShipAbilities
 
         BigShot bigShot = Instantiate(bigShotPrefab, spaceShipShooting.transform.position + shootingPositionOffset, Quaternion.identity);
 
-        bigShot.SetDamage(Effect);
+        bigShot.SetDamage(spaceShipAbilityPersistentData.Effect);
     }
 
-    protected override string GetCostPlayerPrefName()
+    protected override void SetJasonFileName()
     {
-        return Constants.SpaceShipAbilityBigShotCost_PlayerPref;
-    }
-
-    protected override string GetEffectPlayerPrefName()
-    {
-        return Constants.SpaceShipAbilityBigShotEffect_PlayerPref;
+        jsonFileName = "bigShotAbilityData.json";
     }
 }

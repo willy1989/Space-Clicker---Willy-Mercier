@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class SpaceShipAbilities_Freeze : SpaceShipAbilities
 {
+    private void Awake()
+    {
+        SetJasonFileName();
+        LoadData();
+    }
+
+
     protected override void DoAbility()
     {
         StartCoroutine(FreezeAllTargets());
@@ -13,20 +20,13 @@ public class SpaceShipAbilities_Freeze : SpaceShipAbilities
     {
         Target.CanMove = false;
 
-        yield return new WaitForSeconds(Effect);
+        yield return new WaitForSeconds(spaceShipAbilityPersistentData.Effect);
 
         Target.CanMove = true;
     }
 
-    protected override string GetEffectPlayerPrefName()
+    protected override void SetJasonFileName()
     {
-        return Constants.SpaceShipAbilityFreezeEffect_PlayerPref;
+        jsonFileName = "FreezeAbilityData.json";
     }
-
-    protected override string GetCostPlayerPrefName()
-    {
-        return Constants.SpaceShipAbilityFreezeCost_PlayerPref;
-    }
-
-    
 }
