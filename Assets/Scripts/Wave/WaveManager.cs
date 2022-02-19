@@ -8,27 +8,17 @@ public class WaveManager : Singleton<WaveManager>
 
     private const int startWaveIndex = 0;
 
-    private int spawnNextWaveDelay = 3;
+    private const int spawnNextWaveDelay = 3;
 
-    private int waveIndex
-    {
-        get
-        {
-            return PlayerPrefs.GetInt(Constants.WaveIndex_PlayerPref, startWaveIndex);
-        }
+    private WaveIndexPersistentData waveIndexPersistentData;
 
-        set
-        {
-            if(value < wavePrefabs.Length)
-            PlayerPrefs.SetInt(Constants.WaveIndex_PlayerPref, value);
-        }
-    }
+    private const string jsonFileName = "waveIndex.json";
 
     public int WaveCount
     {
         get
         {
-            return waveIndex + 1;
+            return waveIndexPersistentData.WaveIndex + 1;
         }
     }
 
@@ -39,6 +29,20 @@ public class WaveManager : Singleton<WaveManager>
     private void Awake()
     {
         SetInstance();
+        LoadData();
+    }
+
+    private void LoadData()
+    {
+        if(JsonDataManagement.FileExists(jsonFileName) == true)
+        {
+            waveIndexPersistentData = JsonDataManagement.LoadData<WaveIndexPersistentData>(jsonFileName);
+        }
+
+        else
+        {
+            waveIndexPersistentData = new WaveIndexPersistentData(_waveIndex: startWaveIndex);
+        }
     }
 
     public Target GetTargetWithMostHealth()
@@ -80,7 +84,9 @@ public class WaveManager : Singleton<WaveManager>
 
         WaveUI.Instance.UpdateCurrentWaveIcon();
 
-        waveIndex++;
+        waveIndexPersistentData.WaveIndex++;
+
+        JsonDataManagement.SaveData<WaveIndexPersistentData>(fileName: jsonFileName, data: waveIndexPersistentData);
 
         StartCurrentWave();
     }
@@ -96,7 +102,7 @@ public class WaveManager : Singleton<WaveManager>
 
         yield return new WaitForSeconds(spawnNextWaveDelay);
 
-        CurrentWave = Instantiate(wavePrefabs[waveIndex], spawnPosition.position, Quaternion.identity);
+        CurrentWave = Instantiate(wavePrefabs[waveIndexPersistentData.WaveIndex], spawnPosition.position, Quaternion.identity);
 
         CurrentWave.LastTargetKilledEvent += SpawnNextWave;
     }
@@ -107,5 +113,4 @@ public class WaveManager : Singleton<WaveManager>
 
         Destroy(CurrentWave.gameObject);
     }
-
 }

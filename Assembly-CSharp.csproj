@@ -100,6 +100,7 @@
     <Compile Include="Assets\Scripts\Json data management\Persistent data\CannonUpgradePersistentData.cs" />
     <Compile Include="Assets\Scripts\Json data management\JsonDataManagement.cs" />
     <Compile Include="Assets\Scripts\Json data management\Persistent data\SpaceShipPersistentData.cs" />
+    <Compile Include="Assets\Scripts\Json data management\Persistent data\WaveIndexPersistentData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
