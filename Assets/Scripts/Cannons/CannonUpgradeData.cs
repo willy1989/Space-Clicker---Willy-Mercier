@@ -36,11 +36,6 @@ public class CannonUpgradeData : MonoBehaviour
         {
             return cannonUpgradePersistentData.ShootingFrequency;
         }
-
-        private set
-        {
-            cannonUpgradePersistentData.ShootingFrequency = value;
-        }
     }
 
     public int Damage
@@ -48,11 +43,6 @@ public class CannonUpgradeData : MonoBehaviour
         get
         {
             return cannonUpgradePersistentData.Damage;
-        }
-
-        private set
-        {
-            cannonUpgradePersistentData.Damage = value;
         }
     }
 
@@ -62,11 +52,6 @@ public class CannonUpgradeData : MonoBehaviour
         {
             return cannonUpgradePersistentData.NextDamageUpGradeCost;
         }
-
-        private set
-        {
-            cannonUpgradePersistentData.NextDamageUpGradeCost = value;
-        }
     }
 
     public float NextFrequencyUpGradeCost
@@ -74,11 +59,6 @@ public class CannonUpgradeData : MonoBehaviour
         get
         {
             return cannonUpgradePersistentData.NextFrequencyUpGradeCost;
-        }
-
-        private set
-        {
-            cannonUpgradePersistentData.NextFrequencyUpGradeCost = value;
         }
     }
 
@@ -116,10 +96,10 @@ public class CannonUpgradeData : MonoBehaviour
 
         CurrencyManager.Instance.SpendCurrency(NextDamageUpGradeCost);
 
-        Damage *= damageImprovement;
-        NextDamageUpGradeCost *= damageUpgradeCostRate;
+        cannonUpgradePersistentData.Damage *= damageImprovement;
+        cannonUpgradePersistentData.NextDamageUpGradeCost *= damageUpgradeCostRate;
 
-        JsonDataManagement.SaveData<CannonUpgradePersistentData>(jsonFileName, cannonUpgradePersistentData);
+        JsonDataManagement.SaveData<CannonUpgradePersistentData>(fileName: jsonFileName, data: cannonUpgradePersistentData);
     }
 
     public void UpGradeFrequency()
@@ -129,10 +109,10 @@ public class CannonUpgradeData : MonoBehaviour
 
         CurrencyManager.Instance.SpendCurrency(NextFrequencyUpGradeCost);
 
-        ShootingFrequency += shootingFrequencyImprovement;
-        NextFrequencyUpGradeCost *= frequencyUpgradeCostRate;
+        cannonUpgradePersistentData.ShootingFrequency += shootingFrequencyImprovement;
+        cannonUpgradePersistentData.NextFrequencyUpGradeCost *= frequencyUpgradeCostRate;
 
-        JsonDataManagement.SaveData<CannonUpgradePersistentData>(jsonFileName, cannonUpgradePersistentData);
+        JsonDataManagement.SaveData<CannonUpgradePersistentData>(fileName: jsonFileName, data: cannonUpgradePersistentData);
     }
 }
 
