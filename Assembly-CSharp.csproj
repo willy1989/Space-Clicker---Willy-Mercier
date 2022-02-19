@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
     <Compile Include="Assets\Scripts\UI\ShipTutorialUI.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonUpgradePersistentData.cs" />
+    <Compile Include="Assets\Scripts\JsonDataManagement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

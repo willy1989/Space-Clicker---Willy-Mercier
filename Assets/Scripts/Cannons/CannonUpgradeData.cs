@@ -28,7 +28,7 @@ public class CannonUpgradeData : MonoBehaviour
 
     private CannonUpgradePersistentData cannonUpgradePersistentData;
 
-    private string path;
+    private string jsonFileName;
 
     public float ShootingFrequency
     {
@@ -85,7 +85,28 @@ public class CannonUpgradeData : MonoBehaviour
     private void Awake()
     {
         SetPath();
-        LoadData();
+        LoadCannonData();
+    }
+
+    private void SetPath()
+    {
+        jsonFileName = cannonNameDictionnary[cannon] + ".json";
+    }
+
+    private void LoadCannonData()
+    {
+        if (JsonDataManagement.FileExists(jsonFileName) == true)
+        {
+            cannonUpgradePersistentData = JsonDataManagement.LoadData<CannonUpgradePersistentData>(jsonFileName);
+        }
+
+        else
+        {
+            cannonUpgradePersistentData = new CannonUpgradePersistentData(_ShootingFrequency: startShootingFrequency,
+                                                                          _Damage: startDamage,
+                                                                          _NextDamageUpGradeCost: startNextDamageUpGradeCost,
+                                                                          _NextFrequencyUpGradeCost: startNextFrequencyUpGradeCost);
+        }
     }
 
     public void UpGradeDamage()
@@ -98,7 +119,7 @@ public class CannonUpgradeData : MonoBehaviour
         Damage *= damageImprovement;
         NextDamageUpGradeCost *= damageUpgradeCostRate;
 
-        SaveData();
+        JsonDataManagement.SaveData<CannonUpgradePersistentData>(jsonFileName, cannonUpgradePersistentData);
     }
 
     public void UpGradeFrequency()
@@ -111,41 +132,7 @@ public class CannonUpgradeData : MonoBehaviour
         ShootingFrequency += shootingFrequencyImprovement;
         NextFrequencyUpGradeCost *= frequencyUpgradeCostRate;
 
-        SaveData();
-    }
-
-    private void SetPath()
-    {
-        path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + cannonNameDictionnary[cannon] + ".json";
-    }
-
-    private void SaveData()
-    {
-        string jsonString = JsonUtility.ToJson(cannonUpgradePersistentData);
-
-        using StreamWriter writer = new StreamWriter(path);
-
-        writer.Write(jsonString);
-    }
-
-    private void LoadData()
-    {
-        if (File.Exists(path) == true)
-        {
-            using StreamReader reader = new StreamReader(path);
-
-            string json = reader.ReadToEnd();
-
-            cannonUpgradePersistentData = JsonUtility.FromJson<CannonUpgradePersistentData>(json);
-        }
-
-        else
-        {
-            cannonUpgradePersistentData = new CannonUpgradePersistentData(_ShootingFrequency: startShootingFrequency, 
-                                                                          _Damage: startDamage, 
-                                                                          _NextDamageUpGradeCost: startNextDamageUpGradeCost, 
-                                                                          _NextFrequencyUpGradeCost: startNextFrequencyUpGradeCost);
-        }
+        JsonDataManagement.SaveData<CannonUpgradePersistentData>(jsonFileName, cannonUpgradePersistentData);
     }
 }
 
