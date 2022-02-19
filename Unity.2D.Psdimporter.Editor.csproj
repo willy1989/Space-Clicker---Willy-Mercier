@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{3777ADC1-648A-03FC-6D78-B7AE8A894475}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -72,6 +73,7 @@
     <Compile Include="Library\PackageCache\com.unity.2d.psdimporter@4.1.2\Editor\SpriteData.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Library\PackageCache\com.unity.2d.psdimporter@4.1.2\Editor\Unity.2D.Psdimporter.Editor.asmdef" />
   </ItemGroup>
   <ItemGroup>

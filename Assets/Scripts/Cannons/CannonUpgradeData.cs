@@ -1,47 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class CannonUpgradeData : MonoBehaviour
 {
-    [SerializeField] private CannonName cannon;
+    private static readonly float startShootingFrequency = 1f;
+    private static readonly int startDamage = 1;
+    private static readonly float startNextDamageUpGradeCost = 1f;
+    private static readonly float startNextFrequencyUpGradeCost = 1f;
 
-    private string cannonName;
+    private static readonly float shootingFrequencyImprovement = -0.05f;
+    private static readonly float frequencyUpgradeCostRate = 5f;
 
-    private const float startShootingFrequency = 1f;
-    private const int startDamage = 1;
-    private const float startNextDamageUpGradeCost = 1f;
-    private const float startNextFrequencyUpGradeCost = 1f;
+    private static readonly int damageImprovement = 2;
+    private static readonly float damageUpgradeCostRate = 5f;
 
-    private const float shootingFrequencyImprovement = -0.05f;
-    private const float frequencyUpgradeCostRate = 5f;
-
-    private const int damageImprovement = 2;
-    private const float damageUpgradeCostRate = 5f;
-
-    private Dictionary<CannonName, string> cannonNameDictionnary = new Dictionary<CannonName, string>
+    private static readonly Dictionary<CannonName, string> cannonNameDictionnary = new Dictionary<CannonName, string>
     {
-        {CannonName.Cannon1, Constants.CannonName1_PlayerPref},
-        {CannonName.Cannon2, Constants.CannonName2_PlayerPref},
-        {CannonName.Cannon3, Constants.CannonName3_PlayerPref},
-        {CannonName.Cannon4, Constants.CannonName4_PlayerPref}
+        {CannonName.Cannon1, Constants.CannonName1},
+        {CannonName.Cannon2, Constants.CannonName2},
+        {CannonName.Cannon3, Constants.CannonName3},
+        {CannonName.Cannon4, Constants.CannonName4}
     };
 
-    private void Awake()
-    {
-        cannonName = cannonNameDictionnary[cannon];
-    }
+    [SerializeField] private CannonName cannon;
+
+    private CannonUpgradePersistentData cannonUpgradePersistentData;
+
+    private string path;
 
     public float ShootingFrequency
     {
         get
         {
-            return PlayerPrefs.GetFloat(cannonName + "ShootingFrequency", startShootingFrequency);
+            return cannonUpgradePersistentData.ShootingFrequency;
         }
 
-        set
+        private set
         {
-            PlayerPrefs.SetFloat(cannonName + "ShootingFrequency", value);
+            cannonUpgradePersistentData.ShootingFrequency = value;
         }
     }
 
@@ -49,12 +47,12 @@ public class CannonUpgradeData : MonoBehaviour
     {
         get
         {
-            return PlayerPrefs.GetInt(cannonName + "Damage", startDamage);
+            return cannonUpgradePersistentData.Damage;
         }
 
-        set
+        private set
         {
-            PlayerPrefs.SetInt(cannonName + "Damage", value);
+            cannonUpgradePersistentData.Damage = value;
         }
     }
 
@@ -62,12 +60,12 @@ public class CannonUpgradeData : MonoBehaviour
     {
         get
         {
-            return PlayerPrefs.GetFloat(cannonName + "NextDamageUpGradeCost", startNextDamageUpGradeCost);
+            return cannonUpgradePersistentData.NextDamageUpGradeCost;
         }
 
-        set
+        private set
         {
-            PlayerPrefs.SetFloat(cannonName + "NextDamageUpGradeCost", value);
+            cannonUpgradePersistentData.NextDamageUpGradeCost = value;
         }
     }
 
@@ -75,13 +73,19 @@ public class CannonUpgradeData : MonoBehaviour
     {
         get
         {
-            return PlayerPrefs.GetFloat(cannonName + "NextFrequencyUpGradeCost", startNextFrequencyUpGradeCost);
+            return cannonUpgradePersistentData.NextFrequencyUpGradeCost;
         }
 
-        set
+        private set
         {
-            PlayerPrefs.SetFloat(cannonName + "NextFrequencyUpGradeCost", value);
+            cannonUpgradePersistentData.NextFrequencyUpGradeCost = value;
         }
+    }
+
+    private void Awake()
+    {
+        SetPath();
+        LoadData();
     }
 
     public void UpGradeDamage()
@@ -93,6 +97,8 @@ public class CannonUpgradeData : MonoBehaviour
 
         Damage *= damageImprovement;
         NextDamageUpGradeCost *= damageUpgradeCostRate;
+
+        SaveData();
     }
 
     public void UpGradeFrequency()
@@ -104,6 +110,42 @@ public class CannonUpgradeData : MonoBehaviour
 
         ShootingFrequency += shootingFrequencyImprovement;
         NextFrequencyUpGradeCost *= frequencyUpgradeCostRate;
+
+        SaveData();
+    }
+
+    private void SetPath()
+    {
+        path = Application.persistentDataPath + Path.AltDirectorySeparatorChar + cannonNameDictionnary[cannon] + ".json";
+    }
+
+    private void SaveData()
+    {
+        string jsonString = JsonUtility.ToJson(cannonUpgradePersistentData);
+
+        using StreamWriter writer = new StreamWriter(path);
+
+        writer.Write(jsonString);
+    }
+
+    private void LoadData()
+    {
+        if (File.Exists(path) == true)
+        {
+            using StreamReader reader = new StreamReader(path);
+
+            string json = reader.ReadToEnd();
+
+            cannonUpgradePersistentData = JsonUtility.FromJson<CannonUpgradePersistentData>(json);
+        }
+
+        else
+        {
+            cannonUpgradePersistentData = new CannonUpgradePersistentData(_ShootingFrequency: startShootingFrequency, 
+                                                                          _Damage: startDamage, 
+                                                                          _NextDamageUpGradeCost: startNextDamageUpGradeCost, 
+                                                                          _NextFrequencyUpGradeCost: startNextFrequencyUpGradeCost);
+        }
     }
 }
 

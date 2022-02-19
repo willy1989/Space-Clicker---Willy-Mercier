@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{8FD20B0B-00AC-5B37-4352-6A6C65A64601}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -65,6 +66,7 @@
     <Compile Include="Library\PackageCache\com.unity.mobile.notifications@1.4.2\Runtime\iOS\iOSNotificationSettings.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Library\PackageCache\com.unity.mobile.notifications@1.4.2\Runtime\iOS\Unity.Notifications.iOS.asmdef" />
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{39F09609-DE81-DF2A-D199-1306F10A0E6C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -60,6 +61,7 @@
     <Compile Include="Library\PackageCache\com.unity.2d.common@4.0.3\Runtime\InternalBridge\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Library\PackageCache\com.unity.2d.common@4.0.3\Runtime\InternalBridge\InternalBridgeDef.asmdef" />
   </ItemGroup>
   <ItemGroup>

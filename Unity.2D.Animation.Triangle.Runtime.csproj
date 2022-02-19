@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{276C6EFD-B1FA-8EDD-C675-2F7583385E79}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -143,6 +144,7 @@
     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.0.9\Runtime\Triangle\Geometry\Point.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Library\PackageCache\com.unity.2d.animation@5.0.9\Runtime\Triangle\Unity.2D.Animation.Triangle.Runtime.asmdef" />
   </ItemGroup>
   <ItemGroup>
