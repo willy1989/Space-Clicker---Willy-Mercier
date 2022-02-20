@@ -7,7 +7,9 @@ public class SpaceShipShooting : Singleton<SpaceShipShooting>
 {
     [SerializeField] private ProjectileMovement projectilePrefab;
 
-    [SerializeField] private SoundPlayer soundPlayer;
+    [SerializeField] private SoundPlayer powerUpSoundPlayer;
+
+    [SerializeField] private SoundPlayer shootingSoundPlayer;
 
     SpaceShipShootingMode[] spaceShipShootingMode;
 
@@ -109,7 +111,11 @@ public class SpaceShipShooting : Singleton<SpaceShipShooting>
             return;
 
         if((closestTarget.transform.position - transform.position).magnitude <= shootingRange)
+        {
             spaceShipShootingMode[ShootingModeIndex].Shoot(projectilePrefab, SpaceShipLevelManager.Instance.SpaceShipBaseDamage * damagePowerUp);
+            shootingSoundPlayer.PlaySoundEffect();
+        }
+            
     }
 
     public void ChangeFrequecyMultiplier(float multiplier)
@@ -145,7 +151,7 @@ public class SpaceShipShooting : Singleton<SpaceShipShooting>
     {
         powerUpEffect.Invoke();
         PowerUpUI.Instance.ShowPowerUpMessage(message);
-        soundPlayer.PlaySoundEffect();
+        powerUpSoundPlayer.PlaySoundEffect();
         Destroy(powerUp);
     }
 }

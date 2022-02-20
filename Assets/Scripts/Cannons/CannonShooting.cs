@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SoundPlayer))]
 public class CannonShooting : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
+
+    private SoundPlayer soundPlayer;
 
     CannonUpgradeData cannonUpgradeData;
 
@@ -18,6 +21,7 @@ public class CannonShooting : MonoBehaviour
     private void Awake()
     {
         cannonUpgradeData = GetComponent<CannonUpgradeData>();
+        soundPlayer = GetComponent<SoundPlayer>();
     }
 
     private void Start()
@@ -40,7 +44,6 @@ public class CannonShooting : MonoBehaviour
         }
     }
 
-    // Pick a new target, the one with the most health, and shoot it until it's dead.
     private void LockOnToTarget()
     {
         if (currentTarget != null)
@@ -68,10 +71,7 @@ public class CannonShooting : MonoBehaviour
                                                                                                   _damage: cannonUpgradeData.Damage, 
                                                                                                   _spawnPosition: spawnPosition);
 
-        SoundPlayer soundPlayer = projectileMovement.gameObject.GetComponent<SoundPlayer>();
-
-        if (soundPlayer != null)
-            soundPlayer.PlaySoundEffect();
+        soundPlayer.PlaySoundEffect();
     }
 
     private void UnlockTarget()
