@@ -40,12 +40,6 @@ public static class Constants
 
     public const string SpaceShipAbilityBigShotCost_PlayerPref = "Space ship ability big shot cost";
     public const string SpaceShipAbilityBigShotEffect_PlayerPref = "Space ship ability big shot effect";
-
-    public const string CannonName1_PlayerPref = "Cannon1";
-    public const string CannonName2_PlayerPref = "Cannon2";
-    public const string CannonName3_PlayerPref = "Cannon3";
-    public const string CannonName4_PlayerPref = "Cannon4";
-
     public const string WaveIndex_PlayerPref = "Wave index";
 
     #endregion
@@ -65,5 +59,8 @@ public static class Constants
 
     #endregion
 
-
+    public const string CannonName1 = "Cannon1";
+    public const string CannonName2 = "Cannon2";
+    public const string CannonName3 = "Cannon3";
+    public const string CannonName4 = "Cannon4";
 }

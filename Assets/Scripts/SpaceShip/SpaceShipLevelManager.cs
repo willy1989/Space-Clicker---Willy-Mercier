@@ -5,47 +5,41 @@ using UnityEngine;
 
 public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
 {
-    private int startLevel = 1;
+    private const int startLevel = 1;
 
-    private float startDamage = 1;
+    private const int startXP = 0;
 
-    private float startFrequency = 0.5f;
+    private const float startLevelThreshold = 30f;
 
-    private float startLevelThreshold = 30f;
+    private const float startDamage = 1;
 
-    private float tresholdIncreaseRate = 1.2f;
+    private const float startFrequency = 0.5f;
 
-    private float damageIncreateRate = 1.2f;
+    private const float tresholdIncreaseRate = 1.2f;
 
-    private float frequencyIncreaseRate = 0.95f;
+    private const float damageIncreateRate = 1.2f;
+
+    private const float frequencyIncreaseRate = 0.95f;
+
+    private JsonDataUser<SpaceShiplevelPersistentData> jsonDataUser;
 
     public Action LevelIncreasedEvent;
     public Action DamageIncreasedEvent;
     public Action FrequencyIncreasedEvent;
 
-    private float spaceShipXP
-    {
-        get
-        {
-            return PlayerPrefs.GetFloat(Constants.SpaceShipXP_PlayerPref, 0);
-        }
-
-        set
-        {
-            PlayerPrefs.SetFloat(Constants.SpaceShipXP_PlayerPref, value);
-        }
-    }
-
     public int SpaceShipLevel
     {
         get
         {
-            return PlayerPrefs.GetInt(Constants.SpaceShipLevel_PlayerPref, startLevel);
+            return jsonDataUser.JsonData.SpaceShipLevel;
         }
+    }
 
-        private set
+    private float spaceShipXP
+    {
+        get
         {
-            PlayerPrefs.SetInt(Constants.SpaceShipLevel_PlayerPref, value);
+            return jsonDataUser.JsonData.SpaceShipXP;
         }
     }
 
@@ -53,12 +47,7 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
     {
         get
         {
-            return PlayerPrefs.GetFloat(Constants.SpaceShipLevelTreshold_PlayerPref, startLevelThreshold);
-        }
-
-        set
-        {
-            PlayerPrefs.SetFloat(Constants.SpaceShipLevelTreshold_PlayerPref, value);
+            return jsonDataUser.JsonData.SpaceShipLevelThreshold;
         }
     }
 
@@ -66,12 +55,7 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
     {
         get
         {
-            return PlayerPrefs.GetFloat(Constants.SpaceShipDamageStat_PlayerPref, startDamage);
-        }
-
-        private set
-        {
-            PlayerPrefs.SetFloat(Constants.SpaceShipDamageStat_PlayerPref, value);
+            return jsonDataUser.JsonData.SpaceShipBaseDamage;
         }
     }
 
@@ -79,37 +63,33 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
     {
         get
         {
-            return PlayerPrefs.GetFloat(Constants.SpaceShipFrequencyStat_PlayerPref, startFrequency);
+            return jsonDataUser.JsonData.SpaceShipBaseFrequency;
         }
-
-        private set
-        {
-            PlayerPrefs.SetFloat(Constants.SpaceShipFrequencyStat_PlayerPref, value);
-        }
-    }
-
-    private void ResetLevelValues()
-    {
-        PlayerPrefs.SetFloat(Constants.SpaceShipLevel_PlayerPref, startLevel);
-        PlayerPrefs.SetFloat(Constants.SpaceShipLevelTreshold_PlayerPref, startLevelThreshold);
-        PlayerPrefs.SetFloat(Constants.SpaceShipXP_PlayerPref, 0f);
-        PlayerPrefs.SetFloat(Constants.SpaceShipDamageStat_PlayerPref, startDamage);
-        PlayerPrefs.SetFloat(Constants.SpaceShipFrequencyStat_PlayerPref, startFrequency);
     }
 
     private void Awake()
     {
         SetInstance();
+
+        SpaceShiplevelPersistentData spaceShipPersistentData = new SpaceShiplevelPersistentData(_spaceShipLevel: startLevel,
+                                                                                      _spaceShipXP: startXP,
+                                                                                      _spaceShipLevelThreshold: startLevelThreshold,
+                                                                                      _spaceShipBaseDamage: startDamage,
+                                                                                      _spaceShipBaseFrequency: startFrequency);
+
+        jsonDataUser = new JsonDataUser<SpaceShiplevelPersistentData>(_StartJsonData: spaceShipPersistentData, _jsonFileName: "spaceShipLevelData.json");
     }
 
     private void Start()
     {
         CurrencyManager.Instance.AddCurrencyEvent += GainXP;
+        WaveManager.Instance.SpawnWaveAction += jsonDataUser.SaveData;
     }
+
 
     private void GainXP(float amount)
     {
-        spaceShipXP += amount;
+        jsonDataUser.JsonData.SpaceShipXP += amount;
 
         IncreaseLevel();
     }
@@ -118,11 +98,11 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
     {
         if(spaceShipXP > spaceShipLevelThreshold)
         {
-            SpaceShipLevel++;
-            spaceShipLevelThreshold += spaceShipLevelThreshold * tresholdIncreaseRate;
+            jsonDataUser.JsonData.SpaceShipLevel++;
+            jsonDataUser.JsonData.SpaceShipLevelThreshold += spaceShipLevelThreshold * tresholdIncreaseRate;
 
-            SpaceShipBaseDamage *= damageIncreateRate;
-            SpaceShipBaseFrequency *= frequencyIncreaseRate;
+            jsonDataUser.JsonData.SpaceShipBaseDamage *= damageIncreateRate;
+            jsonDataUser.JsonData.SpaceShipBaseFrequency *= frequencyIncreaseRate;
 
             if (LevelIncreasedEvent != null)
                 LevelIncreasedEvent.Invoke();

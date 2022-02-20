@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\SpaceShip\Shooting\SpaceShipShootingMode.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_TurboShooting.cs" />
     <Compile Include="Assets\Animation\UI\Power up\PowerUpUI.cs" />
+    <Compile Include="Assets\Scripts\Json data management\Persistent data\SpaceShiplevelPersistentData.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpSpawner.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitySelector.cs" />
     <Compile Include="Assets\Scripts\UI\TargetUI.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Assets\Scripts\ProjectileMovement.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities.cs" />
     <Compile Include="Assets\Scripts\SoundPlayer.cs" />
+    <Compile Include="Assets\Scripts\Json data management\Persistent data\WaveIndexPersistentData.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpMovement.cs" />
     <Compile Include="Assets\Scripts\Wave\Wave.cs" />
     <Compile Include="Assets\Scripts\GameOverLine.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Assets\Scripts\UI\SpaceShipShopUI.cs" />
     <Compile Include="Assets\Scripts\Power up\PowerUpSpawnManager.cs" />
     <Compile Include="Assets\Scripts\Cannons\CannonUpgradeData.cs" />
+    <Compile Include="Assets\Scripts\Json data management\JsonDataManagement.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilities_BigShot.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipDamage.cs" />
     <Compile Include="Assets\Scripts\UI\AbilityCoolDownUI.cs" />
@@ -97,6 +100,10 @@
     <Compile Include="Assets\Scripts\SpaceShip\Abilities\SpaceShipAbilitiesUpgrade.cs" />
     <Compile Include="Assets\Scripts\SpaceShip\SpaceShipInput.cs" />
     <Compile Include="Assets\Scripts\UI\ShipTutorialUI.cs" />
+    <Compile Include="Assets\Scripts\Json data management\Persistent data\SpaceShipAbilityPersistentData.cs" />
+    <Compile Include="Assets\Scripts\Json data management\Persistent data\CannonUpgradePersistentData.cs" />
+    <Compile Include="Assets\Scripts\Json data management\Persistent data\CurrencyPersistentData.cs" />
+    <Compile Include="Assets\Scripts\Json data management\JsonDataUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{02852C4A-ECB2-7E3A-FECD-04811012A480}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -213,6 +214,7 @@
     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.0.9\Editor\SkinningModule\WeightPainterTool.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Library\PackageCache\com.unity.2d.animation@5.0.9\Editor\Assets\SkinningModule\MeshToolbar.uxml" />
     <None Include="Library\PackageCache\com.unity.2d.animation@5.0.9\Editor\Assets\SkinningModule\WeightInspectorIMGUIPanelStyle.uss" />
     <None Include="Library\PackageCache\com.unity.2d.animation@5.0.9\Editor\Assets\SkinningModule\BoneToolbar.uxml" />

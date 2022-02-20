@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{62E7AC51-D11C-BB60-8B39-591E867A9E2C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -66,6 +67,7 @@
     <Compile Include="Library\PackageCache\com.unity.2d.animation@5.0.9\IK\Editor\Inspectors\FabrikSolver2DEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Library\PackageCache\com.unity.2d.animation@5.0.9\IK\Editor\Unity.2D.IK.Editor.asmdef" />
   </ItemGroup>
   <ItemGroup>

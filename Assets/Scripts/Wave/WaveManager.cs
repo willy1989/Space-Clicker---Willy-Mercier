@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,27 +9,15 @@ public class WaveManager : Singleton<WaveManager>
 
     private const int startWaveIndex = 0;
 
-    private int spawnNextWaveDelay = 3;
+    private const int spawnNextWaveDelay = 3;
 
-    private int waveIndex
-    {
-        get
-        {
-            return PlayerPrefs.GetInt(Constants.WaveIndex_PlayerPref, startWaveIndex);
-        }
-
-        set
-        {
-            if(value < wavePrefabs.Length)
-            PlayerPrefs.SetInt(Constants.WaveIndex_PlayerPref, value);
-        }
-    }
+    private JsonDataUser<WaveIndexPersistentData> jsonDataUser;
 
     public int WaveCount
     {
         get
         {
-            return waveIndex + 1;
+            return jsonDataUser.JsonData.WaveIndex + 1;
         }
     }
 
@@ -36,9 +25,20 @@ public class WaveManager : Singleton<WaveManager>
 
     public Wave CurrentWave { get; private set; }
 
+    public Action SpawnWaveAction; 
+
     private void Awake()
     {
         SetInstance();
+
+        WaveIndexPersistentData waveIndexPersistentData = new WaveIndexPersistentData(_waveIndex: 0);
+
+        jsonDataUser = new JsonDataUser<WaveIndexPersistentData>(_StartJsonData: waveIndexPersistentData, _jsonFileName: "waveIndexData.json");
+    }
+
+    private void Start()
+    {
+        SpawnWaveAction += jsonDataUser.SaveData;
     }
 
     public Target GetTargetWithMostHealth()
@@ -80,14 +80,17 @@ public class WaveManager : Singleton<WaveManager>
 
         WaveUI.Instance.UpdateCurrentWaveIcon();
 
-        waveIndex++;
+        jsonDataUser.JsonData.WaveIndex++;
 
-        StartCurrentWave();
+        SpawnCurrentWave();
     }
 
-    public void StartCurrentWave()
+    public void SpawnCurrentWave()
     {
         StartCoroutine(StartCurrentWaveCoroutine());
+
+        if (SpawnWaveAction != null)
+            SpawnWaveAction.Invoke();
     }
 
     public IEnumerator StartCurrentWaveCoroutine()
@@ -96,7 +99,7 @@ public class WaveManager : Singleton<WaveManager>
 
         yield return new WaitForSeconds(spawnNextWaveDelay);
 
-        CurrentWave = Instantiate(wavePrefabs[waveIndex], spawnPosition.position, Quaternion.identity);
+        CurrentWave = Instantiate(wavePrefabs[jsonDataUser.JsonData.WaveIndex], spawnPosition.position, Quaternion.identity);
 
         CurrentWave.LastTargetKilledEvent += SpawnNextWave;
     }
@@ -107,5 +110,4 @@ public class WaveManager : Singleton<WaveManager>
 
         Destroy(CurrentWave.gameObject);
     }
-
 }

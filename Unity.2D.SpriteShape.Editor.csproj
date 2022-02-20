@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{97A5B19A-66D1-9A07-3505-463D23845ABA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -77,6 +78,7 @@
     <Compile Include="Library\PackageCache\com.unity.2d.spriteshape@5.1.5\Editor\SpriteShapeHandleUtility.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Library\PackageCache\com.unity.2d.spriteshape@5.1.5\Editor\Handles\Shaders\Sprites-Inspector.shader" />
     <None Include="Library\PackageCache\com.unity.2d.spriteshape@5.1.5\Editor\Unity.2D.SpriteShape.Editor.asmdef" />
   </ItemGroup>

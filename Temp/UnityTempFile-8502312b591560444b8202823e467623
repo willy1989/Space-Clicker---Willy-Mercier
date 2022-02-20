@@ -302,6 +302,13 @@ Assets\Scripts\Constants.cs
 Assets\Scripts\Currency\CurrencyManager.cs
 Assets\Scripts\GameLoopManager.cs
 Assets\Scripts\GameOverLine.cs
+"Assets\Scripts\Json data management\JsonDataManagement.cs"
+"Assets\Scripts\Json data management\JsonDataUser.cs"
+"Assets\Scripts\Json data management\Persistent data\CannonUpgradePersistentData.cs"
+"Assets\Scripts\Json data management\Persistent data\CurrencyPersistentData.cs"
+"Assets\Scripts\Json data management\Persistent data\SpaceShipAbilityPersistentData.cs"
+"Assets\Scripts\Json data management\Persistent data\SpaceShiplevelPersistentData.cs"
+"Assets\Scripts\Json data management\Persistent data\WaveIndexPersistentData.cs"
 "Assets\Scripts\Object pooling\ProjectilesPoolManager.cs"
 "Assets\Scripts\Power up\PowerUpMovement.cs"
 "Assets\Scripts\Power up\PowerUpSpawnManager.cs"
