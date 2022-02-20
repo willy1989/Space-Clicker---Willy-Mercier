@@ -26,15 +26,13 @@ public class CannonUpgradeData : MonoBehaviour
 
     [SerializeField] private CannonName cannon;
 
-    private CannonUpgradePersistentData cannonUpgradePersistentData;
-
-    private string jsonFileName;
+    private JsonDataUser<CannonUpgradePersistentData> jsonDataUser;
 
     public float ShootingFrequency
     {
         get
         {
-            return cannonUpgradePersistentData.ShootingFrequency;
+            return jsonDataUser.JsonData.ShootingFrequency;
         }
     }
 
@@ -42,7 +40,7 @@ public class CannonUpgradeData : MonoBehaviour
     {
         get
         {
-            return cannonUpgradePersistentData.Damage;
+            return jsonDataUser.JsonData.Damage;
         }
     }
 
@@ -50,7 +48,7 @@ public class CannonUpgradeData : MonoBehaviour
     {
         get
         {
-            return cannonUpgradePersistentData.NextDamageUpGradeCost;
+            return jsonDataUser.JsonData.NextDamageUpGradeCost;
         }
     }
 
@@ -58,35 +56,24 @@ public class CannonUpgradeData : MonoBehaviour
     {
         get
         {
-            return cannonUpgradePersistentData.NextFrequencyUpGradeCost;
+            return jsonDataUser.JsonData.NextFrequencyUpGradeCost;
         }
     }
 
     private void Awake()
     {
-        SetPath();
-        LoadCannonData();
+        GetJsonFileName();
+        CannonUpgradePersistentData cannonUpgradePersistentData = new CannonUpgradePersistentData(_ShootingFrequency: startShootingFrequency, 
+                                                                                              _Damage: startDamage, 
+                                                                                              _NextDamageUpGradeCost: startNextDamageUpGradeCost, 
+                                                                                              _NextFrequencyUpGradeCost: startNextFrequencyUpGradeCost);
+
+        jsonDataUser = new JsonDataUser<CannonUpgradePersistentData>(_StartJsonData: cannonUpgradePersistentData, _jsonFileName: GetJsonFileName());
     }
 
-    private void SetPath()
+    private string GetJsonFileName()
     {
-        jsonFileName = cannonNameDictionnary[cannon] + ".json";
-    }
-
-    private void LoadCannonData()
-    {
-        if (JsonDataManagement.FileExists(jsonFileName) == true)
-        {
-            cannonUpgradePersistentData = JsonDataManagement.LoadData<CannonUpgradePersistentData>(jsonFileName);
-        }
-
-        else
-        {
-            cannonUpgradePersistentData = new CannonUpgradePersistentData(_ShootingFrequency: startShootingFrequency,
-                                                                          _Damage: startDamage,
-                                                                          _NextDamageUpGradeCost: startNextDamageUpGradeCost,
-                                                                          _NextFrequencyUpGradeCost: startNextFrequencyUpGradeCost);
-        }
+        return cannonNameDictionnary[cannon] + ".json";
     }
 
     public void UpGradeDamage()
@@ -96,10 +83,10 @@ public class CannonUpgradeData : MonoBehaviour
 
         CurrencyManager.Instance.SpendCurrency(NextDamageUpGradeCost);
 
-        cannonUpgradePersistentData.Damage *= damageImprovement;
-        cannonUpgradePersistentData.NextDamageUpGradeCost *= damageUpgradeCostRate;
+        jsonDataUser.JsonData.Damage *= damageImprovement;
+        jsonDataUser.JsonData.NextDamageUpGradeCost *= damageUpgradeCostRate;
 
-        JsonDataManagement.SaveData<CannonUpgradePersistentData>(fileName: jsonFileName, data: cannonUpgradePersistentData);
+        jsonDataUser.SaveData();
     }
 
     public void UpGradeFrequency()
@@ -109,10 +96,10 @@ public class CannonUpgradeData : MonoBehaviour
 
         CurrencyManager.Instance.SpendCurrency(NextFrequencyUpGradeCost);
 
-        cannonUpgradePersistentData.ShootingFrequency += shootingFrequencyImprovement;
-        cannonUpgradePersistentData.NextFrequencyUpGradeCost *= frequencyUpgradeCostRate;
+        jsonDataUser.JsonData.ShootingFrequency += shootingFrequencyImprovement;
+        jsonDataUser.JsonData.NextFrequencyUpGradeCost *= frequencyUpgradeCostRate;
 
-        JsonDataManagement.SaveData<CannonUpgradePersistentData>(fileName: jsonFileName, data: cannonUpgradePersistentData);
+        jsonDataUser.SaveData();
     }
 }
 

@@ -7,7 +7,7 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 {
     [SerializeField] protected SpaceShipAbilitiesData spaceShipAbilityData;
 
-    protected SpaceShipAbilityPersistentData spaceShipAbilityPersistentData;
+    protected JsonDataUser<SpaceShipAbilityPersistentData> jsonDataUser;
 
     protected string jsonFileName;
 
@@ -15,7 +15,7 @@ public abstract class SpaceShipAbilities : MonoBehaviour
     {
         get
         {
-            return spaceShipAbilityPersistentData.Cost;
+            return jsonDataUser.JsonData.Cost;
         }
     }
 
@@ -23,7 +23,7 @@ public abstract class SpaceShipAbilities : MonoBehaviour
     {
         get
         {
-            return spaceShipAbilityPersistentData.Effect;
+            return jsonDataUser.JsonData.Effect;
         }
     }
 
@@ -34,19 +34,6 @@ public abstract class SpaceShipAbilities : MonoBehaviour
     public Action<float> StartAbilityCoolDownEvent;
 
     protected abstract void SetJasonFileName();
-
-    protected void LoadData()
-    {
-        if (JsonDataManagement.FileExists(fileName: jsonFileName) == true)
-        {
-            spaceShipAbilityPersistentData = JsonDataManagement.LoadData<SpaceShipAbilityPersistentData>(fileName: jsonFileName);
-        }
-
-        else
-        {
-            spaceShipAbilityPersistentData = new SpaceShipAbilityPersistentData(_cost: spaceShipAbilityData.StartCost, _effect: spaceShipAbilityData.StartEffect);
-        }
-    }
 
     public void UseAbility()
     {
@@ -73,26 +60,26 @@ public abstract class SpaceShipAbilities : MonoBehaviour
 
     private void IncreaseAbilityCost()
     {
-        spaceShipAbilityPersistentData.Cost *= spaceShipAbilityData.CostIncreaseRate;
+        jsonDataUser.JsonData.Cost *= spaceShipAbilityData.CostIncreaseRate;
     }
 
     private void IncreaseAbilityEffect()
     {
-        spaceShipAbilityPersistentData.Effect *= spaceShipAbilityData.EffectIncreaseRate;
+        jsonDataUser.JsonData.Effect *= spaceShipAbilityData.EffectIncreaseRate;
     }
 
     public void UpGradeAbility()
     {
-        if(CurrencyManager.Instance.HasSufficientBalance(cost: spaceShipAbilityPersistentData.Cost) == true)
+        if(CurrencyManager.Instance.HasSufficientBalance(cost: jsonDataUser.JsonData.Cost) == true)
         {
-            CurrencyManager.Instance.SpendCurrency(amount: spaceShipAbilityPersistentData.Cost);
+            CurrencyManager.Instance.SpendCurrency(amount: jsonDataUser.JsonData.Cost);
 
             IncreaseAbilityEffect();
             IncreaseAbilityCost();
 
             UpgradeAbilityEvent.Invoke();
 
-            JsonDataManagement.SaveData<SpaceShipAbilityPersistentData>(fileName: jsonFileName, data: spaceShipAbilityPersistentData);
+            jsonDataUser.SaveData();
         }
     }
 }

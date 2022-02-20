@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1920
     height: 998
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -71,10 +71,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 948
-  m_MinSize: {x: 879, y: 342}
-  m_MaxSize: {x: 16004, y: 8042}
+  m_MinSize: {x: 881, y: 321}
+  m_MaxSize: {x: 16006, y: 8021}
   vertical: 0
-  controlID: 73
+  controlID: 99
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 503
     height: 948
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -120,8 +120,8 @@ MonoBehaviour:
     y: 0
     width: 330
     height: 573
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -250,10 +250,10 @@ MonoBehaviour:
     y: 0
     width: 1417
     height: 948
-  m_MinSize: {x: 604, y: 342}
-  m_MaxSize: {x: 12004, y: 8042}
+  m_MinSize: {x: 605, y: 321}
+  m_MaxSize: {x: 12005, y: 8021}
   vertical: 1
-  controlID: 74
+  controlID: 100
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -276,10 +276,10 @@ MonoBehaviour:
     y: 0
     width: 1417
     height: 573
-  m_MinSize: {x: 604, y: 221}
-  m_MaxSize: {x: 12004, y: 4021}
+  m_MinSize: {x: 605, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
   vertical: 0
-  controlID: 75
+  controlID: 101
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -335,7 +335,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 52718
+  m_LastSelectedObjectID: 54178
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -460,22 +460,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Cannons
+    - Assets/Scripts/SpaceShip/Abilities
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Cannons
+  - Assets/Scripts/SpaceShip/Abilities
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\willy\Documents\unity\Space Clicker - Willy Mercier
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 62540000
-    m_LastClickedID: 21602
-    m_ExpandedIDs: 000000004a5400004c5400005e54000000ca9a3b
+    scrollPos: {x: 0, y: 150}
+    m_SelectedIDs: 3a5f0000
+    m_LastClickedID: 24378
+    m_ExpandedIDs: 000000004c5400004e540000365e000080d4000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -503,7 +503,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004a5400004c540000
+    m_ExpandedIDs: 000000004c5400004e540000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -528,21 +528,21 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: eecd0000
-    m_LastClickedInstanceID: 52718
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: a2d30000
+    m_LastClickedInstanceID: 54178
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000fe65000054980000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: CannonUpgradePersistentData
-      m_OriginalName: CannonUpgradePersistentData
+      m_Name: SpaceShipAbilityPersistentData
+      m_OriginalName: SpaceShipAbilityPersistentData
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 21640
+      m_UserData: 60134
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -624,9 +624,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: eecd0000
-      m_LastClickedID: 52718
-      m_ExpandedIDs: e490fcff0091fcff0291fcff5a91fcff7691fcff4692fcff04bafeff20bafefff0bafeffd0f2feffecf2feffbcf3feff4c40ffff6840ffff3c41ffff46fbffff46460000d294000086ce0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 90cef8ffaccef8ff7ccff8ff88eafbffa4eafbff78ebfbffa894fcffc494fcff9495fcff063afdff223afdfff23afdfff2b5feff0eb6feffdeb6feff46fbffff484600008481000026d100001cd200002ed2000040d300000cd40000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 

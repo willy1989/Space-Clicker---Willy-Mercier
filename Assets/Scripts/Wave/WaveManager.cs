@@ -10,15 +10,13 @@ public class WaveManager : Singleton<WaveManager>
 
     private const int spawnNextWaveDelay = 3;
 
-    private WaveIndexPersistentData waveIndexPersistentData;
-
-    private const string jsonFileName = "waveIndex.json";
+    private JsonDataUser<WaveIndexPersistentData> jsonDataUser;
 
     public int WaveCount
     {
         get
         {
-            return waveIndexPersistentData.WaveIndex + 1;
+            return jsonDataUser.JsonData.WaveIndex + 1;
         }
     }
 
@@ -29,20 +27,10 @@ public class WaveManager : Singleton<WaveManager>
     private void Awake()
     {
         SetInstance();
-        LoadData();
-    }
 
-    private void LoadData()
-    {
-        if(JsonDataManagement.FileExists(jsonFileName) == true)
-        {
-            waveIndexPersistentData = JsonDataManagement.LoadData<WaveIndexPersistentData>(jsonFileName);
-        }
+        WaveIndexPersistentData waveIndexPersistentData = new WaveIndexPersistentData(_waveIndex: 0);
 
-        else
-        {
-            waveIndexPersistentData = new WaveIndexPersistentData(_waveIndex: startWaveIndex);
-        }
+        jsonDataUser = new JsonDataUser<WaveIndexPersistentData>(_StartJsonData: waveIndexPersistentData, _jsonFileName: "waveIndexData.json");
     }
 
     public Target GetTargetWithMostHealth()
@@ -84,9 +72,9 @@ public class WaveManager : Singleton<WaveManager>
 
         WaveUI.Instance.UpdateCurrentWaveIcon();
 
-        waveIndexPersistentData.WaveIndex++;
+        jsonDataUser.JsonData.WaveIndex++;
 
-        JsonDataManagement.SaveData<WaveIndexPersistentData>(fileName: jsonFileName, data: waveIndexPersistentData);
+        jsonDataUser.SaveData();
 
         StartCurrentWave();
     }
@@ -102,7 +90,7 @@ public class WaveManager : Singleton<WaveManager>
 
         yield return new WaitForSeconds(spawnNextWaveDelay);
 
-        CurrentWave = Instantiate(wavePrefabs[waveIndexPersistentData.WaveIndex], spawnPosition.position, Quaternion.identity);
+        CurrentWave = Instantiate(wavePrefabs[jsonDataUser.JsonData.WaveIndex], spawnPosition.position, Quaternion.identity);
 
         CurrentWave.LastTargetKilledEvent += SpawnNextWave;
     }

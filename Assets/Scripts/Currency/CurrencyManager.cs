@@ -5,32 +5,41 @@ using UnityEngine;
 
 public class CurrencyManager : Singleton<CurrencyManager>
 {
+    private JsonDataUser<CurrencyPersistentData> jsonDataUser; 
+
     public float CurrencyCount
     {
         get
         {
-            return PlayerPrefs.GetFloat(Constants.CurrencyCount_PlayerPref, 0);
+            return jsonDataUser.JsonData.Currency;
         }
 
-        set
+        private set
         {
             if(value < 0)
             {
                 throw new ArgumentOutOfRangeException("The currency count can't be negative");
             }
 
-            PlayerPrefs.SetFloat(Constants.CurrencyCount_PlayerPref, value);
-            if(UpdateCurrencyEvent != null)
+            jsonDataUser.JsonData.Currency = value;
+            jsonDataUser.SaveData();
+            if (UpdateCurrencyEvent != null)
                 UpdateCurrencyEvent.Invoke();
         }
     }
 
+
     public Action UpdateCurrencyEvent;
     public Action<float> AddCurrencyEvent;
+
+
 
     private void Awake()
     {
         SetInstance();
+
+        jsonDataUser = new JsonDataUser<CurrencyPersistentData>(_StartJsonData: new CurrencyPersistentData(_currency: 0),
+                                                                _jsonFileName: "currencyData.json");
     }
 
     public void SpendCurrency(float amount)

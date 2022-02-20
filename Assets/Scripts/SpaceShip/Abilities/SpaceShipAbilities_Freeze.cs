@@ -7,7 +7,10 @@ public class SpaceShipAbilities_Freeze : SpaceShipAbilities
     private void Awake()
     {
         SetJasonFileName();
-        LoadData();
+
+        SpaceShipAbilityPersistentData startJsonData = new SpaceShipAbilityPersistentData(_cost: spaceShipAbilityData.StartCost, _effect: spaceShipAbilityData.StartEffect);
+
+        jsonDataUser = new JsonDataUser<SpaceShipAbilityPersistentData>(_StartJsonData: startJsonData, _jsonFileName: jsonFileName);
     }
 
 
@@ -20,7 +23,7 @@ public class SpaceShipAbilities_Freeze : SpaceShipAbilities
     {
         Target.CanMove = false;
 
-        yield return new WaitForSeconds(spaceShipAbilityPersistentData.Effect);
+        yield return new WaitForSeconds(jsonDataUser.JsonData.Effect);
 
         Target.CanMove = true;
     }

@@ -11,7 +11,10 @@ public class SpaceShipAbilities_BigShot : SpaceShipAbilities
     private void Awake()
     {
         SetJasonFileName();
-        LoadData();
+
+        SpaceShipAbilityPersistentData startJsonData = new SpaceShipAbilityPersistentData(_cost: spaceShipAbilityData.StartCost, _effect: spaceShipAbilityData.StartEffect);
+
+        jsonDataUser = new JsonDataUser<SpaceShipAbilityPersistentData>(_StartJsonData: startJsonData, _jsonFileName: jsonFileName);
     }
 
     protected override void DoAbility()
@@ -23,7 +26,7 @@ public class SpaceShipAbilities_BigShot : SpaceShipAbilities
 
         BigShot bigShot = Instantiate(bigShotPrefab, spaceShipShooting.transform.position + shootingPositionOffset, Quaternion.identity);
 
-        bigShot.SetDamage(spaceShipAbilityPersistentData.Effect);
+        bigShot.SetDamage(jsonDataUser.JsonData.Effect);
     }
 
     protected override void SetJasonFileName()

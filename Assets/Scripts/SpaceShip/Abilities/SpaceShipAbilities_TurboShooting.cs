@@ -9,7 +9,10 @@ public class SpaceShipAbilities_TurboShooting : SpaceShipAbilities
     private void Awake()
     {
         SetJasonFileName();
-        LoadData();
+
+        SpaceShipAbilityPersistentData startJsonData = new SpaceShipAbilityPersistentData(_cost: spaceShipAbilityData.StartCost, _effect: spaceShipAbilityData.StartEffect);
+
+        jsonDataUser = new JsonDataUser<SpaceShipAbilityPersistentData>(_StartJsonData: startJsonData, _jsonFileName: jsonFileName);
     }
 
     protected override void DoAbility()
@@ -23,7 +26,7 @@ public class SpaceShipAbilities_TurboShooting : SpaceShipAbilities
 
         if (spaceShipShooting != null)
         {
-            spaceShipShooting.ChangeFrequecyMultiplier(spaceShipAbilityPersistentData.Effect);
+            spaceShipShooting.ChangeFrequecyMultiplier(jsonDataUser.JsonData.Effect);
         }
 
         yield return new WaitForSeconds(effectDuration);
