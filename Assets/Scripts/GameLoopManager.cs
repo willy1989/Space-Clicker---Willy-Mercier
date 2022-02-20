@@ -16,6 +16,8 @@ public class GameLoopManager : Singleton<GameLoopManager>
 
     private void Start()
     {
+        SpaceShipRespawnManager.Instance.SpawnSpaceShip();
+
         RestartGame();
     }
 
@@ -28,8 +30,6 @@ public class GameLoopManager : Singleton<GameLoopManager>
     {
         WaveManager.Instance.InterruptCurrentWave();
         WaveUI.Instance.ShowWaveFailed();
-        SpaceShipRespawnManager.Instance.DespawnSpaceShip();
-        SpaceShipRespawnManager.Instance.RespawnSpaceShip();
 
         yield return new WaitForSeconds(restartDuration);
 
@@ -38,12 +38,8 @@ public class GameLoopManager : Singleton<GameLoopManager>
 
     public void RestartGame()
     {
-        SpaceShipRespawnManager.Instance.SpawnSpaceShip();
-
         WaveManager.Instance.SpawnCurrentWave();
 
         WaveUI.Instance.UpdateCurrentWaveIcon();
     }
-
-
 }
