@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpaceShipDamage : MonoBehaviour
 {
-    [SerializeField] private SoundPlayer soundPlayer;
+    [SerializeField] private SoundPlayer powerUpSoundPlayer;
 
     [SerializeField] private SpriteRenderer invicibilitySprite;
 
@@ -31,7 +31,7 @@ public class SpaceShipDamage : MonoBehaviour
         {
             BecomeInvincible();
             PowerUpUI.Instance.ShowPowerUpMessage(Constants.PowerUpMessageInvicibility);
-            soundPlayer.PlaySoundEffect();
+            powerUpSoundPlayer.PlaySoundEffect();
             Destroy(collision.gameObject);
         }
     }

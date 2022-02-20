@@ -20,30 +20,6 @@ public static class Constants
 
     #endregion
 
-
-    #region PlayerPrefs
-
-    public const string CurrencyCount_PlayerPref = "CurrencyCount";
-
-    public const string SpaceShipXP_PlayerPref = "Space ship XP";
-    public const string SpaceShipLevel_PlayerPref = "Space ship level";
-    public const string SpaceShipLevelTreshold_PlayerPref = "Space ship level threshold";
-
-    public const string SpaceShipDamageStat_PlayerPref = "Space ship damage";
-    public const string SpaceShipFrequencyStat_PlayerPref = "Space ship frequency";
-
-    public const string SpaceShipAbilityFreezeCost_PlayerPref = "Space ship ability freeze cost";
-    public const string SpaceShipAbilityFreezeEffect_PlayerPref = "Space ship ability freeze effect";
-
-    public const string SpaceShipAbilityTurboCost_PlayerPref = "Space ship ability turbo cost";
-    public const string SpaceShipAbilityTurboEffect_PlayerPref = "Space ship ability turbo effect";
-
-    public const string SpaceShipAbilityBigShotCost_PlayerPref = "Space ship ability big shot cost";
-    public const string SpaceShipAbilityBigShotEffect_PlayerPref = "Space ship ability big shot effect";
-    public const string WaveIndex_PlayerPref = "Wave index";
-
-    #endregion
-
     #region Animation
     public const string PowerUpShow_AnimationTrigger = "Show";
 
