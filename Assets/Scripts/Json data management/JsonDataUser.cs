@@ -8,6 +8,7 @@ public class JsonDataUser<T>
 
     private string jsonFileName;
 
+    // We only save data when a wave is spawned
     public void SaveData()
     {
         JsonDataManagement.SaveData<T>(jsonFileName, JsonData);

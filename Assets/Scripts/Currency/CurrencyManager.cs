@@ -22,7 +22,6 @@ public class CurrencyManager : Singleton<CurrencyManager>
             }
 
             jsonDataUser.JsonData.Currency = value;
-            jsonDataUser.SaveData();
             if (UpdateCurrencyEvent != null)
                 UpdateCurrencyEvent.Invoke();
         }
@@ -40,6 +39,11 @@ public class CurrencyManager : Singleton<CurrencyManager>
 
         jsonDataUser = new JsonDataUser<CurrencyPersistentData>(_StartJsonData: new CurrencyPersistentData(_currency: 0),
                                                                 _jsonFileName: "currencyData.json");
+    }
+
+    private void Start()
+    {
+        WaveManager.Instance.SpawnWaveAction += jsonDataUser.SaveData;
     }
 
     public void SpendCurrency(float amount)

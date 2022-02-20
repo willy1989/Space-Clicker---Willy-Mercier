@@ -40,7 +40,7 @@ public class GameLoopManager : Singleton<GameLoopManager>
     {
         SpaceShipRespawnManager.Instance.SpawnSpaceShip();
 
-        WaveManager.Instance.StartCurrentWave();
+        WaveManager.Instance.SpawnCurrentWave();
 
         WaveUI.Instance.UpdateCurrentWaveIcon();
     }

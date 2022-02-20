@@ -71,6 +71,11 @@ public class CannonUpgradeData : MonoBehaviour
         jsonDataUser = new JsonDataUser<CannonUpgradePersistentData>(_StartJsonData: cannonUpgradePersistentData, _jsonFileName: GetJsonFileName());
     }
 
+    private void Start()
+    {
+        WaveManager.Instance.SpawnWaveAction += jsonDataUser.SaveData;
+    }
+
     private string GetJsonFileName()
     {
         return cannonNameDictionnary[cannon] + ".json";
@@ -85,8 +90,6 @@ public class CannonUpgradeData : MonoBehaviour
 
         jsonDataUser.JsonData.Damage *= damageImprovement;
         jsonDataUser.JsonData.NextDamageUpGradeCost *= damageUpgradeCostRate;
-
-        jsonDataUser.SaveData();
     }
 
     public void UpGradeFrequency()
@@ -98,8 +101,6 @@ public class CannonUpgradeData : MonoBehaviour
 
         jsonDataUser.JsonData.ShootingFrequency += shootingFrequencyImprovement;
         jsonDataUser.JsonData.NextFrequencyUpGradeCost *= frequencyUpgradeCostRate;
-
-        jsonDataUser.SaveData();
     }
 }
 

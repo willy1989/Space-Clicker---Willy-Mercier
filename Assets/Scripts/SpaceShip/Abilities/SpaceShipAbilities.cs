@@ -78,8 +78,6 @@ public abstract class SpaceShipAbilities : MonoBehaviour
             IncreaseAbilityCost();
 
             UpgradeAbilityEvent.Invoke();
-
-            jsonDataUser.SaveData();
         }
     }
 }

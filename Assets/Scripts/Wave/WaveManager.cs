@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,8 @@ public class WaveManager : Singleton<WaveManager>
 
     public Wave CurrentWave { get; private set; }
 
+    public Action SpawnWaveAction; 
+
     private void Awake()
     {
         SetInstance();
@@ -31,6 +34,11 @@ public class WaveManager : Singleton<WaveManager>
         WaveIndexPersistentData waveIndexPersistentData = new WaveIndexPersistentData(_waveIndex: 0);
 
         jsonDataUser = new JsonDataUser<WaveIndexPersistentData>(_StartJsonData: waveIndexPersistentData, _jsonFileName: "waveIndexData.json");
+    }
+
+    private void Start()
+    {
+        SpawnWaveAction += jsonDataUser.SaveData;
     }
 
     public Target GetTargetWithMostHealth()
@@ -74,14 +82,15 @@ public class WaveManager : Singleton<WaveManager>
 
         jsonDataUser.JsonData.WaveIndex++;
 
-        jsonDataUser.SaveData();
-
-        StartCurrentWave();
+        SpawnCurrentWave();
     }
 
-    public void StartCurrentWave()
+    public void SpawnCurrentWave()
     {
         StartCoroutine(StartCurrentWaveCoroutine());
+
+        if (SpawnWaveAction != null)
+            SpawnWaveAction.Invoke();
     }
 
     public IEnumerator StartCurrentWaveCoroutine()

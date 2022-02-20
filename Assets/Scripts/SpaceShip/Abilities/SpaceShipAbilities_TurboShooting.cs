@@ -15,6 +15,11 @@ public class SpaceShipAbilities_TurboShooting : SpaceShipAbilities
         jsonDataUser = new JsonDataUser<SpaceShipAbilityPersistentData>(_StartJsonData: startJsonData, _jsonFileName: jsonFileName);
     }
 
+    private void Start()
+    {
+        WaveManager.Instance.SpawnWaveAction += jsonDataUser.SaveData;
+    }
+
     protected override void DoAbility()
     {
         StartCoroutine(StartTurboShootingCoroutine());

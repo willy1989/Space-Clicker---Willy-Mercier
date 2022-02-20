@@ -83,6 +83,7 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
     private void Start()
     {
         CurrencyManager.Instance.AddCurrencyEvent += GainXP;
+        WaveManager.Instance.SpawnWaveAction += jsonDataUser.SaveData;
     }
 
 
@@ -91,8 +92,6 @@ public class SpaceShipLevelManager : Singleton<SpaceShipLevelManager>
         jsonDataUser.JsonData.SpaceShipXP += amount;
 
         IncreaseLevel();
-
-        jsonDataUser.SaveData();
     }
 
     private void IncreaseLevel()
