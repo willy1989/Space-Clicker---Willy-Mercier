@@ -509,7 +509,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: fee5a2dffb71995c8a731df56d23490a
+      Hash: ed513e67c3bff1cd9de26b540a49b293
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpaceShipShooting
@@ -863,7 +863,7 @@ ScriptsOnlyBuild:
     className: SpaceShipAbilities_BigShot
   - hash:
       serializedVersion: 2
-      Hash: 73560ae39c4d86ca7648bb7bc48ac143
+      Hash: 17de90dc76129b383bd4beda72dc8f65
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpaceShipDamage
@@ -990,4 +990,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/willy/Desktop/Willy Mercier - Idle Space game.apk
+  playerPath: C:/Users/willy/Desktop/Willy Mercier - Idle Space game - 09032022.apk
