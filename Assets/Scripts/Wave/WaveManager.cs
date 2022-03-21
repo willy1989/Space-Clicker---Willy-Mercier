@@ -5,40 +5,55 @@ using UnityEngine;
 
 public class WaveManager : Singleton<WaveManager>
 {
-    [SerializeField] private Wave[] wavePrefabs;
+    [SerializeField] private Transform spawnFirstRowPosition;
 
-    private const int startWaveIndex = 0;
+    [SerializeField] private WaveRowGroup[] waveRowGroups;
 
-    private const int spawnNextWaveDelay = 3;
-
-    private JsonDataUser<WaveIndexPersistentData> jsonDataUser;
+    private const int spawnNextWaveDelay = 2;
 
     public int WaveCount
     {
         get
         {
-            return jsonDataUser.JsonData.WaveIndex + 1;
+            return jsonDataUser_Wave.JsonData.WaveIndex + 1;
         }
     }
 
-    [SerializeField] Transform spawnPosition;
-
     public Wave CurrentWave { get; private set; }
 
-    public Action SpawnWaveAction; 
+    public Action SpawnWaveAction;
+
+    private bool succeededWave = false;
+
+    private float spaceBetweenRows = 10f;
+
+    private float startBudget = 400f;
+
+    private bool startBudgetOverride = false;
+
+    private float budgetIncreaseRate = 1.2f;
+
+    private JsonDataUser<WavePersistentData> jsonDataUser_Wave;
 
     private void Awake()
     {
         SetInstance();
 
-        WaveIndexPersistentData waveIndexPersistentData = new WaveIndexPersistentData(_waveIndex: 0);
+        WavePersistentData wavePersistentData = new WavePersistentData(_WaveIndex: 0, _Budget: startBudget);
 
-        jsonDataUser = new JsonDataUser<WaveIndexPersistentData>(_StartJsonData: waveIndexPersistentData, _jsonFileName: "waveIndexData.json");
+        jsonDataUser_Wave = new JsonDataUser<WavePersistentData>(_StartJsonData: wavePersistentData, "WaveData.json");
     }
 
-    private void Start()
+    private void Update()
     {
-        SpawnWaveAction += jsonDataUser.SaveData;
+        if(CurrentWave != null && CurrentWave.Targets.Count <= 0 )
+        {
+            InterruptCurrentWave();
+            SpawnNewWave();
+
+            jsonDataUser_Wave.JsonData.WaveIndex++;
+            WaveUI.Instance.UpdateCurrentWaveIcon();
+        }
     }
 
     public Target GetTargetWithMostHealth()
@@ -74,40 +89,119 @@ public class WaveManager : Singleton<WaveManager>
         return closestTarget;
     }
 
-    private void SpawnNextWave()
+    public void SpawnNewWave()
     {
-        CurrentWave.LastTargetKilledEvent -= SpawnNextWave;
-
-        WaveUI.Instance.UpdateCurrentWaveIcon();
-
-        jsonDataUser.JsonData.WaveIndex++;
-
-        SpawnCurrentWave();
+        StartCoroutine(SpawnNewWaveCoroutine());
     }
 
-    public void SpawnCurrentWave()
+    private IEnumerator SpawnNewWaveCoroutine()
     {
-        StartCoroutine(StartCurrentWaveCoroutine());
+        yield return new WaitForSeconds(spawnNextWaveDelay);
+
+        CurrentWave = SpawnWave();
+
+        WaveUI.Instance.ShowNextWaveText();
+
+        if(succeededWave == true)
+            IncreaseBudget();
+
+        succeededWave = true;
+
+        jsonDataUser_Wave.SaveData();
 
         if (SpawnWaveAction != null)
             SpawnWaveAction.Invoke();
     }
 
-    public IEnumerator StartCurrentWaveCoroutine()
+    /// <summary>
+    /// Wave are procedurally generated. Each wave is made of rows, which contains enemies.
+    /// Rows are split in different categories, based on their price. 
+    /// Rows contain targets (enemies).
+    /// To spawn a new wave, the wave manager has a fixed budget to spend on rows.
+    /// The budget grows with each sucessfully completed wave.
+    /// </summary>
+    
+    public Wave SpawnWave()
     {
-        WaveUI.Instance.ShowNextWaveText();
+        List<WaveRowPrefab> rows = SelectRows();
 
-        yield return new WaitForSeconds(spawnNextWaveDelay);
+        Wave wave = new Wave();
 
-        CurrentWave = Instantiate(wavePrefabs[jsonDataUser.JsonData.WaveIndex], spawnPosition.position, Quaternion.identity);
+        Vector3 spawnPosition = spawnFirstRowPosition.position;
 
-        CurrentWave.LastTargetKilledEvent += SpawnNextWave;
+        // Rows are spawned from cheapest to most expensive
+        for (int i = rows.Count - 1; i >= 0; i--)
+        {
+            WaveRowPrefab spawnRow = Instantiate(rows[i], spawnPosition, Quaternion.identity);
+
+            wave.AddTargets(spawnRow.Targets);
+
+            spawnPosition += new Vector3(0f, spaceBetweenRows, 0f);
+        }
+
+        return wave;
+    }
+
+    /// <summary>
+    /// The algorithm always tries to buy as many rows as possible from the most expensive category first.
+    /// When it can't afford rows from that category, it then moves on to the next cheaper one, 
+    /// and so forth and so on until it can't afford any row anymore. 
+    /// When a row category is picked, a random row is selected from it.
+    /// /// </summary>
+    private List<WaveRowPrefab> SelectRows()
+    {
+        List<WaveRowPrefab> selectedPrefabs = new List<WaveRowPrefab>();
+
+        float budgetLeft;
+
+        if (startBudgetOverride == true)
+            budgetLeft = 400f;
+
+        else
+            budgetLeft = jsonDataUser_Wave.JsonData.Budget;
+
+        int rowGroupIndex = 0;
+
+        while (budgetLeft > 0 && rowGroupIndex < waveRowGroups.Length)
+        {
+            if (budgetLeft >= waveRowGroups[rowGroupIndex].Cost)
+            {
+                WaveRowPrefab waveRowPrefab = waveRowGroups[rowGroupIndex].GetRandomRow();
+
+                selectedPrefabs.Add(waveRowPrefab);
+
+                budgetLeft -= waveRowGroups[rowGroupIndex].Cost;
+            }
+
+            else
+            {
+                rowGroupIndex++;
+            }
+        }
+
+        return selectedPrefabs;
+    }
+
+    public void FailWave()
+    {
+        succeededWave = false;
     }
 
     public void InterruptCurrentWave()
     {
-        CurrentWave.LastTargetKilledEvent -= SpawnNextWave;
+        foreach(Target target in CurrentWave.Targets)
+        {
+            Destroy(target.gameObject);
+        }
 
-        Destroy(CurrentWave.gameObject);
+        CurrentWave = null; 
+    }
+
+    public void IncreaseBudget()
+    {
+        if (startBudgetOverride == true)
+            return;
+
+        jsonDataUser_Wave.JsonData.Budget *= budgetIncreaseRate;
     }
 }

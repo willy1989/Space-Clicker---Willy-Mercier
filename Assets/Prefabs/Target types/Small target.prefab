@@ -135,5 +135,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 1
-  moveSpeed: 1
+  moveSpeed: 1.5
   currencyValue: 1
