@@ -13,7 +13,7 @@ public class CannonShooting : MonoBehaviour
 
     private Target currentTarget;
 
-    private int shootingRange = 17;
+    private int shootingRange = 14;
 
     private bool shootToggle = true;
 

@@ -4,11 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Wave : MonoBehaviour
+public class Wave
 {
-    private List<Target> targets;
-
-    public Action LastTargetKilledEvent;
+    private List<Target> targets = new List<Target>();
 
     public List<Target> Targets
     {
@@ -18,14 +16,14 @@ public class Wave : MonoBehaviour
         }
     }
 
-    private void Awake()
+    public void AddTarget(Target newTarget)
     {
-        targets = GetComponentsInChildren<Target>().ToList();
+        targets.Add(newTarget);
     }
 
-    public void AddTarget(Target target)
+    public void AddTargets(Target[] newTartgets)
     {
-        targets.Add(target);
+        targets.AddRange(newTartgets);
     }
 
     public void RemoveTarget(Target target)
@@ -34,8 +32,5 @@ public class Wave : MonoBehaviour
 
         if(targetIndex != -1)
             targets.RemoveAt(targetIndex);
-
-        if (targets.Count == 0 && LastTargetKilledEvent != null)
-            LastTargetKilledEvent();
     }
 }

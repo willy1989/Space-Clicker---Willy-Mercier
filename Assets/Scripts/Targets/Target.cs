@@ -7,7 +7,7 @@ public class Target : MonoBehaviour
 {
     [SerializeField] private int startHealth;
 
-    [SerializeField] private int moveSpeed;
+    [SerializeField] private float moveSpeed;
 
     [SerializeField] private int currencyValue;
 

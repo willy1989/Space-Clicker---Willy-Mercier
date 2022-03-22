@@ -13,7 +13,7 @@ public class GameOverLine : MonoBehaviour
         {
             soundPlayer.PlaySoundEffect();
             GameLoopManager.Instance.GameOver();
+            WaveManager.Instance.FailWave();
         }
-            
     }
 }

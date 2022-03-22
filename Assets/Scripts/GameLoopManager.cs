@@ -38,7 +38,7 @@ public class GameLoopManager : Singleton<GameLoopManager>
 
     public void RestartGame()
     {
-        WaveManager.Instance.SpawnCurrentWave();
+        WaveManager.Instance.SpawnNewWave();
 
         WaveUI.Instance.UpdateCurrentWaveIcon();
     }

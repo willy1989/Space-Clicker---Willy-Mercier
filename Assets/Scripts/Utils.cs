@@ -43,5 +43,10 @@ public class Utils
         return rand;
     }
 
+    public static int GetRandomNumber(int startInclusive, int endExclusive)
+    {
+        return Random.Range(startInclusive, endExclusive);
+    }
+
     #endregion
 }

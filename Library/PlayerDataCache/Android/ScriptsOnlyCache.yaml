@@ -38,13 +38,15 @@ ScriptsOnlyBuild:
     - SpaceShipShopUI
     - Target
     - TargetUI
-    - Wave
     - WaveManager
+    - WaveRowPrefab
+    - WaveSpawner
     - WaveUI
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
     - UnityEditor.U2D.IK.IKEditorManager
+    - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
     - UnityEditor.Tilemaps.GridPaletteBrushes
@@ -143,71 +145,73 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2954}
     - Class: 114
-      Script: {instanceID: 3208}
+      Script: {instanceID: 3154}
     - Class: 114
-      Script: {instanceID: 3212}
+      Script: {instanceID: 3210}
     - Class: 114
-      Script: {instanceID: 3330}
+      Script: {instanceID: 3214}
     - Class: 114
-      Script: {instanceID: 3384}
+      Script: {instanceID: 3332}
     - Class: 114
-      Script: {instanceID: 3478}
+      Script: {instanceID: 3386}
     - Class: 114
-      Script: {instanceID: 3590}
+      Script: {instanceID: 3480}
     - Class: 114
-      Script: {instanceID: 3600}
+      Script: {instanceID: 3592}
     - Class: 114
-      Script: {instanceID: 3658}
+      Script: {instanceID: 3602}
     - Class: 114
-      Script: {instanceID: 3708}
+      Script: {instanceID: 3660}
     - Class: 114
-      Script: {instanceID: 3818}
+      Script: {instanceID: 3710}
     - Class: 114
-      Script: {instanceID: 3920}
+      Script: {instanceID: 3820}
     - Class: 114
-      Script: {instanceID: 4196}
+      Script: {instanceID: 3922}
     - Class: 114
-      Script: {instanceID: 4366}
+      Script: {instanceID: 4198}
     - Class: 114
-      Script: {instanceID: 4510}
+      Script: {instanceID: 4512}
     - Class: 114
-      Script: {instanceID: 4670}
+      Script: {instanceID: 4672}
     - Class: 114
-      Script: {instanceID: 4690}
+      Script: {instanceID: 4692}
     - Class: 114
-      Script: {instanceID: 4748}
+      Script: {instanceID: 4750}
     - Class: 114
-      Script: {instanceID: 4764}
+      Script: {instanceID: 4766}
     - Class: 114
-      Script: {instanceID: 4812}
+      Script: {instanceID: 4814}
     - Class: 114
-      Script: {instanceID: 4824}
+      Script: {instanceID: 4826}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4864}
     - Class: 114
-      Script: {instanceID: 4868}
+      Script: {instanceID: 4870}
     - Class: 114
-      Script: {instanceID: 4898}
+      Script: {instanceID: 4900}
     - Class: 114
-      Script: {instanceID: 5110}
+      Script: {instanceID: 4986}
     - Class: 114
-      Script: {instanceID: 5138}
+      Script: {instanceID: 5116}
     - Class: 114
-      Script: {instanceID: 5150}
+      Script: {instanceID: 5144}
     - Class: 114
-      Script: {instanceID: 5312}
+      Script: {instanceID: 5156}
     - Class: 114
       Script: {instanceID: 5318}
     - Class: 114
-      Script: {instanceID: 5362}
+      Script: {instanceID: 5324}
     - Class: 114
-      Script: {instanceID: 5508}
+      Script: {instanceID: 5368}
     - Class: 114
-      Script: {instanceID: 5536}
+      Script: {instanceID: 5514}
     - Class: 114
-      Script: {instanceID: 5630}
+      Script: {instanceID: 5542}
     - Class: 114
-      Script: {instanceID: 5662}
+      Script: {instanceID: 5638}
+    - Class: 114
+      Script: {instanceID: 5670}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -329,7 +333,7 @@ ScriptsOnlyBuild:
     className: GameLoopManager
   - hash:
       serializedVersion: 2
-      Hash: 3258a3151190a9b25d41b421e149734d
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: WaveManager
@@ -459,6 +463,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: ae66ff83b401bbf17c94999bf889c410
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WaveRowPrefab
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -684,12 +694,6 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Wave
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
@@ -779,7 +783,7 @@ ScriptsOnlyBuild:
     className: CannonUpgradeUI
   - hash:
       serializedVersion: 2
-      Hash: 46acfd40c8a47c9aa3cea71406e02411
+      Hash: 14d9ba42e1e0b46abbc8a0cd083b439a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Target
@@ -831,6 +835,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ScrollRect
+  - hash:
+      serializedVersion: 2
+      Hash: 5bf3d1896f014e852f13038890310b00
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WaveSpawner
   - hash:
       serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
@@ -939,6 +949,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 9b025b7b83d6c3bf0925c2d9b517ca22
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WaveRowData
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f

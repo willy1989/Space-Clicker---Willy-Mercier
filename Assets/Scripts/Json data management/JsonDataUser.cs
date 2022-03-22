@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JsonDataUser<T>
 {
-    public T JsonData { get; private set; }
+    public T JsonData;
 
     private string jsonFileName;
 
@@ -13,7 +13,7 @@ public class JsonDataUser<T>
     {
         JsonDataManagement.SaveData<T>(jsonFileName, JsonData);
     }
-    
+
     public JsonDataUser(T _StartJsonData, string _jsonFileName)
     {
         jsonFileName = _jsonFileName;
