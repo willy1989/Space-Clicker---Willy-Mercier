@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5085735025091524418}
-  - component: {fileID: 7514673268300116904}
+  - component: {fileID: 1672964542825621976}
   m_Layer: 0
   m_Name: Wave row 5
   m_TagString: Untagged
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7514673268300116904
+--- !u!114 &1672964542825621976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,28 +50,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407987689565366139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a42c533c60500ee4f8ef52ef8e41339c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c34b0fc64459af4688f9132ce985bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Targets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 5135742209467300871}
+  Targets: []
 --- !u!1001 &1011428171445272682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -382,17 +364,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 945145850868097361, guid: 31e4ce641cbad5d4d920e6ffac5d58a1, type: 3}
   m_PrefabInstance: {fileID: 5855361359293912703}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5135742209467300871 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1587446809180252792, guid: 31e4ce641cbad5d4d920e6ffac5d58a1, type: 3}
-  m_PrefabInstance: {fileID: 5855361359293912703}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2e65ee4893705242bec0057e503ee93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6126382125505937884
 PrefabInstance:
   m_ObjectHideFlags: 0
